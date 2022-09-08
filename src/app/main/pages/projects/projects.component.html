@@ -1,0 +1,90 @@
+<div class="container" fxLayout="column">
+    <mat-toolbar fxLayout="row wrap" color="primary" fxLayoutAlign="space-between center">
+        <div  fxFlex="50%" *ngIf="canCreateProject">
+            <button mat-raised-button color="accent" (click)="createProject('add')">
+                <mat-icon>add</mat-icon>
+                New Project
+            </button>
+        </div>
+        <div class="fullwith" fxFlex="50%">
+            <mat-form-field class="project-search" appearance="outline" fxFlex="100%">
+                <mat-label style="color:white !important">Search Project Name</mat-label>
+                <input matInput [(ngModel)]="searchProjectName">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </mat-toolbar>
+    <div class="project-content">
+        <div *ngIf="projects$ | async as response; else indicator" fxLayout="row wrap">
+            <div *ngFor="let project of response.projects | filter : searchProjectName; let i = index" fxFlex="50%"
+                fxFlex.xs="100%">
+                <mat-card class="project-card" [ngStyle]="{'margin': '20px'}">
+                    <mat-card-header>
+                        <div *ngIf="edtidelte===i" class="edit-button">
+                            <ul>
+                                <li (click)="scopeViewProject(project.id)">Scope View</li>
+                                <li (click)="awardProject(project.id)">Scope</li>
+                                <li (click)="budgetHours(project.id)">Budgeted Hours</li>
+                                <li (click)="resourceAllocation(project.id)">Resource Allocation</li>
+                            </ul>
+                        </div>
+                        <mat-icon class="moreView" (click)="editDelete(i)">more_vert</mat-icon>
+
+                        <mat-card-title matTooltipClass="custom-tooltip" matTooltipPosition="above"
+                            matTooltip="{{project.projectName}}" class="mat-title bg-light-info">
+                            {{project.projectName}}</mat-card-title>
+                        <mat-card-subtitle class="mat-caption"><b>Project Code:</b> {{project.projectCode}}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle class="mat-caption"><b>Created By:</b> {{project.createdByEmployee}}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle class="mat-caption">{{project.startDate | date}} - {{project.endDate | date}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-actions class="button-bottom" fxLayout="row" fxLayoutAlign="center baseline">
+                        <!-- <span matTooltipPosition="above" matTooltip="Gantt Chart" class="add-edit gantchrt"
+                        [routerLink]="['/charts/'+ project.id]">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABvklEQVRIie2WwU7bQBCGv1kvSHFohFQQCgSk0laiV96BKwcelAPXvkPP7QEOVRJUqVUr1CRSZXs4kATinYhJjHriv+3vHf+7ns9rw6v+k6RunH/X/RDpAlQgomw3DcmUr5c96S8Nvuhrrwp8A/KmYTWNq4KPV0cynBnx6dUq4wNKXvyrGF7fUZVKyIT99x2yKEz+FqgqIkJr66HU40mQPGa8A+zgmW5v7vjyeTAfi8Dbgza/f0weJ0kLwOXlbzaSDDNYK2Os9UlWodNbFizBGNcxTLBcwasHC6gC3eMOp2fMe9w9fugxe63H3rWnpU5PZXEJ5o6zKOwctOfFWRTKQvk5GCXArSszeDIqEkB+DUZrA+eGywLpRYEDFjAqdTrNAMkN3BIIKxw9brVjAkhj4GqyXUMvDZwbLkih8QL3LFwyQ8EJzSrAqafH3lNq7RNuWbAFF9AMOE+wV17g4ma67YXgMD2rvXBZngXc4ck2meesbvIJNIEz1AguyzOB8wZ74bI8C7hng8uCmxAZS5A876QvvceLm8LRp+THdCwl10+N5IFd9LVXCifmMleQCn/ClISwwfByV26b3vNVa+kefcgKUjGVXnMAAAAASUVORK5CYII="/>
+                       </span> -->
+                        <span matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Gantt Chart" class="add-edit"
+                        [routerLink]="['/charts/'+ project.id]">
+                        <mat-icon style="color:#2f8be6"> bar_chart</mat-icon></span>
+                        <span matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Assign Task" class="add-edit"
+                            [routerLink]="['/pages/view/'+ project.id]">
+                            <mat-icon style="color:#2f8be6">person_add</mat-icon>
+                            <!-- <img src="assets/images/eye.svg"> -->
+                        </span>
+                        <span matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Edit" class="add-edit"
+                            (click)="createProject(project.id)">
+                            <img src="assets/images/edit.svg">
+                        </span>
+                        <!-- <span matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Delete" class="delete-button">
+                            <img src="assets/images/delete.svg">
+                        </span> -->
+
+                        <span [routerLink]="['/pages/system/'+ project.id]" matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Systems" class="delete-button">
+                          <mat-icon style="color:#2f8be6">settings_system_daydream</mat-icon>
+                        </span>
+
+                        <!-- <span (click)="awardProject(project.id)" matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Award Project" class="delete-button">
+                            <mat-icon style="color:#2f8be6">settings_system_daydream</mat-icon>
+                          </span> -->
+
+                    </mat-card-actions>
+                    <!-- <mat-card-content>
+                        <div style="position: relative">
+                            <mat-progress-bar mode="determinate" [value]="project.progress"></mat-progress-bar>
+                            <span class="percent" [ngClass]="project.progress == 100 ? 'my_class1' : 'my_class2'"
+                                [ngStyle]="{'left': project.progress + '%'}">{{project.progress}}%</span>
+                        </div>
+                    </mat-card-content> -->
+                </mat-card>
+            </div>
+        </div>
+        <ng-template #indicator>
+            <div class="loading-shade">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-template>
+    </div>
+</div>

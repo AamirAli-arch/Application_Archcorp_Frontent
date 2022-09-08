@@ -1,0 +1,108 @@
+<app-loader-spiner></app-loader-spiner>
+
+
+
+<div class="reports-container">
+
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+            <app-project-dropdown class="financial-filter" (projectId)="projectId($event)"></app-project-dropdown>
+
+            <mat-form-field class="financial-filter" fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>From Date</mat-label>
+                <input (dateChange)="addEvent($event)" readonly placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="startDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="financial-filter" fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>To Date</mat-label>
+                <input (dateChange)="addEvent($event)" readonly placeholder="End Date" [min]="filterForm.value.startDate" matInput
+                    [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+
+
+        </div>
+    </div>
+    <div class="download-button"> 
+
+      </div>
+      <div class="table-container mat-elevation-z2">
+        <div class="download-button center">{{this.filterForm.controls['startDate'].value | date:'mediumDate' }} - {{this.filterForm.controls['endDate'].value | date:'mediumDate'}}</div>
+        <div class="table-responsive week-table">
+            <table id="content">
+                <thead>
+                    <tr>
+                        <th class="firstTh week"> </th>
+                        <th class="month-year" *ngFor="let month of yearArray;" [id]="month.name">
+                            <span class="montnmae">{{month.name}}</span>
+                         </th>
+                         <th class="month-year">
+                            <span class="montnmae">Confirmed </span>
+                        </th>
+                         <th class="month-year">
+                            <span class="montnmae">Low Risk</span>
+                        </th>
+                         <th class="month-year">
+                            <span class="montnmae">High Risk</span>
+                        </th>
+                    </tr>
+
+                </thead>
+
+                <tbody *ngFor="let item of expenseArrayData">
+
+                    <tr style="background-color: #dddddd;display: block;column-span: all;border-top: 1px solid #dddddd;">
+                        <td matTooltipClass="icon-tooltip" matTooltipPosition="above"
+                            matTooltip="{{item.name}}" class="firstTh">
+                            {{item.name}}
+                        </td>
+                    </tr>
+
+                    <tr class="year-month" *ngFor="let sub of item.projectIncomes">
+                        <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{sub.name}}" class="datafirst-week">  {{sub.name}}</td>
+                        <td class="month-year" *ngFor="let month of yearArray;" [id]="month.name">
+                            <ng-container *ngFor="let subitem of sub.incomeAmounts">
+                                <span class="subitem normal" *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                    <span>AED {{subitem.amount | number : '1.2-2'}}</span>
+                                </span>
+                            </ng-container>
+                        </td>
+                        <td *ngIf="sub.confirmed==0"></td>
+                        <td class="subitem normal" *ngIf="sub.confirmed!=0"> <span>AED {{sub.confirmed | number : '1.2-2'}}</span></td>
+                        <td *ngIf="sub.lowRisk==0"></td>
+                        <td class="subitem normal" *ngIf="sub.lowRisk!=0"> <span>AED {{sub.lowRisk | number : '1.2-2'}}</span></td>
+                        <td *ngIf="sub.highRisk==0"></td>
+                        <td class="subitem normal" *ngIf="sub.highRisk!=0"> <span>AED {{sub.highRisk | number : '1.2-2'}}</span></td>
+                        
+                    </tr>
+                </tbody>
+
+                <tr class="year-month">
+                    <td class="firstTh">
+                        Total
+                    </td>
+                    <td class="month-year" *ngFor="let month of yearArray;" [id]="month.name">
+                        <ng-container *ngFor="let subitem of totalAmount">
+                            <span class="subitem" *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                <span>AED {{subitem.totalAmount | number : '1.2-2'}}</span>
+                            </span>
+                        </ng-container>
+                    </td>
+                    <td class="subitem"> <span>AED {{confirmAmount | number : '1.2-2'}}</span></td>
+                    <td class="subitem">   <span>AED {{lowRiskAmount | number : '1.2-2'}}</span></td>
+                    <td class="subitem">   <span>AED {{highriskAmount | number : '1.2-2'}}</span></td>
+                </tr>
+            </table>
+            <div *ngIf="noRecords" class="norecord">No Records</div>
+        </div>
+      
+    </div>
+</div>
+
+
+

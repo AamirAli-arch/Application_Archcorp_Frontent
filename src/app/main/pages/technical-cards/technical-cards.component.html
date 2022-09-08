@@ -1,0 +1,31 @@
+
+<div class="reports-container">
+    <!-- <button (click)="addUpdateBudgete('add')" mat-stroked-button mat-raised-button color="accent">
+        <mat-icon>add_circle</mat-icon><span class="mobilehide">Add More</span>
+    </button>
+    <h1 class="number-budgete" #budgeteDigit><mat-icon>schedule</mat-icon> Total Budgeted Hours :
+          <app-budget-number [digit]="projectHours" [duration]="1000"></app-budget-number>
+
+        </h1> -->
+
+    <div class="project-content mat-elevation-z2">
+
+        <div fxLayout="row wrap">
+            <div class="bg-card shadow" fxLayoutGap="10px" fxFlex="25%"  fxFlex.sm="50" fxFlex.xs="100%">
+                <mat-card (click)="mechanical()" class="project-card">
+                    <div class="text-lg font-medium">Mechanical</div>
+                </mat-card>
+            </div>
+            <div class="bg-card shadow" fxLayoutGap="10px" fxFlex="25%"  fxFlex.sm="50" fxFlex.xs="100%">
+                <mat-card (click)="apartment()" class="project-card">
+                    <div class="text-lg font-medium">Apartment</div>
+                </mat-card>
+            </div>
+            <div class="bg-card shadow" fxLayoutGap="10px" fxFlex="25%"  fxFlex.sm="50" fxFlex.xs="100%">
+                <mat-card (click)="freshmodule()" class="project-card">
+                    <div class="text-lg font-medium">Fresh</div>
+                </mat-card>
+            </div>
+
+        </div>
+    </div>

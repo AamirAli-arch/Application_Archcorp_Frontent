@@ -1,0 +1,35 @@
+.risk-table {
+    width: 100%;
+    width: auto;
+    height: auto;
+    overflow-x: scroll;
+    scrollbar-color: white;
+    scrollbar-width: thin;
+    overflow-x: auto;
+    border:1px solid gray;    
+  }
+
+  .risk-table{
+      width:100%;
+  }
+  
+  .table-container{
+      margin:0 auto;           
+  }
+
+  th, td{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    inline-size: 150px;
+  }
+
+  tr.mat-header-row {
+    background-color:rgb(240, 240, 240);
+    
+}
+
+tr:hover {background-color:rgb(240, 240, 240);}
+
+
+ 

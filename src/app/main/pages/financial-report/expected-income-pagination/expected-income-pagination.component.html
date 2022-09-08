@@ -1,0 +1,140 @@
+<div class="reports-container">
+    <app-loader-spiner></app-loader-spiner>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Project Name</mat-label>
+                <input  formControlName="projectName" matInput (keyup)="applyFilter($event.target.value)"  >
+            </mat-form-field>
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <!-- 1990 to 2060 -->
+                <mat-label>Years</mat-label>
+                <mat-select color="primary" formControlName="years">
+                    <mat-option value="1990">1990</mat-option>
+                    <mat-option value="1991">1991</mat-option>
+                    <mat-option value="1992">1992</mat-option>
+                    <mat-option value="1993">1993</mat-option>
+                    <mat-option value="1994">1994</mat-option>
+                    <mat-option value="1995">1995</mat-option>
+                    <mat-option value="1996">1996</mat-option>
+                    <mat-option value="1997">1997</mat-option>
+                    <mat-option value="1998">1998</mat-option>
+                    <mat-option value="1999">1999</mat-option>
+                    <mat-option value="2000">2000</mat-option>
+                    <mat-option value="2001">2001</mat-option>
+                    <mat-option value="2002">2002</mat-option>
+                    <mat-option value="2003">2003</mat-option>
+                    <mat-option value="2004">2004</mat-option>
+                    <mat-option value="2005">2005</mat-option>
+                    <mat-option value="2006">2006</mat-option>
+                    <mat-option value="2007">2007</mat-option>
+                    <mat-option value="2008">2008</mat-option>
+                    <mat-option value="2009">2009</mat-option>
+                    <mat-option value="2010">2010</mat-option>
+                    <mat-option value="2011">2011</mat-option>
+                    <mat-option value="2012">2012</mat-option>
+                    <mat-option value="2013">2013</mat-option>
+                    <mat-option value="2014">2014</mat-option>
+                    <mat-option value="2015">2015</mat-option>
+                    <mat-option value="2016">2016</mat-option>
+                    <mat-option value="2017">2017</mat-option>
+                    <mat-option value="2018">2018</mat-option>
+                    <mat-option value="2019">2019</mat-option>
+                    <mat-option value="2020">2020</mat-option>
+                    <mat-option value="2021">2021</mat-option>
+                    <mat-option value="2022">2022</mat-option>
+                    <mat-option value="2023">2023</mat-option>
+                    <mat-option value="2024">2024</mat-option>
+                    <mat-option value="2025">2025</mat-option>
+                    <mat-option value="2026">2026</mat-option>
+                    <mat-option value="2027">2027</mat-option>
+                    <mat-option value="2028">2028</mat-option>
+                    <mat-option value="2029">2029</mat-option>
+                    <mat-option value="2030">2030</mat-option>
+                    <mat-option value="2031">2031</mat-option>
+                    <mat-option value="2032">2032</mat-option>
+                    <mat-option value="2033">2033</mat-option>
+                    <mat-option value="2034">2034</mat-option>
+                    <mat-option value="2035">2035</mat-option>
+                    <mat-option value="2036">2036</mat-option>
+                    <mat-option value="2037">2037</mat-option>
+                    <mat-option value="2038">2038</mat-option>
+                    <mat-option value="2039">2039</mat-option>
+                    <mat-option value="2040">2040</mat-option>
+                    <mat-option value="2041">2041</mat-option>
+                    <mat-option value="2042">2042</mat-option>
+                    <mat-option value="2043">2043</mat-option>
+                    <mat-option value="2044">2044</mat-option>
+                    <mat-option value="2045">2045</mat-option>
+                    <mat-option value="2046">2046</mat-option>
+                    <mat-option value="2047">2047</mat-option>
+                    <mat-option value="2048">2048</mat-option>
+                    <mat-option value="2049">2049</mat-option>
+                    <mat-option value="2050">2050</mat-option>
+                    <mat-option value="2051">2051</mat-option>
+                    <mat-option value="2052">2052</mat-option>
+                    <mat-option value="2053">2053</mat-option>
+                    <mat-option value="2054">2054</mat-option>
+                    <mat-option value="2055">2055</mat-option>
+                    <mat-option value="2056">2056</mat-option>
+                    <mat-option value="2057">2057</mat-option>
+                    <mat-option value="2058">2058</mat-option>
+                    <mat-option value="2059">2059</mat-option>
+                    <mat-option value="2060">2060</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+    </div>
+    <div class="download-button">
+        <button (click)="addrecord('add')" mat-raised-button color="accent">
+            <mat-icon>add_circle</mat-icon> Add Expected Income</button>
+    </div>
+    <div class="table-container mat-elevation-z2">
+        <table  mat-table [dataSource]="filteredAndPaged">
+
+            <ng-container matColumnDef="name" sticky>
+                <th class="w-200" mat-header-cell *matHeaderCellDef>Project Name</th>
+                <td class="w-200" mat-cell *matCellDef="let element" matTooltipClass="icon-tooltip"
+                    matTooltipPosition="above" matTooltip="{{element.name}}"> {{element.projectName}} </td>
+            </ng-container>
+
+
+
+            <ng-container matColumnDef="income">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Amount </th>
+                <td class="w-200" mat-cell *matCellDef="let element"> {{element.amount}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="month">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Year </th>
+                <td class="w-200" mat-cell *matCellDef="let element"> {{ moment(element.date).format('YYYY')}}  </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Actions </th>
+                <td class="w-200" mat-cell *matCellDef="let element">
+                    <button (click)="deleteExp(element.id)" class="delete" matTooltipClass="icon-tooltip"
+                    matTooltipPosition="above" matTooltip="Delete" >
+                        <img src="assets/images/delete.svg"></button>
+                        <button (click)="addrecord(element)" class="delete" matTooltipClass="icon-tooltip"
+                        matTooltipPosition="above" matTooltip="Update">
+                            <img src="assets/images/edit.svg"></button>
+                     </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25"
+        [pageSizeOptions]="[5, 10, 25, 50, 100]">
+    </mat-paginator>
+</div>

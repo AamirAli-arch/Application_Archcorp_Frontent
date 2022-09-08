@@ -1,0 +1,62 @@
+.resource-div{
+    display: flex;
+}
+
+.resource-badge{
+    background-color: dimgray;
+    margin:4px;
+    padding:5px;
+    border-radius: 10px;
+    cursor: pointer;
+    color:white;
+    font-size: 10px;
+}
+
+.emtimated-hours{
+    padding-top: 10px;
+}
+
+::ng-deep .full-width{
+    width: 100% !important;
+    margin-top: 10px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+    margin-bottom: 10px;
+  }
+
+  .mat-raised-button {
+    width: 100px !important;
+    padding: 0 !important;
+    line-height: 30px;
+    box-shadow: none !important;
+  }
+
+  .mat-primary.date-picker.start-full-width {
+    width: 100%;
+}
+.date-selection{
+.date-picker {
+    width: 100%;
+}
+}
+
+@media (max-width:768px) {
+.date-picker.mat-form-field-type-mat-input {
+    width: 100%;
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin: 10px 0;
+}
+.mat-radio-button {
+    display: block;
+}
+.mat-raised-button {
+    width: 80px !important;
+    padding: 0 !important;
+    line-height: 30px;
+    box-shadow: none !important;
+    margin: 0 10px 0 0!important;
+}
+}

@@ -1,0 +1,54 @@
+
+
+
+<ng-container>
+
+<div  id="commDiv">
+  <table id="commTable">
+    <th>Type</th>
+    
+
+    <th *ngFor="let item of buildingStories;">      
+      {{item}}       
+    </th>
+    <tr>
+      
+
+
+      <h5>Technical</h5>
+        <td *ngFor="let comms of dataSource2">      
+
+          <span *ngFor="let inCom of comms.comments">            
+            <span *ngIf="inCom.type == 'Technical'">             
+            <li span class="textOverflow" >{{inCom.issue}}</li>                       
+            </span>
+           </span>                    
+        </td>
+    </tr>
+
+    <tr>
+      <h5>Authority</h5>
+        
+        <td *ngFor="let comms of dataSource2">        
+          <span *ngFor="let inCom of comms.comments">
+            <span *ngIf="inCom.type == 'Authority'">
+              <li span class="textOverflow" >{{inCom.issue}}</li>                       
+            </span>
+           </span>                
+        </td>
+    </tr>
+
+    <tr>
+      <h5>BIM</h5>
+        
+        <td *ngFor="let comms of dataSource2">        
+          <span *ngFor="let inCom of comms.comments">
+            <span *ngIf="inCom.type == 'BIM'">              
+              <li span class="textOverflow" >{{inCom.issue}}</li>                       
+            </span>
+            </span>
+        </td>
+    </tr>  
+  </table>
+</div>
+</ng-container>

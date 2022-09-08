@@ -1,0 +1,188 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Select Equipment Type</mat-label>
+                <mat-select required color="primary" formControlName="equipmentTypeId">
+                    <mat-option class="mat-primary" *ngFor="let level of equipmentTypeArray" [value]="level.type">
+                        {{level.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Equipment</mat-label>
+                <mat-select required color="primary" formControlName="equipmentId">
+                    <mat-option class="mat-primary" *ngFor="let level of equipmentListArray" [value]="level.id">
+                        {{level.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Quantity</mat-label>
+                <input required autocomplete="off" (focusout)="focusOutFunction()" (keypress)="numberOnly($event)" matInput formControlName="qty"
+                    spellcheck="false">
+            </mat-form-field>
+
+            <!-- <button click class="add-equipment" fxLayoutGap="10px" color="accent" mat-raised-button>Add</button> -->
+
+        </div>
+    </div>
+    <div class="filter-container inner-section">
+            <div class="load"><strong>Mechanical Equipment Load(Base Build)</strong><span #animatedDigit class="number">
+                <app-number-animation [digit]="sumOfmechanicalArray" [duration]="1000"></app-number-animation>
+            </span> </div>
+            <div class="load"><strong>Landlord Load(Base Build)</strong>
+                <app-number-animation [digit]="sumOflandLoadArray" [duration]="1000"></app-number-animation>
+              </div>
+            <div class="load"><strong>Apartment & Retail Shop Load</strong>
+                <app-number-animation [digit]="sumOfapartmentArray" [duration]="1000"></app-number-animation>
+            </div>
+            <div class="load"><strong>Total</strong>
+                <app-number-animation [digit]="sumOfapartmentArray+sumOflandLoadArray+sumOfmechanicalArray" [duration]="1000"></app-number-animation>
+               </div>
+    </div>
+    <div class="main-container">
+        <div class="mat-elevation-z2">
+            <h1>MECHANICAL EQUIPMENT </h1>
+            <table class="fresh-table">
+                <thead>
+                    <tr>
+                        <th class="project-area">
+                            Equipment
+                        </th>
+                        <th class="project-occupants">
+                            <strong>Quantity</strong>
+                        </th>
+                        <th class="project-150">
+                            <strong>Load(kW)</strong>
+                        </th>
+                        <th class="project-150">
+                            <strong>TCL(kW)</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of mechanicalArray; let i=index;">
+                        <td>{{item.name}}</td>
+                        <td>
+                            <input class="input-area"
+                            (focusout)="updateAreaValue(item.quantity, item.id, item.load)"
+                            (keypress)="numberOnly($event)" [(ngModel)]="item.quantity" spellcheck="false">
+
+                           </td>
+                        <td>
+                            <input class="input-area"
+                            (focusout)="updateAreaValue(item.quantity, item.id, item.load)"
+                            (keypress)="numberOnly($event)" [(ngModel)]="item.load" spellcheck="false">
+                        </td>
+                        <td>{{item.load*item.quantity}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="sum">{{sumOfmechanicalArray}}</td>
+                    </tr>
+                </tbody> 
+            </table>
+        </div>
+    </div>
+   
+<div class="main-container">
+        <div class="mat-elevation-z2">
+            <h1>LANDLORD LOAD</h1>
+            <table class="fresh-table">
+                <thead>
+                    <tr>
+                        <th class="project-area">
+                            Equipment
+                        </th>
+                        <th class="project-occupants">
+                            <strong>Quantity</strong>
+                        </th>
+                        <th class="project-150">
+                            <strong>Load(kW)</strong>
+                        </th>
+                        <th class="project-150">
+                            <strong>TCL(kW)</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let landitem of landLoadArray; let i=index;">
+                        <td>{{landitem.name}}</td>
+                        <td>
+                            <input class="input-area"
+                            (focusout)="updateAreaValue(landitem.quantity, landitem.id,landitem.load)"
+                            (keypress)="numberOnly($event)" [(ngModel)]="landitem.quantity" spellcheck="false">
+
+                        </td>
+                        <td>
+                            <input class="input-area"
+                            (focusout)="updateAreaValue(landitem.quantity, landitem.id, landitem.load)"
+                            (keypress)="numberOnly($event)" [(ngModel)]="landitem.load" spellcheck="false">
+                        </td>
+                        <td>{{landitem.load*landitem.quantity}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="sum">{{sumOflandLoadArray}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="mat-elevation-z2">
+            <h1>APARTMENTS & RETAIL SHOPS LOAD</h1>
+            <table class="fresh-table">
+                <thead>
+                    <tr>
+                        <th class="project-area">
+                            Equipment
+                        </th>
+                        <th class="project-occupants">
+                            <strong>Quantity</strong>
+                        </th>
+                        <th class="project-150">
+                            <strong>Load(kW)</strong>
+                        </th>
+                        <th class="project-150">
+                            <strong>TCL(kW)</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let apartitem of apartmentListArray; let i=index;">
+                        <td>{{apartitem.name}}</td>
+                        <td>
+                            <input class="input-area"
+                            (focusout)="updateAreaValue(apartitem.quantity, apartitem.id, apartitem.load)"
+                            (keypress)="numberOnly($event)" [(ngModel)]="apartitem.quantity" spellcheck="false">
+
+                        </td>
+                        <td>
+                            <input class="input-area"
+                            (focusout)="updateAreaValue(apartitem.quantity, apartitem.id, apartitem.load)"
+                            (keypress)="numberOnly($event)" [(ngModel)]="apartitem.load" spellcheck="false">
+                        </td>
+                        <td>{{apartitem.load*apartitem.quantity}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="sum">{{sumOfapartmentArray}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> 
+
+
+</div>

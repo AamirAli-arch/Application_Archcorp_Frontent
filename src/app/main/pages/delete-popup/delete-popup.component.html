@@ -1,0 +1,10 @@
+<div class="delete-modal">
+    <h1 mat-dialog-title class="title">
+        {{title}}
+    </h1>
+
+    <div class="modal-button" mat-dialog-actions>
+        <button class="yes-button" (click)="deleteIn('yes')" mat-raised-button color="primary">Yes</button>
+        <button (click)="hide()" class="no-button" mat-stroked-button color="primary" mat-dialog-close>No</button>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+.charts {
+    height: 400px;
+    width: 100%;
+    max-height: 475px;
+}
+
+.table-container {
+    position: relative;
+    height: calc(70vh - 100px);
+    overflow: auto;
+    width: 100%;
+  }
+
+.chart-container{
+    min-height: 475px;
+}
+
+.mat-table {
+    width: 100%;
+}
+
+.chart-div{
+    position: relative;
+    height:90px;
+    width:100%;
+}
+.mat-raised-button {
+    width: 80px !important;
+    padding: 0 !important;
+    line-height: 30px;
+    box-shadow: none !important;
+  }
+  .w-300{
+    max-width: 300px;
+    padding:10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+  .w-200{
+    width: 150px !important;
+    min-width: 150px !important;
+    max-width: 150px !important;
+    padding:10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.color1{
+    background-color: #038203;
+    padding:2px 8px;
+    color:white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .color2{
+    background-color:#fb0101;
+    padding:2px 8px;
+    color:white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .color3{
+    background-color: #535252;
+    padding:2px 8px;
+    color:white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .color4, .color5, .color6{
+    background-color:#fea604;
+    padding:2px 8px;
+    color:white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80px;
+    display: block;
+    margin-right: 30px;
+  }
+  
+  .color7, .color8{
+    background-color: yellow;
+    padding:2px 8px;
+    color:black;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media screen and (max-width: 768px) {
+    .w-300{
+        width: 150px !important;
+        min-width: 150px !important;
+        max-width: 150px !important;
+        padding:10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+  }

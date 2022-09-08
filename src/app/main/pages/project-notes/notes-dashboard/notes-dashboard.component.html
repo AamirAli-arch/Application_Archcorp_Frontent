@@ -1,0 +1,116 @@
+<div style="width: 100%;">
+    <div fxLayout="row" fxLayoutAlign="space-around center" style="height: 300px;">
+        <div>
+            <div style="display: block">
+                <canvas baseChart height="300" [datasets]="choicesData" [options]="radarChartOptions" [labels]="radarChartLabels"
+                    [chartType]="radarChartType">
+                </canvas>
+            </div>
+        </div>
+        <div>
+            <div style="display: block">
+                <canvas baseChart height="300" [datasets]="decisionsData" [options]="radarChartOptions" [labels]="radarChartLabels"
+                    [chartType]="radarChartType">
+                </canvas>
+            </div>
+        </div>
+        <div>
+            <div style="display: block">
+                <canvas baseChart height="300" [datasets]="submittalsData" [options]="radarChartOptions" [labels]="radarChartLabels"
+                    [chartType]="radarChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="table-container mat-elevation-z2 table-data" style="margin-top:20px">
+            <table  mat-table [dataSource]="filteredAndPaged" class="risk-table">
+                
+
+                <ng-container matColumnDef="projectName" sticky>
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Project Name </th>
+                    
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.projectName}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="implication">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Implication </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.implication}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.implication}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="noteType">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Note Type </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.noteType}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.noteType}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="priority">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Priority </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.priority}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.priority}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="stage">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Stage </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.stage}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.stage}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="riskProfile">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Risk </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.riskProfile}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.riskProfile}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="note">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Note </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.note}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.note}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdBy">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Created By </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.createdBy}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="dueDate">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Due Date </th>
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.dueDate | date}}"
+                        class="w-200" mat-cell *matCellDef="let element"> {{element.dueDate | date}} </td>                        
+                </ng-container>
+    
+
+
+                <ng-container matColumnDef="employeesTo">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Employee(s) : TO</th>                    
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.employeesTo}}"
+                        class="w-200" mat-cell  *matCellDef="let element"> {{element.employeesTo }}</td>                    
+                </ng-container>
+
+                                       
+                <ng-container matColumnDef="employeesCc">
+                    <th class="w-200" mat-header-cell *matHeaderCellDef> Employee(s) : CC</th>                    
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.employeesCc}}"
+                        class="w-200" mat-cell  *matCellDef="let element"> {{element.employeesCc }}</td>                    
+                </ng-container>
+                
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+            </table>
+
+        </div>
+        <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="4"
+            [pageSizeOptions]="[4,8, 15, 30, 100]">
+        </mat-paginator>     
+        
+        
+    </div>
+    
+</div>
+            

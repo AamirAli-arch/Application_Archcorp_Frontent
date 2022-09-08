@@ -1,0 +1,55 @@
+mat-form-field {
+    width: 100%;
+  }
+  .container.p-12.w-100-p {
+    background: #fff;
+}
+.leaves-bank{
+    background-color: #2d323eed !important;
+    padding: 20px 10px;
+    color: white;
+    border-radius: 2px;
+    width: 100%;
+    opacity: .9;
+}
+
+.disclaimer{
+    font-size: 14px;
+}
+.date-time{
+.mat-form-field-infix {
+    border-top: 0;
+}
+}
+.mat-green.material-icons {
+    color: #008000;
+}
+.leave-status{
+    // background-color: #2196f3;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 12px;
+}
+
+.mat-raised-button {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid #eee !important;
+}
+.leaves-bank.mobile {
+    display: none !important;
+}
+.leaves-bank.desktop {
+    display: block;
+}
+@media screen and (max-width: 768px) {
+    .leaves-bank.mobile {
+        display: block !important;
+        margin-bottom: 30px !important;
+    }
+    .leaves-bank.desktop {
+        display: none !important;
+        
+    }
+}

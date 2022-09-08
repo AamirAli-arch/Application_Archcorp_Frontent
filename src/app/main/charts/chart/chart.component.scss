@@ -1,0 +1,518 @@
+// variables
+$toolbarHeight: 35px;
+$nodeWidth: 60px;
+$nodeHeight: 30px;
+$completeColor: #2196F3;
+$incompleteColor: #9E9E9E;
+$borderColor: #BDBDBD;
+$highlightBorderColor: #FF9800;
+
+//dept. colors
+$software:#63CD67;
+$struct: #CCFE33;
+$mechanical: #F4CC07;
+$interiorDesign: #ffffcc;
+$qualitySurvey: #65CCCD;
+$admin: #99CCFF;
+$humanResource: #FFA500;
+$finance: #FFC0CB;
+$management: #EA64FE;
+$siteSupervision: #969696;
+$electrical: #CC99FF;
+$buisnessDevelopment:#F6CCFF;
+$architecture: #FDFF00;
+
+mat-tree-node{
+  background-color:#d5d4ff;
+}
+
+mat-tree-node:nth-child(odd) {
+  background-color: #fff;
+}
+
+.name-bold{
+  font-weight:bold !important;
+}
+
+.project-color{
+  background-color: #4F9CE6 !important;
+}
+
+.stage-color{
+  background-color: #42f5b9 !important;
+}
+
+.gantt-container
+{
+  width: 100%;
+}
+
+
+::ng-deep .leader-line {
+  z-index: 1;
+}
+
+// sidenav
+::ng-deep .sidenav {
+  width: 400px;
+  height: fit-content;
+  z-index: 1000 !important;
+}
+
+// table content
+.sidenav-content {
+  height: fit-content;
+  overflow-x: auto;
+}
+
+// resizable border
+[mwlResizable] {
+  border-right: 1px solid $borderColor;
+  box-sizing: border-box;
+}
+
+// sidenav header(not calendar)
+.sidenav-header {
+  text-align: center;
+  line-height: 30px;
+  height: 39px;
+  min-height: $nodeHeight;
+  border-width: 1px 1px 1px 0;
+  border-color: #172144;
+  border-style: solid;
+  padding:2px;
+  background-color: #172144 ;
+  color:white;
+  font-weight: 500;
+}
+
+// tree node height for sidebar
+::ng-deep mat-tree-node {
+  height: $nodeHeight;
+  min-height: $nodeHeight !important;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix{
+  padding: 1px 0 !important;
+}
+
+/** names */
+
+.sidenav.names {
+  mat-tree.tree {
+    padding-top: 1px; // align the lines of input and table
+  }
+}
+
+/** date picker */
+
+.sidenav.date-pickers {
+  flex: 0 0 250px;
+  mat-tree.tree {
+    padding-top: 1px; // align the lines and table
+    border-width: 0 1px 0 0;
+    border-color: $borderColor;
+    border-style: solid;
+    mat-tree-node {
+      justify-content: center;
+      mat-form-field {
+        width: 100px;
+      }
+    }
+  }
+}
+
+/** progress */
+
+.sidenav.progress-bars {
+  flex: 0 0 10px;
+  mat-tree.tree {
+    padding-top: 0px; // align the sliders and table
+    border-width: 0 1px 0 0;
+    border-color: $borderColor;
+    border-style: solid;
+  }
+}
+
+::ng-deep mat-slider.progress{
+  margin: 0 10px;
+  width: 100%;
+  height: 100%;
+  height: unset;
+}
+
+:host ::ng-deep .mat-accent.ProgressGreen .mat-slider-thumb {
+  background-color: green;
+} 
+:host ::ng-deep .mat-accent.ProgressGreen .mat-slider-thumb-label  {
+  background-color: green;
+} 
+:host ::ng-deep .mat-accent.ProgressGreen .mat-slider-track-fill  {
+  background-color:green;
+}
+
+::ng-deep .mat-accent.ProgressRed .mat-slider-thumb {
+  background-color: red;
+} 
+::ng-deep .mat-accent.ProgressRed .mat-slider-thumb-label {
+  background-color: red;
+} 
+::ng-deep .mat-accent.ProgressRed .mat-slider-track-fill {
+  background-color:red;
+}
+
+
+::ng-deep .mat-accent.ProgressBlue .mat-slider-thumb {
+  background-color: blue;
+} 
+::ng-deep .mat-accent.ProgressBlue .mat-slider-thumb-label {
+  background-color: blue;
+} 
+::ng-deep .mat-accent.ProgressBlue .mat-slider-track-fill {
+  background-color:blue;
+}
+
+
+/** calendar */
+
+// header
+::ng-deep .calendar-header {
+  height: $nodeHeight;
+  min-height: $nodeHeight;
+}
+
+// row
+::ng-deep mat-tree-node.calendar-row {
+  overflow: unset; // allow the row to overflow
+}
+
+// cell
+::ng-deep .calendar-cell {
+  text-align: center;
+  line-height: $nodeHeight - 1px;
+  width: $nodeWidth - 2px;
+  height: $nodeHeight - 1px;
+  min-width: $nodeWidth - 2px;
+  // min-height: 30px;
+  border-width: 0.5px 1px;
+  border-color: $borderColor;
+  // border-style: solid;
+}
+
+::ng-deep .calendar-cell.today {
+  border-color: $highlightBorderColor;
+  border-width: 0.5px 5px;
+}
+
+// completed cell
+::ng-deep .calendar-cell[date-filled=true][date-inside=true] {
+  background-color: $completeColor;
+  height: 20px;
+  border-color: $completeColor;
+  // box-shadow: 0px 5px 2px #888888;
+}
+
+// incompleted cell
+::ng-deep .calendar-cell[date-filled=false][date-inside=true] {
+  background-color: $incompleteColor;
+  height: 20px;
+  border-color: $incompleteColor;
+  // box-shadow: 0px 5px 2px #888888;
+  
+}
+
+
+/** Resource **/
+
+.sidenav.resource {
+  flex: 0 0 10px;
+  mat-tree.tree {
+    padding-top: 1px; // align the lines and table
+    border-width: 0 1px 0 0;
+    border-color: $borderColor;
+    border-style: solid;
+    mat-tree-node {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.sidenav.duration {
+  flex: 0 0 10px;
+  width:80px;
+  mat-tree.tree {
+    width:80px;
+    padding-top: 1px; // align the lines and table
+    border-width: 0 1px 0 0;
+    border-color: $borderColor;
+    border-style: solid;
+    mat-tree-node {
+      justify-content: center;
+    }
+  }
+}
+
+.sidenav.verbs {
+  max-width: 100px;
+  mat-tree.tree {
+    border-width: 0 1px 0 0;
+    border-color: $borderColor;
+    border-style: solid;
+    padding-top: 1px; // align the lines and table
+  }
+}
+
+ul.avatars {
+  display: flex ; /* Causes LI items to display in row. */
+  list-style-type: none ;
+  // margin: auto ; /* Centers vertically / horizontally in flex container. */
+  padding: 0px 7px 0px 0px ;
+  z-index: 1 ; /* Sets up new stack-container. */
+}
+
+li.avatars__item {
+  margin: 0px 0px 0px 0px ;
+  padding: 0px 0px 0px 0px ;
+  position: relative ;
+  width: 26px ; /* Forces flex items to be smaller than their contents. */
+}
+
+li.avatars__item:nth-child( 1 ) { z-index: 9 ; }
+		li.avatars__item:nth-child( 2 ) { z-index: 8 ; }
+		li.avatars__item:nth-child( 3 ) { z-index: 7 ; }
+		li.avatars__item:nth-child( 4 ) { z-index: 6 ; }
+		li.avatars__item:nth-child( 5 ) { z-index: 5 ; }
+		li.avatars__item:nth-child( 6 ) { z-index: 4 ; }
+		li.avatars__item:nth-child( 7 ) { z-index: 3 ; }
+		li.avatars__item:nth-child( 8 ) { z-index: 2 ; }
+		li.avatars__item:nth-child( 9 ) { z-index: 1 ; }
+
+    img.avatars__img,
+		span.avatars__initials,
+		span.avatars__others {
+			background-color: #596376 ;
+      border: 1px solid #CCC ;
+			//border-radius: 100px 100px 100px 100px ;
+			color: #000 ;
+			display: block ;
+			font-family: sans-serif ;
+			font-size: 12px ;
+			font-weight: 100 ;
+			height:20px ;
+			line-height: 20px ;
+			text-align: center ;
+			width: 30px ;
+      cursor:pointer;
+		}
+
+    img.avatars__img:hover,
+		span.avatars__initials:hover,
+		span.avatars__others:hover{
+      background-color: #1E8FE1 ;
+    }
+
+    span.avatars__others {
+			background-color: #1E8FE1 ;
+		}
+
+//udpated gantt
+
+
+.chart-container {
+ //min-width: 500px;
+//   overflow-x: auto !important;
+//   scroll-behavior: smooth;
+  cursor: grab;
+}
+
+.chart {
+    display: grid;
+    position: relative;
+    overflow: auto; 
+   
+}
+.chart-row {
+  display: grid;      
+  grid-template-columns: 50px 1fr;
+  background-color: #d5d4ff;
+}
+.chart-row:nth-child(odd) {
+  background-color: #fff;
+}
+.chart-period {
+  color:  #fff;
+  background-color:  #172144 !important;
+  grid-template-columns: 50px repeat(7, 1fr);
+}
+.chart-lines {
+  position: absolute;
+  height: 99.9%;
+  width: 100%;
+  background-color: transparent;
+  grid-template-columns: 50px repeat(7, 1fr);
+}
+.chart-period > span {    
+  text-align: center;
+  font-size: 10px;
+  align-self: center;
+  font-weight: bold;
+  padding: 1px 0;    
+}
+.chart-lines > span {
+  display: block;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+  padding: 2px 5px 2px 5px !important;
+}
+
+.chart-row-item {
+  border-top: 0;
+  border-left: 0;      
+  padding: 20px 0;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.chart-row-bars {
+  list-style: none;
+  display: grid;
+  padding: 6px 0;
+  margin: 0;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px 0;
+}
+
+.chart li {
+  font-weight: 450;
+  text-align: left;
+  font-size: 10px;
+  min-height: 15px;
+  background-color: #708090;
+  padding: 0px 5px;
+  color: #000;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.text-red{
+  color:red !important;
+}
+
+.chart-holiday {
+  background-color: rgba(100, 0, 0, 0.1);
+}
+
+.chart ul .chart-li-one {
+  grid-column: 1/4; 
+  background-color:#588BAE;
+}
+
+.bar-selected {
+  box-shadow: 0 8px 6px -6px black;
+}
+
+.bar-shadow {
+  box-shadow: 0 8px 6px -6px grey;
+}
+
+:host ::ng-deep .mat-form-field-wrapper{
+  padding-bottom: 0;
+}
+
+:host ::ng-deep .mat-form-field-underline{
+  position: static !important;
+}
+
+:host ::ng-deep .names .mat-icon-button{
+  width: 25px !important;
+}
+
+// .taskNameInput {
+//   max-width: 180px !important;
+// }
+
+//dept. color classes
+.dept8{ background-color:$mechanical !important; }
+.dept11{ background-color:$struct !important; }
+.dept6{ background-color:$interiorDesign !important; }
+.dept9{ background-color:$qualitySurvey !important; }
+.dept1{ background-color:$admin !important; }
+.dept8{ background-color:$humanResource !important; }
+.dept9{ background-color:$finance !important; }
+.dept12{ background-color:$software !important; }
+.dept7{ background-color:$management !important; }
+.dept10{ background-color:$siteSupervision !important; }
+.dept5{ background-color:$electrical !important; }
+.dept3{ background-color:$architecture !important; }
+
+//custom field css
+// :host ::ng-deep .mat-form-field-infix{
+// //   border-top: none !important;
+// }
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 2px 0;
+}
+.mat-form-field-flex {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    position: relative;
+    top: 4px;
+}
+
+.sidenav-header.text-center {
+    position: sticky;
+    top: 70px;
+    z-index: 99;
+}
+.sticky {
+    background: #fff;
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+    position: fixed;
+    top: 0;
+    height: 120px;
+    width: 100%;
+}
+.sidenav.chart-container {
+    width: 100%;
+    .chart-row:nth-child(odd){
+        background-color: transparent;
+    }
+}
+.date-section {
+    line-height: normal;
+}
+.top-date.chart-row.chart-period {
+    overflow-x: scroll;
+}
+.left-scroll{
+    float: left;
+    position: fixed;
+    left: auto;
+    top: 102px;
+    z-index: 99;
+    cursor: pointer;
+    padding-left: 10px;
+}
+.right-scroll{
+    float: right;
+    position: fixed;
+    right: 35px;
+    top: 102px;
+    cursor: pointer;
+}
+.sidenav.chart-container .sidenav-header.text-center {
+    margin: 0;
+    height: 37px;
+    margin-left: -2px;
+}

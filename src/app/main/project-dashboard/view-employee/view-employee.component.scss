@@ -1,0 +1,45 @@
+#list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 240px;  
+}
+
+.item {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  clear: both;
+  
+}
+
+#scheduler {
+  margin-left: 270px;
+}
+
+.dx-draggable-source {
+  opacity: 0.5;
+}
+
+.dx-draggable-dragging > * {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+::ng-deep .options {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgba(191, 191, 191, 0.15);
+}
+
+::ng-deep .caption {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+::ng-deep .option {
+  margin-top: 10px;
+}
+

@@ -1,0 +1,14 @@
+<app-loader-spiner></app-loader-spiner>
+<h1 matDialogTitle>{{title}}</h1>
+<div mat-dialog-content>   
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>comment</mat-label>
+            <input matInput placeholder="comments" [(ngModel)]="comment">
+          </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions class="pt-24">
+    <button mat-raised-button class="mat-accent mr-16" (click)="save()">Yes</button>
+    <button mat-button (click)="close()">No</button>
+</div>

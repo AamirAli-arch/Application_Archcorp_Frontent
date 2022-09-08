@@ -1,0 +1,106 @@
+<div class="reports-container">
+    <app-loader-spiner></app-loader-spiner>
+
+    <div class="filter-container top">
+        <div>
+            <p>{{projectName}} ({{projectCode}})</p>
+            <p><strong>
+                    <mat-icon style="color: #008000;" class="date-icon">date_range</mat-icon>
+                </strong>{{startDate | date:'mediumDate'}} - {{endDate | date:'mediumDate'}}</p>
+        </div>
+
+        <div class="right-section">
+            <mat-form-field appearance="outline" fxFlex="50%">
+                <mat-label>Search</mat-label>
+                <input matInput (keyup)="searchFilter($event.target.value)">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <mat-card>
+
+        <!-- <ul class="topList" *ngFor="let project of projectScopeArray">
+        <span class="buildName">{{project.description}}</span>
+
+            <li class="top-projectname">
+
+                <ul class="level" >
+                    <li  *ngFor="let item of project.scopes">
+                        <mat-icon *ngIf="item.checkBoxChecked" class="icon-green">check_circle_outline</mat-icon> 
+                         {{item.description}} <mat-icon  matTooltipClass="icon-tooltip" matTooltipPosition="above"
+                         matTooltip="View Comment" (click)="viewComment(item.id)" class="addcomment">remove_red_eye</mat-icon>
+                        <mat-icon *ngIf="!item.checkBoxChecked" class="icon-red">highlight_off</mat-icon>
+                    </li>
+                </ul>
+            </li>
+        </ul> -->
+   
+        <ul class="topList" *ngFor="let project of projectScopeArray">
+            <span class="buildName">{{project.description}}</span>
+
+            <li class="top-projectname">
+
+                <ul myMatchHeight="card" class="level">
+                    <li  *ngFor="let item of project.scopes">
+                        <!-- <div class="row" >
+                            <div class="col-sm-4">
+                                <div >
+                                    <p class="content">
+                                        <mat-icon *ngIf="item.checkBoxChecked" class="icon-green">check_circle_outline
+                                        </mat-icon>
+                                        <mat-icon *ngIf="!item.checkBoxChecked" class="icon-red">highlight_off</mat-icon>
+                                        <strong>{{item.description}}</strong>
+                                    </p>
+                                    <div class="bottom_section">
+                                        <div *ngFor="let notes of item.projectScopeNotes">
+                                            <p class="content"><strong>
+                                                    <mat-icon style="position: relative;
+                                                    top: 4px;"> comment</mat-icon>
+                                                </strong>{{notes.note}}</p>
+                            
+                                            <p class="content"><strong>
+                                                    <mat-icon>person</mat-icon>
+                                                </strong>{{notes.lastModifiedBy}}</p>
+                                            <p class="content"><strong>
+                                                    <mat-icon style="color: #008000;" class="date-icon">date_range</mat-icon>
+                                                </strong>{{notes.modifiedDate | date:'mediumDate'}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <mat-card class="card">
+                            <p class="content">
+                                <mat-icon *ngIf="item.checkBoxChecked" class="icon-green">check_circle_outline
+                                </mat-icon>
+                                <mat-icon *ngIf="!item.checkBoxChecked" class="icon-red">highlight_off</mat-icon>
+                                <strong>{{item.description}}</strong>
+                            </p>
+                            <div class="bottom_section">
+                                <div *ngFor="let notes of item.projectScopeNotes">
+                                    <p class="content"><strong>
+                                            <mat-icon style="position: relative;
+                                            top: 4px;"> comment</mat-icon>
+                                        </strong>{{notes.note}}</p>
+                                    <p class="content"><strong>
+                                            <mat-icon>person</mat-icon>
+                                        </strong>{{notes.lastModifiedBy}}</p>
+                                    <p class="content"><strong>
+                                            <mat-icon style="color: #008000;" class="date-icon">date_range</mat-icon>
+                                        </strong>{{notes.modifiedDate | date:'mediumDate'}}</p>
+                                </div>
+                            </div>
+
+                        </mat-card>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+
+
+
+        <div *ngIf="noRecords" class="norecord">No Records</div>
+    </mat-card>
+</div>

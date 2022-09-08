@@ -1,0 +1,10 @@
+
+<mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+    <mat-label>All Project</mat-label>
+    <mat-select  [formControl]="employeeMultiCtrl" placeholder="Employee" [multiple]="false" #multiSelect>
+      <ngx-mat-select-search noEntriesFoundLabel="No Record Match" placeholderLabel="Search" [formControl]="employeeMultiFilterCtrl"></ngx-mat-select-search>
+      <mat-option (click)="getId(project.projectCode)" *ngFor="let project of filteredEmployeeMulti | async" [value]="project">
+        {{project.projectName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>

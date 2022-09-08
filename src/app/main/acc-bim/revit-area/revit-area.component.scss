@@ -1,0 +1,12 @@
+::ng-deep #treemap {
+    height: 700px;
+    
+  }
+  
+  ::ng-deep .level {
+    font-weight: 500;    
+  }
+  
+  ::ng-deep tspan:last-child{
+    color: black;    
+  }

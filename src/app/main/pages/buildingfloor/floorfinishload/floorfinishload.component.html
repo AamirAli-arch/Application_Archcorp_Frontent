@@ -1,0 +1,52 @@
+<div class="reports-container">
+    <app-loader-spiner></app-loader-spiner>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container floor-plan">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+            <app-project-search-dropdown class="building-search" (projectId)="getprojectId($event)"></app-project-search-dropdown>
+            <!-- <mat-form-field class="employee-search" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>All Project</mat-label>
+                <mat-select color="primary" formControlName="project">
+                    <mat-option class="mat-primary" *ngFor="let item of projectArray" [value]="item.projectCode">
+                        {{item.projectName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+        </div>
+        <mat-form-field appearance="outline" fxFlex="50%">
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="search leave name and area name" (keyup)="searchFilter($event.target.value)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+    </div>
+     <mat-card style="position: relative; top: 10px;">
+        <div class="top-section">
+            <h1 class="name">{{projectName}}</h1>
+            <ul class="room-type">
+                <li><span>Last CreatedBy :-</span>{{createdBy}}</li>
+                <li><span>Last CreatedOn:-</span>{{updatedBy | date:'mediumDate'}}</li>
+                <li><span>Discipline:-</span>{{projectDiscipline}}</li>
+                <li><span>Area:-</span>{{propertyArea}}</li>
+            </ul>
+        </div>
+        <!-- GROUND FLOOR -->
+    <ul class="topList" *ngFor="let floor of walldataArray; let i=index">
+        <span class="buildName">{{floor.name}}</span>
+            <li class="top-projectname">
+                <ul class="level">
+                    <li *ngFor="let floorData of floor.areas; let i = index">
+                        <mat-card>
+                            <span class="buildName room">{{floorData.name}}</span>
+                            <div class="toplevel">
+                                <span><strong>Name: </strong>{{floorData.floor?.name}} </span>
+                                <span><strong>Floor Finish Load: </strong>{{floorData.floor?.floorFinishLoad}} </span>
+                                <span><strong>Thickness: </strong>{{floorData.floor?.thickness}} mm</span>
+                            </div>
+                        </mat-card>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </mat-card>
+</div>

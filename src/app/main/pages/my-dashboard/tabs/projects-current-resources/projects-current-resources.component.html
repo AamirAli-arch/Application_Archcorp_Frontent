@@ -1,0 +1,21 @@
+
+<dx-tree-list
+  id="resourceDataSource"
+  [dataSource]="resourceDataSource"
+  dataStructure="tree"
+  itemsExpr="resources"
+  keyExpr="projectId"   
+  [showRowLines]="true"
+  [showBorders]="true"
+  [columnAutoWidth]="true"  
+  [expandedRowKeys]="[1]"
+>
+<dxo-search-panel [visible]="true"></dxo-search-panel>
+  <dxi-column dataField="projectName"></dxi-column>  
+  <dxi-column dataField="taskName"></dxi-column>
+  <dxi-column dataField="employeeName"></dxi-column>
+  <dxi-column dataField="progress" alignment="center"></dxi-column>
+  
+  
+</dx-tree-list>
+

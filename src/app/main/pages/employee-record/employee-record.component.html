@@ -1,0 +1,161 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="page-title">Employee</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Employee</li>
+                </ul>
+                <button (click)="employeeRegister()" class="add-more" mat-raised-button color="primary">
+                    <mat-icon>add_circle</mat-icon> Add Employee
+                </button>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+            <app-employee-dropdown class="report-search" (employeeId)="getEmployeValue($event)"></app-employee-dropdown>
+            <!-- <mat-form-field fxFlex.gt-sm="50" floatLabel="never" appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <mat-select color="primary" formControlName="employeeId" multiple>
+                    <mat-option class="mat-primary" *ngFor="let emp of employees" [value]="emp.id">{{emp.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Designation </mat-label>
+                <mat-select formControlName="designation">
+                    <mat-option class="mat-primary" *ngFor="let emp of degisationList" [value]="emp.id">
+                        {{emp.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>WorkLocation </mat-label>
+                <mat-select formControlName="worklocation">
+                    <mat-option class="mat-primary" *ngFor="let emp of workLocation" [value]="emp.id">
+                        {{emp.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>EmploymentStatus </mat-label>
+                <mat-select formControlName="employeeStatus">
+                    <mat-option class="mat-primary" *ngFor="let emp of employmentStatus" [value]="emp.id">
+                        {{emp.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Status </mat-label>
+                <mat-select formControlName="status">
+                    <mat-option class="mat-primary" *ngFor="let emp of employeeStatus" [value]="emp.id">
+                        {{emp.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!--<button class="search" mat-raised-button color="accent">Search</button> -->
+
+        </div>
+    </div>
+    <div class="table-grid">
+        <button (click)="buttonActive('1')" class="search" [ngClass]="setActive==1  ? 'active' : '' ">
+            <mat-icon>list</mat-icon>
+        </button>
+
+        <button (click)="buttonActive('2')" class="search" [ngClass]="setActive==2  ? 'active' : '' ">
+            <mat-icon>grid_on</mat-icon>
+        </button>
+
+    </div>
+    <div *ngIf="setActive==1" class="table-container mat-elevation-z2">
+        <table mat-table [dataSource]="griddata">
+            <ng-container sticky matColumnDef="name">
+                <th mat-header-cell class="w-300" *matHeaderCellDef> Name </th>
+                <td mat-cell class="w-300" *matCellDef="let element">
+                    <div class="media align-items-center">
+                        <a class="avatar"><img alt="" src="{{element.profilePath}}"></a>
+                        <div class="media-body">
+                            <div (click)="getEmployeeId(element.id)" matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.name}}"
+                                class="text-sm my-0"> {{element.name}} <br> <span
+                                    class="designation">{{element.designation}} </span></div>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Email </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.email}}" mat-cell
+                    class="w-200" *matCellDef="let element" data-label="Leave Type"> {{element.email}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="workLocation">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Work Location </th>
+                <td mat-cell class="w-200" *matCellDef="let element">
+                    <span *ngIf="element.workLocation===1">Office</span>
+                    <span *ngIf="element.workLocation===2">Site</span>
+                </td>
+            </ng-container>
+
+            
+            <ng-container matColumnDef="employmentStatus">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Employment Status</th>
+                <td mat-cell class="w-200" *matCellDef="let element"> {{element.employmentStatus | employMentStatus}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell class="w-200" class="status" *matHeaderCellDef>Status</th>
+                <td mat-cell class="w-200" class="status" mat-cell *matCellDef="let element">
+                    <span *ngIf="element.status===1">Active</span>
+                    <span *ngIf="element.status===2">OnLeave</span>
+                </td>
+            </ng-container>
+
+
+            <!-- MA added -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Action </th>
+                <td mat-cell class="w-200" *matCellDef="let element" (click)="getEmployeeId(id)"> 
+                    <button (click)="updatePersonalInfo(element.id)" class="edit-button" mat-raised-button color="primary">
+                        <mat-icon>edit</mat-icon> Edit Employee
+                    </button>
+                </td>
+            </ng-container>
+
+            
+            
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <!-- <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25" [pageSizeOptions]="[5, 10, 25, 50, 100]">
+        </mat-paginator> -->
+    </div>
+    <div *ngIf="setActive==2" class="main-ard" fxLayout="row wrap" fxLayoutAlign="flex-start"
+        fxLayoutGap="25px">
+        <mat-card *ngFor="let member of griddata; let i = index" class="grid-layout">
+            <mat-card-header>
+                <div *ngIf="edtidelte===i" class="edit-button">
+                    <ul>
+                        <li (click)="employeeAddEdit()"><img src="assets/images/edit.svg">Edit</li>
+                        <li (click)="deleteEmployee()"><img src="assets/images/delete.svg"> Delete</li>
+                    </ul>
+                </div>
+
+                <mat-icon (click)="editDelete(i)">more_vert</mat-icon>
+                <div mat-card-avatar class="example-header-image"></div>
+            </mat-card-header>
+            <a mat-card-image class="avatar"><img alt="" src="{{member.profilePath}}"></a>
+            <mat-card-content (click)="getEmployeeId(member.id)">
+                <mat-card-title >{{member.name}}</mat-card-title>
+                <mat-card-subtitle>{{member.designation}}</mat-card-subtitle>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

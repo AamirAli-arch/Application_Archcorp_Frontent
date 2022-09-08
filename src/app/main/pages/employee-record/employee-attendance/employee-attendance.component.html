@@ -1,0 +1,218 @@
+<app-loader-spiner></app-loader-spiner>
+
+
+
+
+<div class="container p-12 w-100-p">
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="page-title">Attendance</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Attendance</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <!-- <app-sub-dashboard></app-sub-dashboard> -->
+<div class="middel-section">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card punch-status">
+                <div class="card-body">
+                    <h5 class="card-title">Timesheet <small class="text-muted">11 Mar 2019</small></h5>
+                    <div class="punch-det">
+                        <h6>Punch In at</h6>
+                        <p>Wed, 11th Mar 2019 10.00 AM</p>
+                    </div>
+                    <div class="punch-info">
+                        <div class="punch-hours"><span>3.45 hrs</span></div>
+                    </div>
+         
+                    <div class="statistics">
+                        <div class="row">
+                            <div class="col-md-6 col-6 text-center">
+                                <div class="stats-box">
+                                    <p>Break</p>
+                                    <h6>1.21 hrs</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-6 text-center">
+                                <div class="stats-box">
+                                    <p>Overtime</p>
+                                    <h6>3 hrs</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card att-statistics">
+                <div class="card-body">
+                    <h5 class="card-title">Statistics</h5>
+                    <div class="stats-list">
+                        <div class="stats-info">
+                            <p>Today <strong>3.45 <small>/ 8 hrs</small></strong></p>
+                            <div class="progress">
+                                <div role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"
+                                    class="progress-bar bg-primary" style="width: 31%;"></div>
+                            </div>
+                        </div>
+                        <div class="stats-info">
+                            <p>This Week <strong>28 <small>/ 40 hrs</small></strong></p>
+                            <div class="progress">
+                                <div role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"
+                                    class="progress-bar bg-warning" style="width: 31%;"></div>
+                            </div>
+                        </div>
+                        <div class="stats-info">
+                            <p>This Month <strong>90 <small>/ 160 hrs</small></strong></p>
+                            <div class="progress">
+                                <div role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"
+                                    class="progress-bar bg-success" style="width: 62%;"></div>
+                            </div>
+                        </div>
+                        <div class="stats-info">
+                            <p>Remaining <strong>90 <small>/ 160 hrs</small></strong></p>
+                            <div class="progress">
+                                <div role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"
+                                    class="progress-bar bg-danger" style="width: 62%;"></div>
+                            </div>
+                        </div>
+                        <div class="stats-info">
+                            <p>Overtime <strong>4</strong></p>
+                            <div class="progress">
+                                <div role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"
+                                    class="progress-bar bg-info" style="width: 22%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card recent-activity">
+                <div class="card-body">
+                    <h5 class="card-title">Today Activity</h5>
+                    <ul class="res-activity-list">
+                        <li>
+                            <p class="mb-0">Punch In at</p>
+                            <p class="res-activity-time"><mat-icon>timer</mat-icon> 10.00 AM. </p>
+                        </li>
+                        <li>
+                            <p class="mb-0">Punch Out at</p>
+                            <p class="res-activity-time"><mat-icon>timer</mat-icon> 11.00 AM. </p>
+                        </li>
+                        <li>
+                            <p class="mb-0">Punch In at</p>
+                            <p class="res-activity-time"><mat-icon>timer</mat-icon> 11.15 AM. </p>
+                        </li>
+                        <li>
+                            <p class="mb-0">Punch Out at</p>
+                            <p class="res-activity-time"><mat-icon>timer</mat-icon> 1.30 PM. </p>
+                        </li>
+                        <li>
+                            <p class="mb-0">Punch In at</p>
+                            <p class="res-activity-time"><mat-icon>timer</mat-icon> 2.00 PM. </p>
+                        </li>
+                        <li>
+                            <p class="mb-0">Punch Out at</p>
+                            <p class="res-activity-time"><mat-icon>timer</mat-icon> 7.30 PM. </p>
+                        </li>
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Date</mat-label>
+                <input readonly required matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="startingDate">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>Select Month</mat-label>
+                <mat-select formControlName="month">
+                    <mat-option value="1">Jan</mat-option>
+                    <mat-option value="2">Feb</mat-option>
+                    <mat-option value="3">Mar</mat-option>
+                    <mat-option value="4">Apr</mat-option>
+                    <mat-option value="5">May</mat-option>
+                    <mat-option value="6">Jun</mat-option>
+                    <mat-option value="7">Jul</mat-option>
+                    <mat-option value="8">Aug</mat-option>
+                    <mat-option value="9">Sep</mat-option>
+                    <mat-option value="10">Oct</mat-option>
+                    <mat-option value="11">Nov</mat-option>
+                    <mat-option value="12">Dec</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Select Years </mat-label>
+                <mat-select formControlName="years">
+                    <mat-option value="1">2019</mat-option>
+                    <mat-option value="2">2018</mat-option>
+                    <mat-option value="3">2017</mat-option>
+                    <mat-option value="4">2016</mat-option>
+                    <mat-option value="5">2015</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button class="search" mat-raised-button color="accent">Search</button>
+        </div>
+    </div>
+
+    <div fxLayout="row">
+        <mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="date"> 19 Feb 2019 </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="punchIn">
+                <mat-header-cell *matHeaderCellDef> Punch In </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="PunchIn">10 AM</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="punchOut">
+                <mat-header-cell *matHeaderCellDef> Punch Out </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="PunchOut">7 PM</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="production">
+                <mat-header-cell *matHeaderCellDef> Production </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Production"> 9 hrs</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="break">
+                <mat-header-cell *matHeaderCellDef>Break</mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Break"> 1 hrs </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="overTime">
+                <mat-header-cell *matHeaderCellDef> Overtime</mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Overtime"> 0</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25"
+        [pageSizeOptions]="[5, 10, 25, 50, 100]">
+    </mat-paginator>
+</div>

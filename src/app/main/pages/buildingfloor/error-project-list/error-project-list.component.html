@@ -1,0 +1,79 @@
+<div class="reports-container">
+    <app-loader-spiner></app-loader-spiner>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container floor-plan">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px">
+            <app-project-search-dropdown class="building-search" (projectId)="getprojectId($event)"></app-project-search-dropdown>
+        </div>
+        <mat-form-field appearance="outline" fxFlex="50%">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="searchFilter($event.target.value)">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+    </div>
+    <mat-card style="position: relative; top: 10px;">
+        <div class="top-section">
+            <h1 class="name">{{projectName}}</h1>
+            <ul class="room-type">
+                <li><span>Last Updated By :-</span>{{createdBy}}</li>
+                <li><span>Last Updated On:-</span>{{updatedOn | date:'medium'}}</li>
+                <li><span>Project Code:-</span>{{projectCode}}</li>
+            </ul>
+        </div>
+
+    <ul myMatchHeight="card" class="topList" *ngFor="let projectName of treeData; let i=index">
+        <span class="buildName">{{projectName.levelName}}</span>
+            <li class="top-projectname">
+                <ul  class="level">
+                    <li  *ngFor="let errorItem of projectName.errorsList; let i = index">
+                        <mat-card class="card">
+                            <!-- <span class="buildName room">{{floorData.name}}</span> -->
+                            <div class="toplevel">
+                                <span><strong>Element Name: </strong>{{errorItem.errorElementName}} </span>
+                                <span><strong>Revit Element Id: </strong>{{errorItem.errorRevitId}} </span>
+                                <span><strong>Document: </strong>{{errorItem.errorDocument}} </span>
+                                <span><strong>Error Description: </strong>{{errorItem.errorDescription}} </span>
+                            </div>
+                        </mat-card>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </mat-card>
+    <!-- <mat-card style="position: relative; top: 10px;">
+
+            <div class="top-section">
+                <h1 class="name">{{projectName}}</h1>
+                <ul class="room-type">
+                    <li><span>Last Updated By :-</span>{{createdBy}}</li>
+                    <li><span>Last Updated On:-</span>{{updatedOn | date:'medium'}}</li>
+                    <li><span>Project Code:-</span>{{projectCode}}</li>
+                </ul>
+
+            </div>
+            <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+                <div *cdkVirtualFor="let projectName of treeData | nestedfilter : searchTerm; let i = index; trackBy: trackByFuntion" class="example-item">
+                    <ul>
+
+                        <li class="top-projectname">
+                            <span class="buildName">{{projectName.levelName}}</span>
+                          <span class="number"> {{i+1}}</span>
+                            <ul class="level" *ngFor="let errorItem of projectName.errorsList[0]; let levelNumber = index">
+                                <span class="levelNumber">{{i+1}}.{{levelNumber+1}}</span>
+                                <li>
+                                    <div class="toplevel">
+                                        <span><strong>Id:- </strong>{{errorItem.id}}</span> 
+                                        <span><strong>Name:- </strong>{{errorItem.name}}</span>
+
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+              </cdk-virtual-scroll-viewport>
+
+        </mat-card> -->
+</div>

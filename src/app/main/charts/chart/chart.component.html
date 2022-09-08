@@ -1,0 +1,191 @@
+<app-loader-spiner></app-loader-spiner>
+
+<div class="gantt-container" fxLayout="column" style="background-color: white;">
+
+  <div  class="sidenav-container" fxFlex fxLayout="row">
+    <!-- verb -->
+    <div *ngIf="!divHidden" class="sidenav verbs" fxLayout="column">
+      <div class="sidenav-header text-center">Verb</div>
+      <mat-tree class="tree" fxFlex [dataSource]="projectDataSource" [treeControl]="projectTreeControl">
+        <mat-tree-node *matTreeNodeDef="let node" class="progress-row">
+          <mat-form-field [floatLabel]="'never'" style="width: 100%;" *ngIf="node.level != 0">
+            <mat-select placeholder="Select Verb"  [(ngModel)]="node.verb">
+              <mat-option (onSelectionChange)="updateVerb($event, node, verb)" *ngFor="let verb of verbList"
+                [value]="verb">
+                {{verb}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+    <!-- names -->
+    <div class="sidenav names" [ngStyle]="sidebarStyle" fxLayout="column">
+
+      <div class="sidenav-header text-center">
+        Sections/Tasks
+        <button mat-icon-button (click)="hideColumns()"
+          style="float:right;height: 30px !important;cursor: pointer;line-height: 30px !important;" class="text-black">
+          <mat-icon>{{iconName}}</mat-icon>
+        </button>
+        <span (click)="hideColumns()" class="material-icons" style="float:right;cursor: pointer;"></span>
+      </div>
+      <mat-tree class="tree" fxFlex [dataSource]="projectDataSource" [treeControl]="projectTreeControl"
+        [ngStyle]="sidebarStyle" mwlResizable [resizeEdges]="{right: true}" [enableGhostResize]="true"
+        [resizeSnapGrid]="{right: 1}" (resizeEnd)="onResizeEnd($event)">
+        <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodePaddingIndent="10">
+          <button *ngIf="node.expandable" mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'toggle ' + node.name">
+            <mat-icon class="mat-icon-rtl-mirror" (click)="toggleExpanded(node)">
+              {{projectTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
+          </button>
+          <mat-form-field class="taskNameInput" fxFlex floatLabel="never">
+            <input #txt (click)="$event.target.value == 'new task' ? $event.target.select() : ''"
+              *ngIf="node.level != 0" matInput [disabled]="node.level === 0" name="node" autocomplete="off"
+              [(ngModel)]="node.name" (focus)="txt.setAttribute('data-value', node.name)"
+              (blur)="txt.getAttribute('data-value') !== node.name ? updateStepName(node, $event.target.value) : ''"
+              required [ngClass]="node.expandable === true ? 'name-bold' : 'name-normal'">
+            <input matInput [disabled]="node.level === 0" *ngIf="node.level == 0" [value]="chartData.projectName">
+          </mat-form-field>
+          <div>
+              <button *ngIf="node.level == 0 && isStageAllowed" [disabled]="validateName(node)" mat-icon-button (click)="addChildTask(node)" class="text-green">
+                <mat-icon>add</mat-icon>
+              </button>
+              <button *ngIf="node.resource?.length === 0" [disabled]="validateName(node)" mat-icon-button (click)="addChildTask(node)" class="text-green">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+
+          <div *ngIf="!node.expandable">
+            <button mat-icon-button (click)="openTaskAllocationDialog(node)" class="text-user" *ngIf="node.level!==0">
+              <mat-icon>person_add</mat-icon>
+            </button>
+          </div>
+
+          <button mat-icon-button (click)="deleteStep(node)" class="text-red" *ngIf="node.level!==0">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+    <!-- resources -->
+    <div *ngIf="!divHidden" class="sidenav resource" fxLayout="column">
+      <div class="sidenav-header text-center">Resources</div>
+      <mat-tree class="tree" fxFlex [dataSource]="projectDataSource" [treeControl]="projectTreeControl">
+        <mat-tree-node *matTreeNodeDef="let node" class="avatars">
+          <ul class="avatars" *ngIf="node.level > 0">
+            <ng-container *ngFor="let user of node.resource; let i=index;">
+              <li (click)="onUserClick(user)" class="avatars__item" *ngIf="i < 4">
+                <span [ngClass]="(i > 2) ? 'avatars__others' : 'avatars__initials dept' + user.departmentId">
+                  <span matTooltipClass="icon-tooltip" [matTooltip]="user.name" matTooltipPosition="above" *ngIf="(i < 3)">{{ userInitials(user.name)
+                    }}</span>
+                  <span *ngIf="(i > 2)">+{{node.resource.length - 3}}</span>
+                </span>
+              </li>
+            </ng-container>
+
+          </ul>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+
+    <!--Progress-->
+ <div *ngIf="!divHidden" class="sidenav progress-bars" fxLayout="column">
+      <div class="sidenav-header text-center">Progress</div>
+      <mat-tree class="tree" fxFlex [dataSource]="projectDataSource" [treeControl]="projectTreeControl">
+        <mat-tree-node *matTreeNodeDef="let node" class="progress-row" style="padding-left: 10px; " >
+          <!-- <mat-slider *ngIf="node.level > 0" [disabled]="checkStepsExist(node)" [ngClass]="applyProgressClasses(node)"
+            [max]="100" [min]="0" [step]="5" [thumbLabel]="true" [tickInterval]="2" [(ngModel)]="">
+          </mat-slider> -->
+          <span *ngIf="node.level != 0 && node.progress == 0" style="font-weight: bold; color:red;">{{node.progress}}%</span>
+          <span *ngIf="node.level != 0 && node.progress > 0 && node.progress < 100" style="font-weight: bold;">{{node.progress}}%</span>
+          <span *ngIf="node.level != 0 && node.progress == 100" style="color: green; font-weight: bold;">{{node.progress}}%</span>
+          
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+
+
+    <!-- date pickers -->
+    <div *ngIf="!divHidden" class="sidenav date-pickers" fxLayout="column">
+      <div class="sidenav-header text-center">Dates</div>
+      <mat-tree class="tree" fxFlex [dataSource]="projectDataSource" [treeControl]="projectTreeControl">
+        <mat-tree-node *matTreeNodeDef="let node">
+          <mat-form-field class="date-picker" floatLabel="never">
+            <input matInput [matDatepicker]="startDate" [min]="node.level > 0 ? getParentStep(node).startDate : null"
+              [max]="node.level > 0 ? getParentStep(node).endDate : null" [(ngModel)]="node.startDate"
+              (ngModelChange)="updateDateRange(node)">
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+          </mat-form-field>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          <mat-form-field class="date-picker" floatLabel="never">
+            <input matInput [matDatepicker]="endDate" [min]="node.level > 0 ? getParentStep(node).startDate : null"
+              [max]="node.level > 0 ? getParentStep(node).endDate : null" [(ngModel)]="node.endDate"
+              (ngModelChange)="updateDateRange(node)">
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+          </mat-form-field>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+    <!-- Task Man Hours -->
+    <div *ngIf="!divHidden" class="sidenav duration" fxLayout="column">
+      <div class="sidenav-header text-center">Man Hours</div>
+      <mat-tree class="tree" fxFlex [dataSource]="projectDataSource" [treeControl]="projectTreeControl">
+        <mat-tree-node *matTreeNodeDef="let node" class="progress-row">
+          <!-- <mat-form-field class="taskNameInput" fxFlex floatLabel="never" appearance="outline">
+              <input *ngIf="node.level != 0" matInput  name="node" autocomplete="off" [(ngModel)]="node.duration"
+              (blur)="updateStepDuration(node, $event.target.value)" />
+            </mat-form-field> -->
+          <mat-form-field fxFlex floatLabel="never"  style="width:80px !important;">
+            <input matInput type="number" placeholder="Duration" [(ngModel)]="node.duration" autocomplete="off"
+              (blur)="updateStepDuration(node, $event.target.valueAsNumber)">
+          </mat-form-field>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+
+    <!-- calendar -->
+    <div class="sidenav chart-container" fxLayout="column">
+        <div class="left-scroll">
+            <span (click)="scrollLeft()"><mat-icon style="background: #2f8be6;color: #fff;top: 10px;position: relative;">arrow_back_ios</mat-icon></span>
+        </div>
+        <div  class="sidenav-header text-center">
+            <div #widgetsContent class="top-date chart-row chart-period" [ngStyle]="{'grid-template-columns': '50px repeat(' + projectDays + ', 50px)'}">
+                <span class="date-section" *ngFor="let date of dates" [id]="date.slice(5)">{{date.slice(5)}} <br /> {{
+                  moment(date).format('ddd')}}</span>
+              </div>
+        </div>
+
+      <div #widgetsContent1  class="chart" (scroll)="chartScroll($event)" >
+        <div  class="chart-row chart-period" [ngStyle]="{'grid-template-columns': '50px repeat(' + projectDays + ', 50px)'}">
+            <span *ngFor="let date of dates" [id]="date.slice(5)"></span>
+          </div>
+        <div class="chart-row chart-lines" [ngStyle]="{'grid-template-columns': '50px repeat(' + projectDays + ', 50px)'}">
+          <span *ngFor="let date of dates" [ngClass]=""></span>
+        </div>
+        <mat-tree class="progess-tree" [dataSource]="projectDataSource" [treeControl]="projectTreeControl">
+          <mat-tree-node *matTreeNodeDef="let node" class="chart-row">
+                    <ul class="chart-row-bars" [ngStyle]="{'grid-template-columns': '50px repeat(' + projectDays + ', 50px)'}">
+                        <li
+                          [ngClass]="(node.resource) ? ((node.resource[0]) ? 'dept' + node.resource[0].departmentId : 'stage-color') : 'project-color'"
+                          (dblclick)="removeTaskDependency($event, node)" (click)="onSelectedNode($event, node)"
+                          [id]="'bar'+node.id" class="progress dept-bar bar-shadow" [ngStyle]="{'grid-column': '' + node.start + '/' + node.end + ''}">
+                          {{node.name}}
+                        </li>
+                      </ul>
+          </mat-tree-node>
+        </mat-tree>
+      </div>
+      <div class="right-scroll">
+        <span (click)="scrollRight()"><mat-icon style="background: #2f8be6;color: #fff;top: 10px;position: relative;">arrow_forward_ios</mat-icon></span>
+    </div>
+      <div id="wrapper"></div>
+    </div> 
+  </div>
+</div>
+
+
+

@@ -1,0 +1,100 @@
+<div class="reports-container">
+    <div class="loading-shade" *ngIf="isLoadingResults">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+            <!-- <app-employee-dropdown class="report-search" (employeeId)="getEmployeValue($event)"></app-employee-dropdown> -->
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Expense Type</mat-label>
+                <mat-select color="primary" formControlName="expenseTypeId">
+                    <mat-option class="mat-primary" *ngFor="let expList of expenseTypeList"
+                        [value]="expList.id">
+                        {{expList.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Expense Description </mat-label>
+                <mat-select color="primary" formControlName="expenseDescriptionId">
+                    <mat-option class="mat-primary" *ngFor="let emplist of expenseDescriptionList"
+                        [value]="emplist.id">
+                        {{emplist.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="startDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input placeholder="End Date" [min]="filterForm.value.startDate" matInput [matDatepicker]="endDate"
+                    (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+    </div>
+    <div class="download-button">
+        <button (click)="addTypeDescription('Type')" mat-raised-button color="accent">
+            <mat-icon>add_circle</mat-icon>Type</button>
+            <button (click)="addTypeDescription('Description')" mat-raised-button color="accent">
+                <mat-icon>add_circle</mat-icon>Description</button>
+        <button (click)="addrecord('add')" mat-raised-button color="accent">
+            <mat-icon>add_circle</mat-icon> Add Expense</button>
+    </div>
+    <div class="table-container mat-elevation-z2">
+        <table  mat-table [dataSource]="filteredAndPaged">
+
+            <ng-container matColumnDef="name" sticky>
+                <th class="w-200" mat-header-cell *matHeaderCellDef>Expense Type</th>
+                <td class="w-200" mat-cell *matCellDef="let element" matTooltipClass="icon-tooltip"
+                    matTooltipPosition="above" matTooltip="{{element.name}}"> {{element.type}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th class="w-350" mat-header-cell *matHeaderCellDef>Description</th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.description}}" class="w-350" mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="income">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Amount </th>
+                <td class="w-200" mat-cell *matCellDef="let element"> {{element.amount}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="month">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Month </th>
+                <td class="w-200" mat-cell *matCellDef="let element"> {{ moment(element.date).format('MMM YYYY')}}  </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Actions </th>
+                <td class="w-200" mat-cell *matCellDef="let element">
+                    <button (click)="deleteExp(element.id)" class="delete" matTooltipClass="icon-tooltip"
+                    matTooltipPosition="above" matTooltip="Delete" >
+                        <img src="assets/images/delete.svg"></button>
+                        <button (click)="addrecord(element)" class="delete" matTooltipClass="icon-tooltip"
+                        matTooltipPosition="above" matTooltip="Update">
+                            <img src="assets/images/edit.svg"></button>
+                     </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25"
+        [pageSizeOptions]="[5, 10, 25, 50, 100]">
+    </mat-paginator>
+</div>

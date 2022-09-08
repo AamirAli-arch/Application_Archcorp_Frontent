@@ -1,0 +1,111 @@
+<div class="container p-12 w-100-p">
+    <div class="row">
+        <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <h4 class="card-title">Late Commers
+                        <span class="badge bg-inverse-danger ml-2">{{lateCommerArray.length}}</span>
+                    </h4>
+                    <div *ngIf="lateCommerArray.length!=0">
+                        <div class="leave-info-box" *ngFor="let item of lateCommerArray">
+                            <div class="media align-items-center"><a class="avatar"><img alt=""
+                                        src="{{item.profilePath}}"></a>
+                                <div class="media-body">
+                                    <div class="text-sm my-0">{{item.name}}</div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mt-3">
+                                <div class="col-6">
+                                    <h6 class="mb-0"> CheckIn Time </h6>
+                                    <span class="text-sm text-muted">{{item.checkIn.substring(0,8)}}</span>
+                                </div>
+                                <!-- <div class="col-6 text-right"><span class="badge bg-inverse-danger">{{item.statusId |
+                                        leaveStatus}}</span></div> -->
+                            </div>
+                        </div>
+                        </div>
+                        <div class="noValue" *ngIf="lateCommerArray.length==0">
+                            <span>0</span>
+                            
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <h4 class="card-title">Today Absent 
+                        <span class="badge bg-inverse-danger ml-2">{{absentArray.length}}</span>
+                    </h4>
+                    <div *ngIf="absentArray.length!=0">
+                        <div class="leave-info-box" *ngFor="let item of absentArray">
+                            <div class="media align-items-center"><a class="avatar"><img alt=""
+                                        src="{{item.profilePath}}"></a>
+                                <div class="media-body">
+
+                                    <div *ngIf="item.currentStatus != 0" matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{item.startDate | date : 'mediumDate'}} - {{item.endDate | date : 'mediumDate'}}" class="text-sm my-0">{{item.name}}</div>
+                                    <div *ngIf="item.currentStatus == 0"  class="text-sm my-0">{{item.name}}</div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mt-3">
+                                <div class="col-6">
+                                <span class="text-sm text-muted"> {{todayDate | date:'mediumDate'}}</span>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <span *ngIf="item.currentStatus!=null"  [ngClass]="'color' + item.currentStatus" class="badge bg-inverse-danger">
+                                        {{item.currentStatus | leaveStatus}}</span>
+                                        <span *ngIf="item.currentStatus==null" class="badge bg-inverse-danger">
+                                           Leave Not Apply</span>
+                                    </div>
+                                    <div *ngIf="item.reason" class="col-12 bottom">
+                                        <h6 matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{item.reason}}" class="mb-0 test-overhiden">Reason:-{{item.reason}}</h6>
+                                     </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="noValue" *ngIf="absentArray.length==0">
+                            <span>0</span>
+                            
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <h4 class="card-title">Today TimeOff 
+                        <span class="badge bg-inverse-danger ml-2">{{timeOffArray.length}}</span>
+                    </h4>
+                    <div *ngIf="timeOffArray.length!=0">
+                    <div class="leave-info-box" *ngFor="let item of timeOffArray">
+                        <div class="media align-items-center"><a class="avatar">
+                            <img alt="" src="{{item.profilePath}}">
+                                </a>
+                            <div class="media-body">
+                                <div class="text-sm my-0">{{item.name}}</div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center mt-3">
+                            <div class="col-6">
+                                <span class="text-sm text-muted">{{item.appliedDate | date:'mediumDate'}}</span>
+                                <span class="text-sm text-muted">{{item.start | date:'shortTime'}} - {{item.end | date:'shortTime'}}</span>
+                                <span class="text-sm text-muted"></span>
+                            </div>
+                            <div class="col-6 text-right"><span  [ngClass]="'color' + item.statusId" class="badge bg-inverse-danger">{{item.statusId |
+                                leaveStatus}}</span></div>
+                         <div *ngIf="item.reason" class="col-12 bottom">
+                                <h6 matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{item.reason}}" class="mb-0 test-overhiden">Reason:-{{item.reason}}</h6>
+                             </div>
+                        </div>
+                    </div>
+           
+                    </div>
+                    <div class="noValue" *ngIf="timeOffArray.length==0"> <span>0</span></div>
+
+                </div>
+            </div>
+        </div>
+      
+    </div>
+</div>

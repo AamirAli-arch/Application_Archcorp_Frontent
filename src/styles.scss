@@ -1,0 +1,462 @@
+// Import Fuse core library
+@import "@fuse/scss/core";
+@import "~angular-notifier/styles";
+// @import"./assets/icon-style.min.css";
+
+// Import app.theme.scss
+@import "app/app.theme";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+$custom-typography: mat-typography-config(
+  $font-family: 'inherit'
+);
+@include mat-core($custom-typography);
+
+@font-face {
+    font-family: " CircularStd,sans-serif";;
+    src: url('./assets/fonts/CircularStd-Black.47af1cb946470aab5b1f.woff'),
+         url('./assets/fonts/CircularStd-Book.e6a58ec19935a9f4b5ee.woff'),
+         url('./assets/fonts/CircularStd-Medium.4f832c6dc49d3da923f4.woff');
+         font-weight: normal;
+         font-style: normal;
+  }
+
+body {
+    font-family: CircularStd, sans-serif !important;
+    color: #1f1f1f;
+    min-height: 100%;
+}
+.nav .nav-item .nav-link > .nav-link-title{
+    font-family: CircularStd, sans-serif !important;
+}
+.mat-tab-body-content {
+    height: 100%;
+    overflow: scroll;
+}
+body.theme-default .mat-header-cell {
+    font-weight: 600;
+    color: #000;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell , .mat-header-cell{
+    white-space: nowrap;
+}
+
+/* Angular Material Overrides */
+
+  .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: .65em 0; /* Original top/bottom value was 1em. */
+  }
+
+  .mat-input-element {
+    position: relative;
+    top:  -5px; /* Adjust accordingly to keep placeholder/input text vertically centered. */
+  }
+  .mat-form-field-label-wrapper {
+    top: -1.2em; /* Adjust accordingly to keep <mat-label> text vertically centered. */
+  }
+  body.theme-default .mat-form-field-appearance-outline .mat-form-field-outline-thick{
+      color: #2196f3 !important;
+  }
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #2196f3 !important;
+}
+ body.theme-default .mat-pseudo-checkbox-checked, body.theme-default .mat-pseudo-checkbox-indeterminate, body.theme-default .mat-accent .mat-pseudo-checkbox-checked, body.theme-default .mat-accent .mat-pseudo-checkbox-indeterminate ,
+ body.theme-default .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, body.theme-default .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+    background: #039be5 !important;
+}
+body.theme-default .mat-toolbar .mat-form-field-underline, body.theme-default .mat-toolbar .mat-form-field-ripple, body.theme-default .mat-toolbar .mat-focused .mat-form-field-ripple {
+    background-color: currentColor !important;
+}
+body.theme-default .mat-toolbar .mat-form-field-label, body.theme-default .mat-toolbar .mat-focused .mat-form-field-label, body.theme-default .mat-toolbar .mat-select-value, body.theme-default .mat-toolbar .mat-select-arrow, body.theme-default .mat-toolbar .mat-form-field.mat-focused .mat-select-arrow {
+    color: inherit !important;
+}
+::ng-deep .mat-datepicker-toggle{
+    color:#2196f3 !important;
+ }
+ .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #2196f3 !important;
+  }
+  
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #039be5 !important;
+  }
+  
+  .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: #039be5 !important;
+  }
+  
+.custom-tooltip {
+    font-size: 14px !important;
+    background-color: #039be5 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .icon-tooltip {
+    font-size: 14px !important;
+    background-color: #039be5 !important;
+  }
+  .leaveType-icontooltip{
+    background-color: #039be5 !important;
+  }
+  .mat-paginator-page-size-label {
+    margin: 0 4px;
+    white-space: nowrap;
+}
+.mat-raised-button{
+    border-radius: 0 !important;
+}
+.reports-container{
+    margin:0px;
+    padding: 10px;
+    width: 100%;
+}
+body.theme-default .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #fff;
+}
+
+::ng-deep .mat-input-underline{
+    border-bottom: 1px solid green!important;
+}
+
+.filter-container {
+    width: 100%;
+    background: #fff;
+    padding: 15px 15px 0;
+    margin-bottom: 40px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    .top-section {
+        width: 100%;
+    }
+    mat-form-field {
+        width: 100% !important;
+    } 
+  }
+
+  .download-button {
+    text-align: right;
+    margin: 10px;
+  }
+  .employee-search {
+    width: 100%;
+    margin: 0;
+    position: sticky !important;
+    top: 0;
+    background: #fff;
+    z-index: 9;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body.theme-default .mat-progress-spinner circle, body.theme-default .mat-spinner circle {
+    stroke: #039be5;
+}
+body.theme-default .mat-tab-group.mat-primary .mat-ink-bar, body.theme-default .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #039be5 !important;
+}
+.profile-tabs{
+.mat-tab-label-container {
+    background: #fff !important;
+    border: 1px solid rgba(0,0,0,.125) !important;
+}
+}
+
+.employee-gntt {
+    max-width: 248px !important;
+}
+button.ngx-material-timepicker-toggle {
+    position: absolute;
+    right: 0;
+    top: -4px;
+}
+.sidenav{
+    .mat-form-field-flex {
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-infix {
+        padding: 2px 5px !important;
+    }
+    mat-tree-node.progress-row .mat-form-field-infix {
+        padding: 2px 0;
+    }
+}
+.middel-section{
+    .mat-progress-bar-fill::after {
+        background-color: #ff9b44 !important;
+    }
+}
+.avatar.mat-form-field-appearance-legacy .mat-form-field-underline{
+    height: 0 !important;
+    background-color: transparent !important;
+}
+.taskallocation {
+    width:480px;
+}
+.projectassignComponent{
+    width: 40vw;
+    height:auto;
+}
+.taskAssign{
+    width:350px;
+    height:auto; 
+}
+gantt-chart .container.mat-elevation-z8.theme-material {
+    margin: 10px !important;
+}
+
+    .leave-week1{
+        background-color:#15c372 !important;
+      }
+      
+      .leave-week4, .leave-week5, .leave-week6{
+          background-color:#1791e5 !important;
+      }
+    //   .leave-week2{
+    //       background-color: red;
+    // }
+    .timepicker-overlay{
+        z-index: 999999999 !important;
+    }
+    .leave-summary {
+            width: 100%;
+    .mat-form-field.employee {
+        max-width:20.5vw !important
+    }
+}
+.report-search {
+    width: 100%;
+}
+.project-drop{
+    width: 100%;
+}
+    .mat-select-search-inner {
+        box-shadow: none !important;
+        height: 44px !important;
+    }
+    .resorce-filter{
+        width: 100%;
+        .mat-form-field.employee {
+            max-width:22.5vw !important
+        }
+    }
+    .resource-search {
+        max-width: 50vw;
+        width: 100%;
+        .mat-form-field.employee {
+            max-width:39vw !important
+        }
+    }
+    .report-search .mat-form-field.employee {
+        max-width: 27vw !important;
+    }
+    .financial-filter {
+        width: 100%;
+        .mat-form-field.employee {
+            max-width: 27vw !important;
+        }
+    }
+    .resourceallocation {
+        width: 250px;
+        height: 150px;
+    }
+    .single-project{
+        width: 100%;
+     .mat-form-field {
+        width: 100%;
+        max-width:100% !important;
+    }
+}
+.auth-filter{
+    .mat-form-field.employee {
+        max-width: 100% !important;
+        width: 100%;
+    }
+}
+.addType {
+    width: 350px;
+}
+.project-profit{
+    .profit-table{
+        background: #f8f8fa;
+        padding: 0 20px 20px;
+        border-left: 2px solid #800080 ;
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+    table{
+        width: 100%;
+    }
+    .mat-expansion-indicator {
+        padding: 0px 10px;
+        border-radius: 50%;
+        color: #fff;
+        height: 28px;
+        border: 1px solid #bfbebe;
+    }
+    .mat-expansion-panel-header.mat-expanded{
+        .mat-expansion-indicator {
+            background: #800080 ;
+            border: 1px solid #800080 ;
+        }
+        .mat-expansion-indicator::after{
+            color: #fff !important;
+        }
+    }
+    .mat-expansion-panel-body {
+        padding: 0;
+    }
+    .mat-expansion-panel {
+        box-shadow: none !important;
+        border-bottom: 1px solid #dadada;
+    }
+}
+.timeUpdateType{
+    width: 40vw;
+ .mat-tab-group {
+    height: auto;
+}
+}
+.project-profit.table-container{
+    .mat-expansion-indicator::after {
+        color: #000 !important;
+    }
+   
+}
+
+cdk-virtual-scroll-viewport {
+    contain: none !important;
+}
+.cdk-virtual-scroll-content-wrapper {
+    position: relative !important;
+}
+app-project-search-dropdown.building-search {
+    width: 37vw;
+    max-width: 97%;
+}
+app-employee-dropdown.submission-search {
+    width: 100%;
+    .employee {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+.taskallocation4 {
+    width: 40vw;
+}
+.mat-dialog-content {
+    padding: 10px 24px !important;
+}
+.delete-modal .mat-dialog-container {
+    padding: 0;
+}
+
+.employee.loadtype {
+    max-width: 520px!important;
+}
+.resorcefilter {
+    width: 100%;
+
+}
+@media (max-width: 768px) {
+    .mat-tab-group {
+        height: 400px;
+    }
+    .mat-dialog-content {
+        overflow: hidden;
+    }
+    .mat-tab-body-content {
+        height: 55%;
+        overflow: auto;
+    }
+    .top-section {
+        flex-direction: column !important;
+        width: 100%;
+        .mat-form-field {
+        width: 98% !important;
+    }
+}
+.download-button{
+    position: relative;
+    right: 15px;
+}
+mat-form-field.mat-form-field.employee {
+    max-width: 100% !important;
+}
+.employee-gntt {
+    max-width: 100% !important;
+}
+.filter-container{ 
+    margin-bottom: 20px;
+    padding-bottom: 20px !important;
+}
+.ticket-addEdit {
+    width: 100% !important;   
+    min-width: 100% !important;
+    max-width: 100%;
+}
+.taskallocation {
+    width: 100%;
+    //height: 70vh;
+}
+
+.projectassignComponent{
+    width: 100vw;
+    // height: 70vh;
+}
+.taskAssign{
+    width: 100%;
+}
+.resorce-filter {
+    width: 100%;
+    .mat-form-field.employee {
+        max-width: 100% !important;
+    }
+}
+.project-profit{
+    .project-350 {
+        padding-right: 20px !important;
+    }
+    .project-150 {
+        padding-right: 20px !important;
+    }
+    .mat-content {
+        flex-direction: column !important;
+    }
+    .mat-expansion-panel-header {
+        height: auto;
+    }
+    .mat-expansion-panel-header {
+        padding: 10px 10px;
+    }
+    .profit-table{
+        padding: 0 10px 20px;
+    }
+    .left-section {
+        padding-bottom: 10px;
+    }
+}
+.timeUpdateType , .taskallocation4{
+    width: 100vw;
+}
+app-project-search-dropdown.building-search {
+    width: 100vw;
+    max-width:100%;
+}
+
+}

@@ -1,0 +1,60 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+
+    <div class="filter-container top">
+        <div>
+            <p>{{projectName}} ({{projectCode}})</p>
+            <p><strong>
+                    <mat-icon style="color: #008000;" class="date-icon">date_range</mat-icon>
+                </strong>{{startDate | date:'mediumDate'}} - {{endDate | date:'mediumDate'}}</p>
+        </div>
+
+        <div class="right-section">
+            <mat-form-field appearance="outline" fxFlex="50%">
+                <mat-label>Search</mat-label>
+                <input matInput (keyup)="searchFilter($event.target.value)">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="project-profit table-container mat-elevation-z2">
+
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="flashcardInputExpanded || hideShow===project.id"
+                (opened)="open(project.id);panelOpenState = !panelOpenState"
+                (closed)="close(project.id);panelOpenState = !panelOpenState"
+                *ngFor="let project of projectScopeArray; let i=index">
+                <mat-expansion-panel-header (click)="getSelectedValue(project)">
+                    <div class="my-panel" (click)="$event.stopPropagation();">
+                        <strong>{{project.description}}</strong>
+
+                        <button (click)="addProjectScope(project.id)" mat-stroked-button mat-raised-button
+                            color="accent">
+                            <mat-icon>add_circle</mat-icon><span class="mobilehide">Add More</span>
+                        </button>
+                        <button mat-stroked-button *ngIf="hideShow===project.id && scopeChanged"
+                            (click)="update(project.id)" mat-raised-button class="update" color="accent">
+                            Update
+                        </button>
+                    </div>
+
+                </mat-expansion-panel-header>
+                <ul class="profit-table">
+                    <li *ngFor="let item of project.scopes">
+                        <span>
+                            <mat-checkbox [checked]="item.checkBoxChecked" (change)="onChange($event,item,project)"
+                                class="example-margin"></mat-checkbox>{{item.description}}
+                            <mat-icon matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Add Comment"
+                                (click)="addComment(item.id)" class="addcomment">add_box</mat-icon>
+                        </span>
+                    </li>
+                </ul>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div *ngIf="noRecords" class="norecord">No Records</div>
+
+    </div>
+
+</div>

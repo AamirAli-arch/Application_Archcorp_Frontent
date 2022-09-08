@@ -1,0 +1,62 @@
+[
+    {
+      "name": "Connie Roth",
+      "projects": [
+        {
+          "projectName": "minim",
+          "assignedHours": 33,
+          "totalHours": 112
+        },
+        {
+          "projectName": "ipsum",
+          "assignedHours": 27,
+          "totalHours": 115
+        }
+      ]
+    },
+    {
+      "name": "Alexander Nash",
+      "projects": [
+        {
+          "projectName": "ea",
+          "assignedHours": 35,
+          "totalHours": 117
+        },
+        {
+          "projectName": "labore",
+          "assignedHours": 40,
+          "totalHours": 100
+        },
+        {
+          "projectName": "anim",
+          "assignedHours": 28,
+          "totalHours": 114
+        }
+      ]
+    },
+    {
+      "name": "Patterson Mejia",
+      "projects": [
+        {
+          "projectName": "id",
+          "assignedHours": 24,
+          "totalHours": 103
+        },
+        {
+          "projectName": "anim",
+          "assignedHours": 29,
+          "totalHours": 120
+        },
+        {
+          "projectName": "ullamco",
+          "assignedHours": 39,
+          "totalHours": 110
+        },
+        {
+          "projectName": "esse",
+          "assignedHours": 32,
+          "totalHours": 113
+        }
+      ]
+    }
+  ]

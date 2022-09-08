@@ -1,0 +1,131 @@
+.table-container {
+    position: relative;
+    height: calc(70vh - 100px);
+    overflow: auto;
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .filter-container{
+    width: 100%;
+  }
+
+  .reports-container
+  {
+    padding:10px;
+    width: 100%;
+  }
+
+  
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-paginator-sticky {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+}
+
+ :host ::ng-deep {
+    .mat-form-field .mat-form-field-flex{
+      background-color: white !important;
+    }
+  }
+  .text-primary {
+    color:#09af09 ;
+    font-weight: bold;
+}
+  .text-danger {
+    color: #f44336; 
+    font-weight: bold;
+}
+.text-warning {
+  color: #ffc107;
+  font-weight: bold;
+}
+.mat-raised-button {
+  width: 80px !important;
+  padding: 0 !important;
+  line-height: 30px;
+  box-shadow: none !important;
+}
+
+.color1{
+  background-color: green;
+  padding:2px 8px;
+  color:white;
+  border-radius: 2px;
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.color4, .color5, .color6{
+    background-color:#fea604;
+    padding:2px 8px;
+    color:white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80px;
+    display: block;
+    margin-right: 30px;
+}
+
+.color7, .color8{
+  background-color: yellow;
+  padding:2px 8px;
+  color:black;
+  border-radius: 2px;
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.color3{
+    background-color: #535252;
+    padding: 2px 8px;
+    color: white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.color2{
+    background-color: red;
+    padding:2px 8px;
+    color:white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .w-300{
+        width: 150px !important;
+        min-width: 150px !important;
+        max-width: 150px !important;
+        padding:10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+  }

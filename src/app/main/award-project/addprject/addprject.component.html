@@ -1,0 +1,196 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>Add Project</h2>
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div class="emtimated-hours" [formGroup]="addAuthForm">
+            <form [formGroup]="addAuthForm" fxLayout="column" (ngSubmit)="onSubmit()">
+                <mat-dialog-content>
+                <div class="primary-contact">
+      
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Employer</mat-label>
+                            <input matInput formControlName="employer" required spellcheck="false">
+                            <mat-error *ngIf="addAuthForm.controls.employer.errors?.required">Employer is required
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Location</mat-label>
+                            <input matInput formControlName="location"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.location.errors?.required">Location is required
+                            </mat-error> -->
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Plot Number</mat-label>
+                            <input matInput formControlName="plotNumber" required spellcheck="false">
+                            <mat-error *ngIf="addAuthForm.controls.plotNumber.errors?.required">Plot Number is required
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Plot Area</mat-label>
+                            <input matInput formControlName="plotArea"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.plotArea.errors?.required">Plot Area is required
+                            </mat-error> -->
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>GFA</mat-label>
+                            <input matInput formControlName="gFA"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.gFA.errors?.required">GFA is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>EstimatedBUA</mat-label>
+                            <input matInput formControlName="estimatedBUA"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.estimatedBUA.errors?.required">Estimated BUA is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>No Of Floors</mat-label>
+                            <input matInput formControlName="noOfFloors"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.noOfFloors.errors?.required">No Of Floors is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Parking</mat-label>
+                            <input matInput formControlName="parkingRequired"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.parkingRequired.errors?.required">Parking is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Extention Areas</mat-label>
+                            <input matInput formControlName="extentionAreas"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.extentionAreas.errors?.required">Extention Areas is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Project Budget</mat-label>
+                            <input matInput formControlName="projectBudget"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.projectBudget.errors?.required">Project Budget is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Category</mat-label>
+                            <input matInput formControlName="category"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.category.errors?.required">Category is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Typology</mat-label>
+                            <input matInput formControlName="typology"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.typology.errors?.required">Typology is
+                                required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Special Approvals</mat-label>
+                            <input matInput formControlName="specialApprovals"  spellcheck="false">
+                            <!-- <mat-error *ngIf="addAuthForm.controls.specialApprovals.errors?.required">Special Approvals
+                                is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Authority</mat-label>
+                            <mat-select required color="primary" formControlName="authorityId">
+                                <mat-option class="mat-primary" *ngFor="let item of authorityArray" [value]="item.id">
+                                    {{item.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="addAuthForm.controls.authorityId .errors?.required">Authority Id is
+                                required
+                            </mat-error>
+                        </mat-form-field>
+                     
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>MasterDeveloper </mat-label>
+                            <mat-select required color="primary" formControlName="masterDeveloperId">
+                                <mat-option class="mat-primary" *ngFor="let item of masterDeveloperArray" [value]="item.id">
+                                    {{item.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="addAuthForm.controls.masterDeveloperId.errors?.required">Master Developer
+                                Id is required
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+            </mat-dialog-content>
+                <mat-dialog-actions>
+                    <button fxLayoutGap="10px" color="accent" mat-raised-button>Save</button>
+                    <button [mat-dialog-close]="false" style="background: #ff0000;" fxLayoutGap="10px" color="accent"
+                        mat-raised-button>Cancel</button>
+                </mat-dialog-actions>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,102 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="column" fxLayoutAlign="start stretch" fxFlex="100" style="margin: 10px;" class="filter-container1">
+    <div class="w-100-p">
+        
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+        <h1>Add Risk Note</h1>
+        <p>Raise an issue regarding the project, please fill the details.</p>
+        
+    </div>
+
+    
+    <form [formGroup]="projectNotesForms" fxLayout="column" fxLayoutAlign="space-around stretch">
+        <app-project-dropdown class="resorce-filter" (projectId)="projectId($event)" fxFlex="grow">            
+        </app-project-dropdown>
+
+        <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100" >
+            <mat-label>Select Implications</mat-label>
+            <mat-select required color="primary" formControlName="implications">
+                <mat-option class="mat-primary"></mat-option>
+                <mat-option class="mat-primary" [value]="3">Authority</mat-option>
+                <mat-option class="mat-primary" [value]="1">Client</mat-option>
+                <mat-option class="mat-primary" [value]="7">Scope</mat-option>
+                <mat-option class="mat-primary" [value]="4">Contractor</mat-option>
+                <mat-option class="mat-primary" [value]="5">Design</mat-option>
+                <mat-option class="mat-primary" [value]="6">Lifestyle</mat-option>
+                <mat-option class="mat-primary" [value]="2">Technical</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <label id="radio-group-label">Pick a Note Type</label>
+        <mat-radio-group required formControlName="noteType" aria-label="Select an option">
+            <mat-radio-button [value]="1">Choices</mat-radio-button>
+            <mat-radio-button [value]="2">Decisions</mat-radio-button>
+            <mat-radio-button [value]="3">Submittals</mat-radio-button>            
+        </mat-radio-group>
+
+        <label id="radio-group-label2">Choose a Priority/Urgency</label>
+        <mat-radio-group required formControlName="priority" aria-label="Select an option">
+            <mat-radio-button [value]="1">Show-Stopper</mat-radio-button>
+            <mat-radio-button [value]="2">Critical</mat-radio-button>
+            <mat-radio-button [value]="3">High</mat-radio-button>
+            <mat-radio-button [value]="4">Medium</mat-radio-button>
+            <mat-radio-button [value]="5">Low</mat-radio-button>
+            <mat-radio-button [value]="6">Trivial</mat-radio-button>            
+        </mat-radio-group>
+
+        
+          <mat-form-field class="due-date" appearance="outline">
+            <mat-label>Choose a Due Date</mat-label>
+            <input matInput required [matDatepicker]="picker" formControlName="dDate"  (click)="picker.open()">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>           
+          </mat-form-field>
+
+        
+
+        <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100" style="margin-top:15px;">
+            <mat-label>Select Stage</mat-label>
+            <mat-select required color="primary" formControlName="stage">
+                <mat-option class="mat-primary"></mat-option>                
+                <mat-option class="mat-primary" [value]="2">Prerequisites</mat-option>
+                <mat-option class="mat-primary" [value]="3">Preliminary/Concept Design</mat-option>
+                <mat-option class="mat-primary" [value]="4">Schematic Design NOCs</mat-option>
+                <mat-option class="mat-primary" [value]="5">Detailed Design</mat-option>
+                <mat-option class="mat-primary" [value]="6">Post BP Submissions</mat-option>
+                <mat-option class="mat-primary" [value]="7">Contractor Submission</mat-option>
+                <mat-option class="mat-primary" [value]="8">BCC</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+            <mat-label>Select Risk Profile</mat-label>
+            <mat-select required color="primary" formControlName="riskProfile">
+                <mat-option class="mat-primary"></mat-option>
+                <mat-option class="mat-primary" [value]="1">Stage to Stage</mat-option>
+                <mat-option class="mat-primary" [value]="2">Stage to Design Closure</mat-option>
+                <mat-option class="mat-primary" [value]="3">Stage to Supervision</mat-option>
+                <mat-option class="mat-primary" [value]="4">Stage to Handover</mat-option>
+                <mat-option class="mat-primary" [value]="5">No Risk</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="grow">
+            <mat-label>Note</mat-label>
+            <input matInput required placeholder="Note" formControlName="note">            
+            </mat-form-field>
+       
+      
+                  <app-employee-dropdown class="submission-search" (employeeId)="getEmployeValue($event)" [customplaceholder]="empPlaceholderTo">
+                </app-employee-dropdown>
+
+                <app-employee-dropdown class="submission-search" (employeeId)="getEmployeValueCC($event)" [customplaceholder]="empPlaceholderCc">
+                </app-employee-dropdown>
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+                    <button (click)="saveNote()" mat-raised-button color="primary" fxFlex="50">Submit</button>
+                    <button [mat-dialog-close]="false" style="background: #ff0000;" fxLayoutGap="10px" color="accent" mat-raised-button fxFlex="50">Cancel</button>
+                </div>
+       
+    </form>
+</div>

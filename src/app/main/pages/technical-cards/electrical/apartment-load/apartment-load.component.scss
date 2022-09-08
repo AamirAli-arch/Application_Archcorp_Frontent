@@ -1,0 +1,117 @@
+.table-container {
+    overflow-x: scroll;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    white-space: nowrap;
+    border: 1px solid #dddddd;
+  }
+  .mat-elevation-z2 {
+    overflow-x: scroll;
+}
+.fresh-table{
+
+    td,th{
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+        width: 150px;
+        position: relative;
+        display: inline-block;
+        min-height: 110px;
+        text-align: center;
+        padding-top: 20px;
+        white-space: normal;
+    }
+    td{
+        min-height: auto;
+        padding:0 !important;
+        min-height: 35px;
+        line-height: 35px;
+    }
+    tr {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        display: block;
+        margin-bottom: -1px;
+    }
+    .inner-row{
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    span{
+        font-weight: bold;
+        display: block;
+        padding:5px 10px;
+        background: #dddddd;
+    }
+    
+.area {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    font-weight: normal;
+    height:30px;
+    padding:5px;
+}
+.occupants{
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    display: block;
+}
+.flowbased{
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-top: 14px;
+}
+.flow-based {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.flow-based span {
+    background: transparent !important;
+    width: 100%;
+    padding: 0;
+    font-weight: normal;
+}
+.project-leavename {
+    width: 250px !important;
+    line-height: 100px;
+    padding: 0;
+    strong {
+        display: block;
+        // padding-top: 25px;
+    }
+}
+.inner-row strong {
+    padding: 0 !important;
+    text-align: left;
+}
+.inner-row .project-leavename {
+    text-align: left !important;
+    padding-left: 10px !important;
+}
+
+.project-area.sum {
+    background: #2f8be6;
+    color: #fff;
+}
+.input-area {
+    width: 100%;
+    text-align:center;
+    background: #F5F5F5;
+    height:30px;
+}
+.projectleavename {
+    width: 250px!important;
+    padding: 0 !important;
+    height: 70px;
+    line-height: 70px !important;
+}
+.loadvalue {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+}

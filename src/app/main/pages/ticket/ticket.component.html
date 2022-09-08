@@ -1,0 +1,178 @@
+<app-loader-spiner></app-loader-spiner>
+
+<div class="container p-12 w-100-p">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="page-title">Tickets</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Tickets</li>
+                </ul>
+                <button (click)="editRecord()" class="add-more" mat-raised-button  color="primary"> <mat-icon>add_circle</mat-icon> Add Ticket</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="middel-section">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-group m-b-30">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <div><span class="d-block">New
+                                        Tickets</span></div>
+                                <div><span class="text-success">+10%</span>
+                                </div>
+                            </div>
+                            <h3 class="mb-3">112</h3>
+                            <div class="progress mb-2" style="height: 5px;">
+                                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <div><span class="d-block">Solved
+                                        Tickets</span></div>
+                                <div><span class="text-success">+12.5%</span></div>
+                            </div>
+                            <h3 class="mb-3">70</h3>
+                            <div class="progress mb-2" style="height: 5px;">
+                                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <div><span class="d-block">Open
+                                        Tickets</span></div>
+                                <div><span class="text-danger">-2.8%</span>
+                                </div>
+                            </div>
+                            <h3 class="mb-3">100</h3>
+                            <div class="progress mb-2" style="height: 5px;">
+                                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <div><span class="d-block">Pending
+                                        Tickets</span></div>
+                                <div><span class="text-danger">-75%</span>
+                                </div>
+                            </div>
+                            <h3 class="mb-3">125</h3>
+                            <div class="progress mb-2" style="height: 5px;">
+                                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <input matInput formControlName="employeeName" autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="month">
+                    <mat-option value="1"> Pending </mat-option>
+                    <mat-option value="2"> Approved </mat-option>
+                    <mat-option value="3"> Returned </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Priority</mat-label>
+                <mat-select formControlName="years">
+                    <mat-option value="1"> High </mat-option>
+                    <mat-option value="2"> Low </mat-option>
+                    <mat-option value="3"> Medium </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>From</mat-label>
+                <input readonly required matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="formDate">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>To</mat-label>
+                <input readonly required matInput [matDatepicker]="toDate" (click)="toDate.open()"
+                    formControlName="toDate">
+                <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                <mat-datepicker #toDate></mat-datepicker>
+            </mat-form-field>
+
+            <button class="search" mat-raised-button color="accent">Search</button>
+        </div>
+    </div>
+    <button (click)="deleteRecord()" class="search" mat-raised-button color="accent">Delete</button>
+    <button (click)="editRecord()" class="search" mat-raised-button color="accent">Edit</button>
+    <div fxLayout="row">
+        <mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="ticketId">
+                <mat-header-cell *matHeaderCellDef> Ticket Id </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="date"> 19 Feb 2019 </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="ticket">
+                <mat-header-cell *matHeaderCellDef> Ticket Subject </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="PunchIn">10 AM</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="assignStaff">
+                <mat-header-cell *matHeaderCellDef> Assigned Staff </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="PunchOut">7 PM</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="createDate">
+                <mat-header-cell *matHeaderCellDef> Created Date </mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Production"> 9 hrs</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="reply">
+                <mat-header-cell *matHeaderCellDef>Last Reply</mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Break"> 1 hrs </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="priority">
+                <mat-header-cell *matHeaderCellDef> Priority</mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Overtime"> 0</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Overtime"> 0</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+                <mat-cell *matCellDef="let element" data-label="Overtime"> 0</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25"
+        [pageSizeOptions]="[5, 10, 25, 50, 100]">
+    </mat-paginator>
+</div>

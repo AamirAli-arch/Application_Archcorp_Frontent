@@ -1,0 +1,113 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+    <!-- <div class="loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div> -->
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input readonly placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="startDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input readonly placeholder="End Date" [min]="filterForm.value.startDate" matInput [matDatepicker]="endDate"
+                    (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                  <mat-option *ngFor="let emp of statusArray" [value]="emp.id">{{emp.leaveType}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              
+        </div>
+    </div>
+    <div class="download-button">
+        <button mat-raised-button color="accent"
+            (click)="exporter.exportTable('xlsx', {fileName:'Employee_Report'})">Download</button>
+    </div>
+    <div class="mat-elevation-z2">
+    <div class="table-container">
+        <table mat-table [dataSource]="filteredAndPaged" matTableExporter #exporter="matTableExporter">
+
+            <ng-container sticky matColumnDef="empName">
+                 <th class="w-300" mat-header-cell *matHeaderCellDef> Employee Name </th>
+                <td class="w-300" mat-cell *matCellDef="let element" data-label="Employee Name"> {{element.empName}} </td>
+            </ng-container>
+
+            <ng-container sticky matColumnDef="createdDate">
+                <th class="w-300" mat-header-cell *matHeaderCellDef> Applied Date </th>
+               <td class="w-300" mat-cell *matCellDef="let element" data-label="Applied Date"> {{element.createdDate | date:'mediumDate'}} </td>
+           </ng-container>
+
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="leaveType">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> Leave Type </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="Leave Type"> {{element.leaveType}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startDate">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> From </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="From"> {{element.startDate | date:'mediumDate'}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endDate">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> To </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="To"> {{element.endDate | date:'mediumDate'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="startingHalf">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> Starting Half </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="StartingHalf"> {{element.startingHalf}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endingHalf">
+               <th class="w-200" mat-header-cell *matHeaderCellDef> Ending Half </th>
+              <td class="w-200" mat-cell *matCellDef="let element" data-label="endingHalf"> {{element.endingHalf}} </td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="leaveApprove">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Approve/Rejected By </th>
+               <td class="w-200" mat-cell *matCellDef="let element" data-label="endingHalf"> {{element.approvedBy}} </td>
+             </ng-container> -->
+
+            <ng-container matColumnDef="currentStatus">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> Status </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="Status"> <span matTooltipClass="icon-tooltip"
+                        matTooltipPosition="above" matTooltip="{{element.currentStatus | leaveStatus}}"
+                        [ngClass]="'color' + element.currentStatus">{{element.currentStatus | leaveStatus}}</span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> Actions </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="Actions">
+                    <span *ngIf="element.currentStatus != 3 && element.currentStatus !=2 && element.currentStatus !=1">
+                        <button (click)="rejectMyLeave(element.id)" mat-raised-button color="accent">Cancel</button>
+                    </span>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25"
+    [pageSizeOptions]="[5, 10, 25, 50, 100]">
+</mat-paginator>
+</div>
+</div>

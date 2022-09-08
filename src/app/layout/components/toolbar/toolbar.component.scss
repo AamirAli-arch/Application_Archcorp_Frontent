@@ -1,0 +1,151 @@
+@import "src/@fuse/scss/fuse";
+
+toolbar {
+    position: sticky;
+    display: flex;
+    flex: 0 0 auto;
+    z-index:9;
+    top: 0;
+    background: #fff;
+
+    &.below {
+        z-index: 2;
+    }
+
+    .mat-toolbar {
+        position: relative;
+        background: inherit !important;
+        color: inherit !important;
+        height: 70px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        .logo-icon {
+            width: 38px;
+        }
+    }
+
+    .user-button,
+    fuse-search-bar,
+    .language-button,
+    .chat-panel-toggle-button,
+    .quick-panel-toggle-button {
+        min-width: 64px;
+        height: 64px;
+
+        @include media-breakpoint('xs') {
+            height: 56px;
+        }
+    }
+
+    .navbar-toggle-button {
+        min-width: 56px;
+        height: 56px;
+    }
+
+    .toolbar-separator {
+        height: 64px;
+        width: 1px;
+
+        @include media-breakpoint('xs') {
+            height: 56px;
+        }
+    }
+}
+.bell-right {
+    position: relative;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+span{
+    background: #039be5;
+    font-size: 9px;
+    color: #fff;
+    position: absolute;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    top: -6px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 16px;
+}
+}
+mat-icon.bell {
+    position: relative;
+    top: 5px;
+}
+.notification-drop-down{
+    position: absolute;
+    top: 70px;
+    right: 100px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px #455b633d;
+    width: 100%;
+    max-width: 350px;
+    white-space: normal;
+    border-radius: 6px;
+    font-size: 14px;
+    p {
+        margin:5px 0 0;
+        font-size: 12px;
+        color: #6c757d;
+         line-height: 1.4;
+    }
+    strong {
+        font-weight: 700;
+        line-height: 1.7;
+        color: #17102f;
+    }
+    .scroll {
+        overflow-y: scroll;
+        height: 250px;
+    }
+    .mt-2.text-sm.leading-none.text-secondary {
+        font-size: 14px;
+        padding: 10px;
+        font-style: italic;
+        color: #bdbdbd;
+        position: absolute;
+        right: 0;
+        top: 3px;
+    }
+    .title {
+        background: #039be5;
+        color: #fff;
+        font-size: 18px;
+        padding:5px 10px;
+        text-align: left;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        font-weight: bold;
+    }
+    .line-clamp-2 {
+        padding: 1rem;
+        position: relative;
+    }
+    .flex.flex-col.flex-auto {
+        border-bottom: 1px solid #e2e8f0;
+        margin-bottom: 10px;
+        line-height: normal;
+        cursor: pointer;
+    }
+    .read-more {
+        text-align: center;
+        cursor: pointer;
+        border-top: 1px solid #e2e8f0;
+    }
+}
+
+@media (max-width:768px) {
+    .notification-drop-down{
+        right:5px;
+    }
+}

@@ -1,0 +1,13 @@
+.mat-form-field.employee {
+    max-width: 335px;
+    display: block;
+    width: 330px;
+}
+
+@media screen and (max-width: 768px) {
+    .mat-form-field.employee {
+        max-width: 100% !important;
+        display: block;
+        width: 100% !important;
+    }
+}

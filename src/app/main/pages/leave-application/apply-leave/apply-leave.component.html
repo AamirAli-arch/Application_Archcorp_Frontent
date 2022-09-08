@@ -1,0 +1,173 @@
+<app-loader-spiner></app-loader-spiner>
+
+<div class="container p-12 w-100-p">
+    <span mat-card-title>Leave Application</span>
+  
+    <form class="pt-12" [formGroup]="leaveApplicationForm" (ngSubmit)="onSubmit()">
+        <div fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start" fxLayoutGap="10px">
+            <!-- show only mobile view -->
+            <div *ngIf="leaveApplicationForm.get('type').value != '' && leaveApplicationForm.get('type').value!=3 && leaveApplicationForm.get('type').value!=5 && leaveApplicationForm.get('type').value!=7 && leaveApplicationForm.get('type').value!=6"
+                class="leaves-bank mobile" fxFlex.gt-sm="40" fxLayout="row" fxLayoutAlign="space-evenly center">
+                <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="20px">
+                    <div>
+                        <span class="leave-status">Taken <b>{{usedHolidays}}</b></span>
+
+                    </div>
+                    <div>
+                        <span class="leave-status">Remaining <b>{{totalHolidays}}</b> </span>
+
+                    </div>
+                </div>
+                <div *ngIf="noBalance">
+                    {{errorMessage}}
+                </div>
+            </div>
+            <!-- End show only mobile view -->
+
+            <mat-form-field appearance="outline" class="" fxFlex.gt-sm="40">
+                <mat-label>Leave Type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="1">Annual</mat-option>
+                    <mat-option value="2">Casual</mat-option>
+                    <mat-option value="3">Sick</mat-option>
+                    <mat-option value="4">Emergency</mat-option>
+                    <mat-option value="5">Floating</mat-option>
+                    <!-- <mat-option value="6">Paternity</mat-option> -->
+                    <mat-option value="6">Unpaid</mat-option>
+                    <mat-option value="7">Time Off</mat-option>
+                </mat-select>
+                <mat-error *ngIf="leaveApplicationForm.controls.type.errors?.required">Please select LeaveType from
+                    dropdown to proceed.</mat-error>
+            </mat-form-field>
+
+            <div *ngIf="leaveApplicationForm.get('type').value != '' && leaveApplicationForm.get('type').value!=3 && leaveApplicationForm.get('type').value!=5 && leaveApplicationForm.get('type').value!=7 && leaveApplicationForm.get('type').value!=6"
+                class="leaves-bank desktop" fxFlex.gt-sm="40" fxLayout="row" fxLayoutAlign="space-evenly center">
+                <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="20px">
+                    <div>
+                        <span class="leave-status">Taken <b>{{usedHolidays}}</b></span>
+                    </div>
+                    <div>
+                        <span class="leave-status">Remaining <b>{{totalHolidays | number : '1.2-2'}}</b> </span>
+                    </div>
+                </div>
+                <div *ngIf="noBalance">
+                    {{errorMessage}}
+                </div>
+            </div>
+        </div>
+        <div *ngIf="leaveApplicationForm.get('type').value!=3 && leaveApplicationForm.get('type').value!=5 &&  leaveApplicationForm.get('type').value!=7 && leaveApplicationForm.get('type').value!=6"
+            fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start"
+            fxLayoutGap="10px">
+            <mat-form-field appearance="outline" fxFlex.gt-sm="40">
+                <mat-label>Select Days</mat-label>
+                <mat-date-range-input formGroupName="range" [rangePicker]="picker">
+                    <input readonly matStartDate formControlName="start" placeholder="Start date" #dateRangeStart>
+                    <input matEndDate [max]="minDate" formControlName="end" placeholder="End date" #dateRangeEnd
+                        (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="leaveApplicationForm.controls.start.errors?.required && leaveApplicationForm.controls.end.errors?.required">Please Select Date to proceed.</mat-error>
+            </mat-form-field>
+            <div fxLayout="column" fxFlex.gt-sm="40" *ngIf="dateRangeEnd.value != ''">
+                <div> You've selected <b>{{dateRangeStart.value | date:'MMM d'}} - {{dateRangeEnd.value | date:'MMM d'}}</b>.
+                    That's a total of <b>{{getTotalNumberDay}} calendar days.</b>
+                </div>
+                <div class="pt-8">
+                    <mat-list role="list">
+                        <mat-list-item *ngFor="let item of validations" role="listitem">
+                            <mat-icon mat-list-icon [color]="item.color">{{item.type}}</mat-icon>
+                            {{item.message}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="leaveApplicationForm.get('type').value==3 || leaveApplicationForm.get('type').value==5 || leaveApplicationForm.get('type').value==6"
+            class="pt-12" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start"
+            fxLayoutGap="10px">
+            <mat-form-field appearance="outline" fxFlex.gt-sm="40">
+                <mat-label>Select Days</mat-label>
+                <mat-date-range-input formGroupName="range" [rangePicker]="picker">
+                    <input readonly matStartDate formControlName="start" placeholder="Start date" #dateRangeStart>
+                    <input matEndDate [max]="minDate" formControlName="end" placeholder="End date" #dateRangeEnd
+                        (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="leaveApplicationForm.controls.start.errors?.required && leaveApplicationForm.controls.end.errors?.required">Please Select Date to proceed .</mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div *ngIf="leaveApplicationForm.get('type').value==7" class="pt-12 time-off-section">
+            <div fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start" fxLayoutGap="10px">
+                <mat-form-field appearance="outline" fxFlex.gt-sm="40">
+                    <mat-label>Select Days</mat-label>
+                    <input readonly [min]='toDate' formControlName="dateSelect" matInput [matDatepicker]="setdate">
+                    <mat-datepicker-toggle matSuffix [for]="setdate"></mat-datepicker-toggle>
+                    <mat-datepicker #setdate></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="date-time" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start"
+                fxLayoutGap="10px">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Start Time</mat-label>
+                    <input [min]="'08:00 am'" [max]="'06:00 pm'" readonly [format]="24"
+                        (ngModelChange)="startTime($event)" formControlName="startDateTime" matInput
+                        [ngxTimepicker]="startTimepicker" [disableClick]="true" readonly>
+                    <ngx-material-timepicker-toggle [for]="startTimepicker"></ngx-material-timepicker-toggle>
+                    <ngx-material-timepicker #startTimepicker></ngx-material-timepicker>
+                    <mat-error *ngIf="leaveApplicationForm.controls.startDateTime.errors?.required">Please Enter Start Time to proceed.</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>End Time</mat-label>
+                    <input [max]="'06:00 pm'" readonly [format]="24" formControlName="endDateTime" matInput
+                        [ngxTimepicker]="endTimepicker" [min]='minTime' [disableClick]="true" readonly>
+                    <ngx-material-timepicker-toggle [for]="endTimepicker"></ngx-material-timepicker-toggle>
+                    <ngx-material-timepicker #endTimepicker></ngx-material-timepicker>
+                    <mat-error *ngIf="leaveApplicationForm.controls.endDateTime.errors?.required">Please Enter End Time to proceed.</mat-error>
+                </mat-form-field>
+
+            </div>
+        </div>
+        <!-- <div *ngIf="leaveApplicationForm.get('type').value!=7 && leaveApplicationForm.get('type').value!=6"
+            class="date-time" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start"
+            fxLayoutGap="10px">
+            <mat-form-field appearance="outline">
+                <mat-label>Starting Half </mat-label>
+                <mat-select  (selectionChange)="onChangefirstHalf($event)" formControlName="firstHalf">
+                    <mat-option *ngFor="let status of leaveValue" [value]='status.id'>
+                        {{status.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Ending Half</mat-label>
+                <mat-select  (selectionChange)="onChangesecondHalf($event)" formControlName="secondHalf">
+                    <mat-option *ngFor="let status of leaveValue" [value]='status.id'>
+                        {{status.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div> -->
+        <div class="pt-8">
+            <mat-form-field appearance="outline">
+                <mat-label>Reason</mat-label>
+                <textarea matInput formControlName="reason"></textarea>
+                <mat-error *ngIf="leaveApplicationForm.controls.reason.errors?.required">Please Enter Reason to proceed.</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="pt-8">
+            <span class="disclaimer">DISCLAIMER: Avoid finalizing travel plans before leaves are approved.</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" class="pt-12">
+            <button mat-raised-button color="accent">
+                <span>Apply</span> </button>
+            <button routerLink="/pages/myleave-request" mat-raised-button type="button">
+                <span>Cancel</span> </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+.notification{
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    background: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+mat-card-subtitle {
+    display: block;
+    font-size: 14px !important;
+}
+mat-card-title {
+    display: block;
+    margin: 0 !important;
+}
+table {
+    width: 100%;
+  }
+  .loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

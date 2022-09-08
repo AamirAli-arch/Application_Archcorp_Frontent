@@ -1,0 +1,111 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>Profile Information</h2>
+        <button [mat-dialog-close]="true" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+        <div class="profile-img-wrap edit-img">
+            <img *ngIf="!imageUrl" src="assets/images/avatars/Josefina.jpg" alt="user"
+                class="inline-block">
+                <img *ngIf="imageUrl" [src]="imageUrl"  class="inline-block">
+            <div class="fileupload btn"><span class="btn-text">edit</span><input #Image (change)="imageUpload($event.target.files)" capture="camera" type="file" class="upload"></div>
+        </div>
+        <div class="emtimated-hours" [formGroup]="allocationForm">
+            <mat-dialog-content>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName" required spellcheck="false">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName" required spellcheck="false">
+                </mat-form-field>
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Birth Date</mat-label>
+                    <input readonly required  [min]="statDate" matInput [matDatepicker]="startDate"
+                        (click)="startDate.open()" formControlName="brithDate">
+                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field  appearance="outline" class="full-width">
+                    <mat-label>Gender</mat-label>
+                    <mat-select required formControlName="gender">
+                        <mat-option value="1">Male</mat-option>
+                        <mat-option value="2">Female</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address" required spellcheck="false">
+                </mat-form-field>
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>State</mat-label>
+                    <input matInput formControlName="state" required spellcheck="false">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Country</mat-label>
+                    <input matInput formControlName="country" required spellcheck="false">
+                </mat-form-field>
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Pin Code</mat-label>
+                    <input matInput formControlName="pincode" required spellcheck="false">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="mobile" required spellcheck="false">
+                </mat-form-field>
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Department</mat-label>
+                    <mat-select formControlName="department">
+                        <mat-option *ngFor="let department of departmentList" [value]="department.id">{{department.name}}</mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Designation </mat-label>
+                    <mat-select formControlName="designation">
+                        <mat-option *ngFor="let department of designationList" [value]="department.id">{{department.name}}</mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+            </div>
+
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Reports To</mat-label>
+                    <mat-select formControlName="reportsto">
+                        <option>-</option>
+                        <mat-option>Wilmer Deluna</mat-option>
+                        <mat-option>Lesley Grauer</mat-option>
+                        <mat-option>Jeffery Lalor</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            </mat-dialog-content>
+            <mat-dialog-actions>
+                <button [disabled]="!allocationForm.valid" fxLayoutGap="10px" color="accent" mat-raised-button
+                    (click)="profileEdit()">Update</button>
+
+            </mat-dialog-actions>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,183 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Level</mat-label>
+                <mat-select color="primary" formControlName="level">
+                    <mat-option class="mat-primary" *ngFor="let level of levelArray" [value]="level.id">
+                        {{level.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Space</mat-label>
+                <mat-select color="primary" formControlName="space">
+                    <mat-option class="mat-primary" *ngFor="let list of spaceArray" [value]="list.id">
+                        {{list.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Area</mat-label>
+                <input (focusout)="focusOutFunction()" (keypress)="numberOnly($event)" matInput formControlName="area"
+                    spellcheck="false">
+            </mat-form-field>
+
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="mat-elevation-z2">
+            <table class="fresh-table">
+                <thead>
+                    <tr>
+                        <th class="project-leavename"><strong>Space</strong></th>
+                        <th class="project-area">
+                            Area
+                            <div class="area">
+                                m²
+                            </div>
+                        </th>
+                        <th class="project-occupants">
+                            <strong>Total Proposed Occupants</strong>
+                            <div class="area">
+                                No
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Air flow based on no. of People</strong>
+                            <div class="flowbased">
+                                Rp
+                            </div>
+                            <div class="flow-based">
+                                <span style="border-right: 1px solid rgba(0, 0, 0, 0.12);">l/s/p</span>
+                                <span>l/s</span>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Air Rate based on Area</strong>
+                            <div class="flowbased">
+                                Rp
+                            </div>
+                            <div class="flow-based">
+                                <span style="border-right: 1px solid rgba(0, 0, 0, 0.12);">l/s/p</span>
+                                <span>l/s</span>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Total Outside Air</strong>
+                            <div class="flowbased">
+                                (Ra + Rp)
+                            </div>
+                            <div class="flow-based">
+                                <span>l/s</span>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Proposed Outside Air</strong>
+                            <div class="area">
+                                l/s
+                            </div>
+                        </th>
+                        <th style="padding: 20px 10px;" class="project-150">
+                            <strong>Number of Units</strong>
+                        </th>
+                        <th class="project-150">
+                            <strong>Total Outside Air</strong>
+                            <div class="area">
+                                l/s
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Proposed Extract</strong>
+                            <div class="area">
+                                l/s
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Total Extract Air </strong>
+                            <div class="area">
+                                l/s
+                            </div>
+                        </th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let itemlevel of leveData; let i=index;">
+                        <span>{{itemlevel.levelName}}</span>
+                        <ng-container *ngFor="let space of itemlevel.parameters">
+                    <tr class="inner-row">
+                        <td class="project-leavename">{{space.parameterName}}</td>
+                        <td class="project-area">
+                            <input class="input-area" [readOnly]="i===hideShowInputArea"
+                                (focusout)="updateAreaValue(space.levelId,space.id,space.area)"
+                                (keypress)="numberOnly($event)" [(ngModel)]="space.area" spellcheck="false">
+                        </td>
+                        <td class="project-area">{{space.totalProposedOccupants}}</td>
+                        <td class="project-area">
+                            <div class="flow-based">
+                                <span style="border-right: 1px solid rgba(0, 0, 0, 0.12);">{{space.airFlowBasedOnNoOfPeople}}</span>
+                                <span>{{space.totalProposedOccupants*space.airFlowBasedOnNoOfPeople | number : '1.2-2'}}</span>
+                            </div>
+                        </td>
+                        <td class="project-area">
+                            <div class="flow-based">
+                                <span style="border-right: 1px solid rgba(0, 0, 0, 0.12);">{{space.airRateBasedOnArea}}</span>
+                                <span>{{space.area*space.airRateBasedOnArea | number : '1.2-2'}}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flow-based">
+                                <span>{{space.area*space.airRateBasedOnArea+space.totalProposedOccupants*space.airFlowBasedOnNoOfPeople | number : '1.2-2'}}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="area">
+                                {{space.proposedOutsideAir}}
+                            </div>
+                        </td>
+                        <td>{{space.noOfUnits}}</td>
+                        <td>{{space.area*space.airRateBasedOnArea+space.totalProposedOccupants*space.airFlowBasedOnNoOfPeople+space.noOfUnits | number : '1.2-2'}}</td>
+                        <td>
+                            <div class="area">
+                                {{space.proposedOutsideAir}}
+                            </div>
+                        </td>
+                        <td> {{space.proposedOutsideAir*space.noOfUnits | number : '1.2-2'}}</td>
+                    </tr>
+                    </ng-container>
+                    <ng-container>
+                        <tr class="inner-row">
+                            <td class="project-leavename"><strong>Sub-Total ({{itemlevel.levelName}})</strong></td>
+                            <td class="project-area sum">{{itemlevel.sumArea}}</td>
+                            <td class="project-area"></td>
+                            <td class="project-area"></td>
+                            <td class="project-area"></td>
+                            <td class="project-area"></td>
+                            <td class="project-area"></td>
+                            <td class="project-area"></td>
+                            <td class="project-area sum">{{itemlevel.sumTotalOutsideAir  | number : '1.2-2'}}</td>
+                            <td class="project-area"></td>
+                            <td class="project-area sum">{{itemlevel.sumTotalExtractAir  | number : '1.2-2'}}</td>
+                        </tr>
+                    </ng-container>
+                    </tr>
+                </tbody>
+
+            </table>
+
+
+
+        </div>
+
+    </div>
+
+    <div *ngIf="noRecords" class="norecord">No Records</div>
+</div>

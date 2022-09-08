@@ -1,0 +1,35 @@
+<app-loader-spiner></app-loader-spiner>
+
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Authority">
+      <ng-template matTabContent>
+        <!-- Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}} -->
+        <app-authority-dashboard></app-authority-dashboard>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab label="Gantt">
+      <ng-template matTabContent>
+        <!-- Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}} -->
+        <app-projects-current-resources></app-projects-current-resources>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Notes">
+        <ng-template matTabContent>
+              <app-notes-dashboard></app-notes-dashboard>
+        </ng-template>
+    </mat-tab>
+ </mat-tab-group>
+    
+
+<!-- <mat-tab label="Third">
+   <ng-template matTabContent>
+     Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+     </ng-template>
+    </mat-tab>
+   </mat-tab-group>
+
+ </mat-tab-group>
+ <mat-tab-group mat-align-tabs="center">
+     animationDuration="2000ms
+-->

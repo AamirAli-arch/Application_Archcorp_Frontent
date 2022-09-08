@@ -1,0 +1,150 @@
+<div class="user-monitor-container p-12">
+    <div class="loading-shade"
+    *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="start start" style="width:100%;">
+    <div *ngIf="showFilter" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" style="width:100%;">
+   
+      <div fxFlex="25">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Project</mat-label>
+          <mat-select name="project" (selectionChange)="filterProject($event)">
+            <mat-option *ngFor="let project of listProjects" [value]="project.name">
+              {{project.projectName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+      <div fxFlex="25">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>User</mat-label>
+            <mat-select [(ngModel)]="selectedUser" name="user" (selectionChange)="filterUser($event)">
+              <mat-option *ngFor="let user of listUserDropDown" [value]="user.value">
+                {{user.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+      <div fxFlex="25">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Discipline</mat-label>
+          <mat-select name="discipline" (selectionChange)="filterDiscipline($event)">
+            <mat-option value="Architectural">Architectural</mat-option>
+            <mat-option value="Mechanical ">Mechanical</mat-option>
+            <mat-option value="Electrical">Electrical</mat-option>
+            <mat-option value="Structural">Structural</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    
+      <div fxFlex="25">
+        <mat-form-field appearance="outline">      
+                  <mat-label>Select Days</mat-label>      
+                  <mat-date-range-input [rangePicker]="picker">      
+                    <input matStartDate placeholder="Start date" #dateRangeStart>      
+                    <input matEndDate placeholder="End date" #dateRangeEnd
+                    (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">      
+                  </mat-date-range-input>      
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+                  <mat-date-range-picker #picker></mat-date-range-picker>      
+                </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center" class="w-100-p" style="margin-top: 10px;margin-bottom: 10px;">
+      <span fxFlexAlign="start" style="font-weight: bold;font-size: 18px;text-decoration: underline;">Last Updated at {{lastUpdated | notificationpipe }}</span>
+      <h1>{{projectName}}</h1>
+    </div>
+
+
+    <div fxLayout="column" fxLayoutAlign="start start" style="width:100%">
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="20px" style="width:100%; margin-bottom:50px;">
+          <div fxFlex="40">
+            <div fxLayout="column" fxLayoutAlign="space-between center" style="display: block;width: 100%; height: 100%;">
+                <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+                  [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend" [plugins]="pieChartPlugin">
+                </canvas>
+                <span style="margin-top:20px;font-weight: bold;">Revit Element Status</span>
+              </div>
+          </div>
+          <div fxFlex="40">
+            <div fxLayout="column" fxLayoutAlign="space-between center" style="display: block;width: 100%; height: 100%;">
+                <canvas baseChart [data]="disciplinePieChartData" [labels]="disciplinePieChartLabels" [chartType]="pieChartType"
+                  [options]="disciplinePieChartOptions" [plugins]="disciplinePieChartPlugins" [colors]="disciplinePieChartColors" [plugins]="disciplinePieChartPlugin" [legend]="disciplinePieChartLegend">
+                </canvas>
+                <span style="margin-top:20px;font-weight: bold;">User Activity</span>
+              </div>
+          </div>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="start start" style="width:100%">
+          <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" style="width:100%">
+            <div fxFlex="25">
+              <div fxLayout="column" fxLayoutAlign="space-between center" style="display: block;width: 100%; height: 100%;">
+                <canvas baseChart [data]="pieArchitectural" [labels]="pieChartLabels" [chartType]="pieChartType"
+                  [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend"
+                  [plugins]="pieChartPlugin">
+                </canvas>
+                <span style="font-weight: bold;">Architectural</span>
+              </div>
+            </div>
+    
+            <div fxFlex="25">
+              <div fxLayout="column" fxLayoutAlign="space-between center" style="display: block;width: 100%; height: 100%;">
+                <canvas baseChart [data]="pieElectrical" [labels]="pieChartLabels" [chartType]="pieChartType"
+                  [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend"
+                  [plugins]="pieChartPlugin">
+                </canvas>
+                <span style="font-weight: bold;">Electrical</span>
+              </div>
+            </div>
+    
+            <div fxFlex="25">
+              <div fxLayout="column" fxLayoutAlign="space-between center" style="display: block;width: 100%; height: 100%;">
+                <canvas baseChart [data]="pieMechanical" [labels]="pieChartLabels" [chartType]="pieChartType"
+                  [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend"
+                  [plugins]="pieChartPlugin">
+                </canvas>
+                <span style="font-weight: bold;">Mechanical</span>
+              </div>
+            </div>
+    
+            <div fxFlex="25">
+              <div fxLayout="column" fxLayoutAlign="space-between center" style="display: block;width: 100%; height: 100%;">
+                <canvas baseChart [data]="pieStructural" [labels]="pieChartLabels" [chartType]="pieChartType"
+                  [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend"
+                  [plugins]="pieChartPlugin">
+                </canvas>
+                <span style="font-weight: bold;">Structural</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    
+  
+
+    <div *ngIf="!isLoadingResults" style="display: none;width: 100%; ">
+      <canvas baseChart 
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+  
+    <div *ngIf="!isLoadingResults" style="display: none;width: 100%;margin-top:80px; ">
+      <canvas baseChart 
+        [datasets]="appBarChartData"
+        [labels]="appBarChartLabels"
+        [options]="appBarChartOptions"
+        [plugins]="appBarChartPlugins"
+        [legend]="appBarChartLegend"
+        [chartType]="appBarChartType">
+      </canvas>
+    </div>
+  </div>
+  </div>

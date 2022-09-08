@@ -1,0 +1,130 @@
+<div class="top-section" mat-dialog-content>
+    <button [mat-dialog-close]="false" class="close">
+        <mat-icon>close</mat-icon>
+    </button>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Time-Sheet">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="checkIn">
+          <th mat-header-cell *matHeaderCellDef> Check In Time </th>
+          <td mat-cell *matCellDef="let element"> {{ moment(element.checkIn).format('DD MMM YY HH:mm A') }} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="checkOut">
+          <th mat-header-cell *matHeaderCellDef> Check Out Time </th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="moment(element.checkOut).year() > 2">
+              {{moment(element.checkOut).format('DD MMM YY HH:mm A')}} 
+            </span>
+          </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="checkInLocation">
+          <th mat-header-cell *matHeaderCellDef> In Location </th>
+          <td mat-cell *matCellDef="let element">
+            <a target="_blank" href="{{'https://www.google.com/maps/search/' + element.checkInLocation}}"><mat-icon>location_on</mat-icon></a>
+          </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="checkOutLocation">
+          <th mat-header-cell *matHeaderCellDef> Out Location </th>
+          <td mat-cell *matCellDef="let element"> 
+            <a target="_blank" href="{{'https://www.google.com/maps/search/' + element.checkOutLocation}}"><mat-icon>location_on</mat-icon></a>      
+        </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkInNotes">
+            <th mat-header-cell *matHeaderCellDef> Clock In Notes </th>
+            <td matTooltipClass="custom-tooltip" matTooltipPosition="above"
+            matTooltip="{{element.checkInNotes}}" mat-cell *matCellDef="let element">  {{ (element.checkInNotes?.length>25)? (element.checkInNotes | slice:0:25)+'....':(element.checkInNotes) }} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="checkOutNotes">
+            <th mat-header-cell *matHeaderCellDef> Check Out Notes </th>
+            <td matTooltipClass="custom-tooltip" matTooltipPosition="above"
+            matTooltip="{{element.checkOutNotes}}" mat-cell *matCellDef="let element"> {{ (element.checkOutNotes?.length>25)? (element.checkOutNotes | slice:0:25)+'....':(element.checkOutNotes) }} </td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-tab>
+
+
+
+
+
+    <mat-tab label="Time-Assignment">
+
+      
+      <mat-table #table [dataSource]="dataTimeSource">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="delete">
+          <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+          <mat-cell *matCellDef="let time"> <button (click)="deleteTimeAllocation(time.id)" mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
+            <mat-icon>delete</mat-icon>
+          </button> </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="startDate">
+          <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
+          <mat-cell *matCellDef="let time"> {{ moment(time.startDate).format('DD MMM YY HH:mm A') }} </mat-cell>
+        </ng-container>
+  
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="endDate">
+          <mat-header-cell *matHeaderCellDef> End Date </mat-header-cell>
+          <mat-cell *matCellDef="let time"> {{ moment(time.endDate).format('DD MMM YY HH:mm A') }} </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="allocatedHours">
+          <mat-header-cell *matHeaderCellDef> Allocated Hours </mat-header-cell>
+          <mat-cell *matCellDef="let time">
+            <mat-form-field  appearance="outline" class="example-full-width" style="padding-bottom: 0px !important;">
+              <input matInput [value]="time.allocatedHours" [(ngModel)]="time.allocatedHours" (blur)="updateHours(time)">
+            </mat-form-field>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Comment Column -->
+        <!-- <ng-container matColumnDef="allocatedHours">
+          <mat-header-cell *matHeaderCellDef> Allocated Hours </mat-header-cell>
+          <mat-cell *matCellDef="let time" [satPopoverAnchor]="p" (click)="p.open()">
+            <ng-container *ngIf="time.allocatedHours">
+              {{time.allocatedHours}}
+            </ng-container>
+            <span class="add-comment" *ngIf="!time.allocatedHours">
+              add hours
+            </span>
+  
+            <sat-popover #p
+                xAlign="start"
+                yAlign="start"
+                (closed)="update(time, $event)">
+              <inline-edit [value]="time.allocatedHours"></inline-edit>
+            </sat-popover>
+          </mat-cell>
+        </ng-container> -->
+  
+        <mat-header-row *matHeaderRowDef="timeDisplayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: timeDisplayedColumns;"></mat-row>
+      </mat-table>
+
+    </mat-tab>
+  
+  </mat-tab-group>
+
+</div>
+<!-- <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">Close</button>
+</div> -->

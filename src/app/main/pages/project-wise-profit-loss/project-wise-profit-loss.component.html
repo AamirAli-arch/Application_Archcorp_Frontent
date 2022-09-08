@@ -1,0 +1,86 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+            <app-project-dropdown class="report-search" (projectId)="projectId($event)"></app-project-dropdown>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="startDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input placeholder="End Date" [min]="filterForm.value.startDate" matInput [matDatepicker]="endDate"
+                    (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <div class="project-profit table-container mat-elevation-z2">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let project of projectWiseProfitLoss">
+                <mat-expansion-panel-header>
+                    <div class="left-section" fxFlex.gt-sm="70"><strong> {{project.projectName}}</strong></div>
+                    <div fxLayout="row" fxFlex.gt-sm="30" fxLayoutGap="5px" class="">
+                        <div matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Total Income"
+                             class="right-amount"> <span class="amount"> AED
+                                {{project.income | number : '1.2-2'}}</span></div>
+                        <div *ngIf="project.profit > 0" matTooltipClass="icon-tooltip" matTooltipPosition="above"
+                            matTooltip="Profit"  class="right-amount"> <span
+                                class="greenprofit amount"> AED
+                                {{project.profit | number : '1.2-2'}}</span></div>
+                        <div *ngIf="project.profit < 0" matTooltipClass="icon-tooltip" matTooltipPosition="above"
+                            matTooltip="Loss"  class="right-amount"> <span class="redprofit amount">
+                                AED
+                                {{project.profit | number : '1.2-2'}}</span></div>
+                    </div>
+
+                </mat-expansion-panel-header>
+                <div class="profit-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="project-350"><strong>Name</strong></th>
+                                <th class="project-150"><strong>Total Work Hours</strong></th>
+                                <th class="project-150"><strong>Salary</strong></th>
+                                <th class="project-150"><strong>Salary + Overhead</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of project.resources">
+                                <td class="project-350">{{user.name}}</td>
+                                <td class="project-150">{{user.hoursWorked*60 | workedHours}}</td>
+                                <td class="project-150"><span class="amount"> AED {{user.salaryWithOverheads | number :
+                                        '1.2-2'}}</span></td>
+                                <td class="project-150"><span class="amount"> AED {{user.salaryWithOverheads+user.salaryWithOverheads*0.6 | number :
+                                            '1.2-2'}}</span></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- <ul>
+                    <li *ngFor="let user of project.resources">
+                        <span fxFlex.gt-sm="60"><strong>Name:</strong> {{user.name}}</span>
+                        <span fxFlex.gt-sm="30"><strong>Total Work Hours:</strong> {{user.hoursWorked*60 | workedHours}}</span>
+                        <span fxFlex.gt-sm="30"><strong>Salary:</strong> <span class="amount"> AED {{user.salary.toFixed(2)}}</span></span>
+                    </li>
+                </ul> -->
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div *ngIf="noRecords" class="norecord">No Records</div>
+
+    </div>
+
+</div>

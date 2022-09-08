@@ -1,0 +1,78 @@
+<div class="container" fxLayout="column">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search..."
+      #input
+    />
+  </mat-form-field>
+
+
+  <!-- (matSortChange)="announceSortChange($event)" -->
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  matSort >
+  
+  <ng-container matColumnDef="sno">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> S.NO</th>
+    <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="projectName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by projectName"> Project </th>
+    <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="stage">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by stage"> Stage  </th>
+    <td mat-cell *matCellDef="let element"> {{element.stage}}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="activity">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by activity"> Activity </th>
+    <td mat-cell *matCellDef="let element"> {{element.activity}}</td>
+  </ng-container>
+
+
+  
+  <ng-container matColumnDef="remarks">
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header sortActionDescription="Sort by remarks"> Remarks  </th>
+    <td *matCellDef="let element"> {{element.remarks}} </td>
+  </ng-container>
+
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+<!--   
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> -->
+  
+  </table>
+</div>
+
+<!-- <div class="container" fxLayout="column">
+
+ 
+  <mat-form-field appearance="standard" class="full-width">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search Columns"
+      #input
+    />
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+      <td mat-cell *matCellDef="let emp">{{ emp[column] }}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
+  </table>
+</div> -->

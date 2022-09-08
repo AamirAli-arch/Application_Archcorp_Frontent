@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" >
+<div class="project-item-projectName" (click)="onProjectClick(resourceId, projects.projectId)">
+    {{projects.projectName}}
+</div>
+<div class="project-item">
+    {{projects.assignedHours}}
+</div>
+<div class="project-item">
+    {{projects.totalHours.toFixed(2)}}
+</div>
+<div class="project-item">
+    {{ ((projects.assignedHours/projects.totalHours)*100).toFixed(2) }} %
+</div>
+</div>

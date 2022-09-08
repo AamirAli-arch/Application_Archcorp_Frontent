@@ -1,0 +1,43 @@
+
+
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+          <app-employee-dropdown class="leave-summary" (employeeId)="getEmployeValue($event)"></app-employee-dropdown>
+        </div>
+    </div>
+    <div class="download-button">
+        <button mat-raised-button color="accent"
+            (click)="exporter.exportTable('xlsx', {fileName:'Leave_Balance_Report'})">Download</button>
+    </div>
+    
+    <div class="table-container">
+        <table mat-table [dataSource]="filteredAndPaged" matTableExporter #exporter="matTableExporter">
+
+            <ng-container sticky matColumnDef="empName">
+                 <th class="w-300" mat-header-cell *matHeaderCellDef> Employee Name </th>
+                <td class="w-300" mat-cell *matCellDef="let element" data-label="Employee Name"> {{element.employee.firstName}}  {{element.employee.lastName}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="balance">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> Balance </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="Leave Type"> {{element.balance | number: '1.0-2'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="used">
+                 <th class="w-200" mat-header-cell *matHeaderCellDef> Used </th>
+                <td class="w-200" mat-cell *matCellDef="let element" data-label="From"> {{element.used}}
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25"
+    [pageSizeOptions]="[5, 10, 25, 50, 100]">
+</mat-paginator>
+</div>

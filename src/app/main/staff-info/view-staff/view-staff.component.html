@@ -1,0 +1,69 @@
+<app-loader-spiner></app-loader-spiner>
+<!-- <button class="accent pdf" mat-raised-button (click)="downloadPDF()">Export To PDF</button> -->
+<!-- (onExporting)="onExporting($event)" -->
+<dx-data-grid id="gridContainer" [dataSource]="staffInfoDataSource" keyExpr="id"  [showBorders]="true">
+
+<dxo-selection mode="multiple"></dxo-selection>
+<dxo-paging [pageSize]="15"></dxo-paging>
+<dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+<dxo-export [enabled]="true" [formats]="['pdf']" [allowExportSelectedData]="true"></dxo-export>
+
+
+<dxo-scrolling columnRenderingMode="virtual"></dxo-scrolling>
+
+
+<dxo-search-panel
+    [visible]="true"
+    [width]="240"
+    placeholder="Search..."
+    [highlightCaseSensitive]="true"
+  ></dxo-search-panel>
+
+  <dxi-column caption="Staff Information">
+
+  <dxi-column caption="Personal Details">
+    <dxi-column caption="Name" dataField="name" ></dxi-column>
+    <dxi-column caption="Offcial Email" dataField="officialEmail" ></dxi-column>
+    <dxi-column caption="Birth Date" dataField="birthDate" ></dxi-column>
+    <dxi-column caption="Gender" dataField="gender" ></dxi-column>
+    <dxi-column caption="Appointment Date" dataField="appointmentDate" ></dxi-column>
+    <dxi-column caption="Joinning Date" dataField="joinningDate" ></dxi-column>
+    <dxi-column caption="Birth Place" dataField="birthPlace" ></dxi-column>
+    <dxi-column caption="Nationality" dataField="nationality" ></dxi-column>
+    <dxi-column caption="Age" dataField="age" ></dxi-column>    
+    <dxi-column caption="phone" dataField="Phone" ></dxi-column>
+    <dxi-column caption="Civil Status" dataField="maritalStatus" ></dxi-column>
+    <dxi-column caption="Visa Type" dataField="visaType" ></dxi-column>
+    <dxi-column caption="Passport Number" dataField="passportNumber" ></dxi-column>
+    <dxi-column caption="Passport Expiry" dataField="passportExpiry" ></dxi-column>
+    <dxi-column caption="Labor-Card Number" dataField="laborCardNumber" ></dxi-column>
+    <dxi-column caption="Labor-CardExpiry" dataField="laborCardExpiry" ></dxi-column>
+    <dxi-column caption="License Number" dataField="licenseNumber" ></dxi-column>
+    <dxi-column caption="Present Address" dataField="presentAddress" ></dxi-column>
+    <dxi-column caption="Permanent Address" dataField="permanentAddress" ></dxi-column>
+    <dxi-column caption="Home Phone" dataField="homePhone" ></dxi-column>
+    <dxi-column caption="Home Mobile" dataField="homeMobileNumber" ></dxi-column>
+    <dxi-column caption="Personal Email" dataField="personalEmail" ></dxi-column>
+        
+</dxi-column>
+
+<dxi-column caption="Emergency Contact Details">
+    <dxi-column caption="Person Name" dataField="personName" ></dxi-column>
+    <dxi-column caption="Relation" dataField="relation" ></dxi-column>
+    <dxi-column caption="Contact Number" dataField="contactNumber" ></dxi-column>
+    <dxi-column caption="Person Email" dataField="personEmail" ></dxi-column>
+    <dxi-column caption="Address" dataField="address" ></dxi-column>
+</dxi-column>
+
+<dxi-column caption="Official Use">
+    <dxi-column caption="Remark" dataField="remark" ></dxi-column>
+    <dxi-column caption="Staff Name" dataField="staffName" ></dxi-column>
+    <dxi-column caption="Submit Date" dataField="submitDate" ></dxi-column>    
+    <dxi-column caption="Note Date" dataField="noteDate" ></dxi-column>
+    <dxi-column caption="Remarks" dataField="remarks" ></dxi-column>
+    <dxi-column caption="Office Use" dataField="officeUse" ></dxi-column>
+</dxi-column>
+
+</dxi-column>
+
+</dx-data-grid>

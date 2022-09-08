@@ -1,0 +1,3810 @@
+{
+  "id": "3bc0afbc-cb19-4d3c-b29e-e09d58486593",
+  "code": "2741",
+  "projectName": "2741-IGO-Tower 006-2P OPTION-AR-R21",
+  "projectDiscipline": "Architecture",
+  "createdOn": "2021-08-17T17:04:00.5617973+04:00",
+  "createdBy": "AAEDXB\\Ehsan.Habib",
+  "propertyArea": "2323.77 m²",
+  "levels": [
+    {
+      "name": "GROUND FLOOR",
+      "areas": [
+        {
+          "name": "ETS ROOM 503",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        },
+        {
+          "name": "LV ROOM 504",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        },
+        {
+          "name": "TRANSFORMER RM 505",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        },
+        {
+          "name": "MAIN LOBBY 537",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_200mm",
+            "thickness": 200.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 695",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "CONTROL/FCC/BMS ROOM 588",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        },
+        {
+          "name": "GARBAGE ROOM 589",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        },
+        {
+          "name": "STAIRS 590",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_200mm",
+            "thickness": 200.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SHADED AREA 1015",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "MAIN TEL. ROOM 731"
+        },
+        {
+          "name": "LIFT SHAFT 1226",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT SHAFT 1896",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_200mm",
+            "thickness": 200.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GENERATOR ROOM 1910",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        }
+      ]
+    },
+    {
+      "name": "PODIUM 2",
+      "areas": [
+        {
+          "name": "DRIVEWAY/RAMP 948",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1147",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1148",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1151",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        }
+      ]
+    },
+    {
+      "name": "HEALTHCLUB FLOOR",
+      "areas": [
+        {
+          "name": "GAR. RM. 1022",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1024",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GYM 1025",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "TOILET 1035",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1053",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1602",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 756",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "IT RM. 777",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "TOILET 854",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAZEBO 856",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "PUMP ROOM 857"
+        },
+        {
+          "name": "STORE 859",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "2ND FLOOR",
+      "areas": [
+        {
+          "name": "toilet 20"
+        },
+        {
+          "name": "BALCONY 1880"
+        },
+        {
+          "name": "BALCONY 1883",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1885",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1887",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 861",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 864",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 867",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 868",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 869",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 870",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 871",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 872",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 877",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 879",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SHAFT 880",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 883",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 884",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1879",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1886"
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 849",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01 850",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "3RD FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 509",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 510",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 511",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 513",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 514",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 521",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 522",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 523",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 524",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 525",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 526",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 527",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 528",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 529",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 786"
+        },
+        {
+          "name": "SHAFT 1169",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1621",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 717",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 720",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 725",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 727",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 753"
+        },
+        {
+          "name": "BALCONY 757",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1845",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1853"
+        },
+        {
+          "name": "BALCONY 1857",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1877"
+        }
+      ]
+    },
+    {
+      "name": "4TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 530",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 531",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 532",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 533",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 534",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 540",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 541",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 542",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 543",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 545",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 546",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 548",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SHAFT 1167",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1611"
+        },
+        {
+          "name": "BALCONY 1613",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 544",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 547",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 554",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 733",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 734",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 735",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1615"
+        },
+        {
+          "name": "BALCONY 1616",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1618",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1619"
+        },
+        {
+          "name": "BALCONY 1863",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1891"
+        }
+      ]
+    },
+    {
+      "name": "5TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 549",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 550",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 551",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 552",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 553",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 560",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 570",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 571",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 572",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 574",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 575",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 577",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1058"
+        },
+        {
+          "name": "SHAFT 1172",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1624",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 573",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 576",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 582",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 738",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 741",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 746",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1625"
+        },
+        {
+          "name": "BALCONY 1626",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1641",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1651"
+        },
+        {
+          "name": "BALCONY 1858",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1878"
+        }
+      ]
+    },
+    {
+      "name": "6TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 578",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 579",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 580",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 581",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 584",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 591",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 592",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 593",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 594",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 596",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 597",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 599",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SHAFT 1176",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1646"
+        },
+        {
+          "name": "BALCONY 1652",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 595",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 598",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 605",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 749",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 778",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 780",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1653"
+        },
+        {
+          "name": "BALCONY 1654",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1656",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1661"
+        },
+        {
+          "name": "BALCONY 1864",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1892"
+        }
+      ]
+    },
+    {
+      "name": "7TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 600",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 601",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 602",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 603",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 604",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 608",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 609",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 610",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 611",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 613",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 614",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 616",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1065"
+        },
+        {
+          "name": "SHAFT 1181",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1627",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 612",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 615",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 622",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 783",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 799",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 800",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1628"
+        },
+        {
+          "name": "BALCONY 1629",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1643",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1657"
+        },
+        {
+          "name": "BALCONY 1859",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1881"
+        }
+      ]
+    },
+    {
+      "name": "8TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 617",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 618",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 619",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 620",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 621",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 625",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 626",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 627",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 628",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 630",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 631",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 633",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SHAFT 1193",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1685"
+        },
+        {
+          "name": "BALCONY 1686",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 629",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 632",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 639",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 807",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 808",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 809",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1687"
+        },
+        {
+          "name": "BALCONY 1688",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1694",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1854"
+        },
+        {
+          "name": "BALCONY 1865",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1893"
+        }
+      ]
+    },
+    {
+      "name": "9TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 634",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 635",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 636",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 637",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 638",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 642",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 643",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 644",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 645",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 647",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 648",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 650",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1072"
+        },
+        {
+          "name": "SHAFT 1196",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1630",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 646",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 649",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 656",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 812",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 813",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 820",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1631"
+        },
+        {
+          "name": "BALCONY 1632",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1645",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1658"
+        },
+        {
+          "name": "BALCONY 1860",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1884"
+        }
+      ]
+    },
+    {
+      "name": "10TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 651",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 652",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 653",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 654",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 655",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 659",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 660",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 661",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 662",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 664",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 665",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 667",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SHAFT 1198",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1690"
+        },
+        {
+          "name": "BALCONY 1691",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 663",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 666",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 673",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 825",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 826",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 827",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1692"
+        },
+        {
+          "name": "BALCONY 1693",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1847",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1855"
+        },
+        {
+          "name": "BALCONY 1866",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1894"
+        }
+      ]
+    },
+    {
+      "name": "11TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 668",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 669",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 670",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 671",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 672",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 676",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 677",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 678",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 679",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 681",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 682",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 684",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1079"
+        },
+        {
+          "name": "SHAFT 1204",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1633",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 680",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 683",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 690",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 831",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 833",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 834",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1634"
+        },
+        {
+          "name": "BALCONY 1635",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1648",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1659"
+        },
+        {
+          "name": "BALCONY 1861",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1888"
+        }
+      ]
+    },
+    {
+      "name": "12TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 685",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 686",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 687",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 688",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 689",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 693",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 694",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 696",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 697",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 699",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 700",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 702",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SHAFT 1217",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1695"
+        },
+        {
+          "name": "BALCONY 1696",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 698",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 701",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 708",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 840",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 842",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 843",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1697"
+        },
+        {
+          "name": "BALCONY 1698",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1849",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1856"
+        },
+        {
+          "name": "BALCONY 1867",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1895"
+        }
+      ]
+    },
+    {
+      "name": "13TH FLOOR",
+      "areas": [
+        {
+          "name": "1BDRM - TYPE 01A 703",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 01 704",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02 705",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 01 706",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR. 1BDRM - TYPE 02A 707",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 01 713",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "JR.1BDRM - TYPE 01A 714",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM- TYPE 01A 715",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 716",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 718",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 719",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 721",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1086"
+        },
+        {
+          "name": "SHAFT 1219",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1636",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02A 722",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "1BDRM - TYPE 02 723",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 726",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "FTR 851",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 852",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 853",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1637"
+        },
+        {
+          "name": "BALCONY 1638",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1650",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1660"
+        },
+        {
+          "name": "BALCONY 1862",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1889"
+        }
+      ]
+    },
+    {
+      "name": "14TH FLOOR",
+      "areas": [
+        {
+          "name": "2BDRM - TYPE 02 1759",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 03 1760",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 02A 1761",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "3BDRM - TYPE 01 1762",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1763",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1764",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1765",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 1767",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "IT RM. 1768",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 1769",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 1790",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 1766",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1841",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1842",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1843",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1850",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1851",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1868",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1871"
+        },
+        {
+          "name": "BALCONY 1872"
+        },
+        {
+          "name": "BALCONY 1873"
+        },
+        {
+          "name": "BALCONY 1874"
+        },
+        {
+          "name": "BALCONY 1875"
+        },
+        {
+          "name": "BALCONY 1890"
+        },
+        {
+          "name": "BALCONY 855"
+        },
+        {
+          "name": "BALCONY 873"
+        },
+        {
+          "name": "BALCONY 1908"
+        },
+        {
+          "name": "BALCONY 1909",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "15TH FLOOR",
+      "areas": [
+        {
+          "name": "2BDRM - TYPE 02 1746",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 03 1747",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 02A 1748",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "3BDRM - TYPE 01 1749",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1750",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1751",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1752",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 1754",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "IT RM. 1755",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 1756",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 752",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 754",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 755",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 1785",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1809",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1810",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1817",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 997",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1882"
+        },
+        {
+          "name": "BALCONY 1900"
+        },
+        {
+          "name": "BALCONY 1901",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "16TH FLOOR",
+      "areas": [
+        {
+          "name": "2BDRM - TYPE 02 1772",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 03 1773",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 02A 1774",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "3BDRM - TYPE 01 1775",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1776",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1777",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1778",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 1780",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "IT RM. 1781",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 1782",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 760",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 761",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 762",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 764",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 1792",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1811",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1820",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 1779",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1902"
+        },
+        {
+          "name": "BALCONY 1903",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "17TH FLOOR",
+      "areas": [
+        {
+          "name": "2BDRM - TYPE 02 1707",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 03 1708",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 02A 1709",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "3BDRM - TYPE 01 1710",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1711",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1712",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1713",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 1715",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "IT RM. 1716",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 1717",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 768",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 769",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 771",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 772",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 1744",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1812",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1823",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 1714",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1904"
+        },
+        {
+          "name": "BALCONY 1905",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "18TH FLOOR",
+      "areas": [
+        {
+          "name": "2BDRM - TYPE 02 1720",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 03 1721",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 02A 1722",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "3BDRM - TYPE 01 1723",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1724",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1725",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1726",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 1728",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "IT RM. 1729",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 1730",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 776",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 791",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 792",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 793",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 1786",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1813",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1826",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 1727",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1906"
+        },
+        {
+          "name": "BALCONY 1907",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "19TH FLOOR",
+      "areas": [
+        {
+          "name": "2BDRM - TYPE 02 1733",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 03 1734",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "2BDRM - TYPE 02A 1735",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "3BDRM - TYPE 01 1736",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1737",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1738",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1739",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "GAR. RM. 1741",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "IT RM. 1742",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WMR 1743",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 818",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 844",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 847",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 848",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BTU 1788",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1814",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 1829",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "ELEC. RM. 1740",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BALCONY 862"
+        },
+        {
+          "name": "BALCONY 863"
+        },
+        {
+          "name": "BALCONY 1898"
+        },
+        {
+          "name": "BALCONY 1899",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "GATE LEVEL",
+      "areas": [
+
+      ]
+    },
+    {
+      "name": "UNDERGROUND LEVEL",
+      "areas": [
+        {
+          "name": "WATER TANK 01 23"
+        },
+        {
+          "name": "WATER TANK 02 24"
+        },
+        {
+          "name": "CHILLED WATER PUMP RM. 25"
+        },
+        {
+          "name": "DOMESTIC & FIRE PUMP RM. 26"
+        },
+        {
+          "name": "CORRIDOR 27"
+        },
+        {
+          "name": "WATER TANK 01 28"
+        },
+        {
+          "name": "WATER TANK 02 29"
+        },
+        {
+          "name": "CHILLED WATER PUMP RM. 30"
+        },
+        {
+          "name": "DOMESTIC & FIRE PUMP RM. 31"
+        },
+        {
+          "name": "CORRIDOR 32"
+        },
+        {
+          "name": "CHILLED WATER PUMP RM. 1793",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_400mm",
+            "thickness": 400.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "DOMESTIC & FIRE PUMP ROOM 1794",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_400mm",
+            "thickness": 400.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "SERVICE CORRIDOR 1795",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_400mm",
+            "thickness": 400.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WATER TANK 01 1796",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "WATER TANK 02 1797",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "MAIN TEL. RM. 1897",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_400mm",
+            "thickness": 400.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "RAIN PUMP 724"
+        },
+        {
+          "name": "RAIN TANK 728"
+        },
+        {
+          "name": "POOL PUMP 729"
+        }
+      ]
+    },
+    {
+      "name": "ROOF",
+      "areas": [
+        {
+          "name": "CIRCULATION 21",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "CIRCULATION 22",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "BOILER ROOM 858",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "ROOF 02",
+      "areas": [
+
+      ]
+    },
+    {
+      "name": "TOP OF ROOF",
+      "areas": [
+
+      ]
+    },
+    {
+      "name": "PODIUM 1",
+      "areas": [
+        {
+          "name": "DRIVEWAY/RAMP 944",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1143",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "STAIRS 1144",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        },
+        {
+          "name": "LIFT LOBBY 1146",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm aj",
+            "thickness": 300.0,
+            "floorFinishLoad": 2011.68
+          }
+        },
+        {
+          "name": "DEDUCTION 1679",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        },
+        {
+          "name": "DEDUCTION 1680",
+          "floor": {
+            "name": "@AC_ST_CONCRETE SLAB_300mm",
+            "thickness": 300.0,
+            "floorFinishLoad": 0.0
+          }
+        }
+      ]
+    }
+  ]
+}

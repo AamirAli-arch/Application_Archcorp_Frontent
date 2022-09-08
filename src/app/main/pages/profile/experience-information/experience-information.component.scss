@@ -1,0 +1,82 @@
+.profile-img-wrap.edit-img {
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    position: relative;
+    text-align: center;
+    height: 120px;
+    width: 120px;
+    background: #fff;
+    overflow: hidden;
+}
+.w-100-p{
+    position: relative;
+}
+.profile-img-wrap img {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+}
+.profile-img-wrap.edit-img .fileupload.btn {
+    left: 0;
+}
+
+.fileupload.btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: rgba(33,33,33,.5);
+    border-radius: 0;
+    padding: 3px 10px;
+    border: none;
+}
+.fileupload input.upload {
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+}
+.btn-text {
+    color: #fff;
+}
+
+.mat-dialog-title{
+    text-align: center;
+}
+button.close {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+.mat-form-field {
+    width: 100%;
+}
+.primary-contact {
+    border: 1px solid #ededed;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    position: relative;
+}
+.pro-edit {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    cursor: pointer;
+     img {
+        width: 18px;
+    }
+}
+.add-more {
+    span{
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100px;
+    }
+}

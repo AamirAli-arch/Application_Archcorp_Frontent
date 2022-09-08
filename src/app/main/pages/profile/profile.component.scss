@@ -1,0 +1,338 @@
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding: 30px;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-pencil:before {
+    content: "\f040";
+}
+.page-title {
+    color: #1f1f1f;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin: 0;
+}
+.page-header .breadcrumb {
+    background-color: transparent;
+    color: #6c757d;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    padding: 0;
+}
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: .5rem;
+}
+.breadcrumb, .breadcrumb-item {
+    display: flex;
+}
+.breadcrumb, .breadcrumb-item {
+    display: flex;
+    font-size: 16px;
+}
+
+.breadcrumb-item+.breadcrumb-item:before {
+    display: inline-block;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: "/";
+}
+.page-header {
+    margin-bottom: 1.875rem;
+}
+.col-md-6.d-flex {
+    max-width: 50%;
+    flex: 0 0 50%;
+    padding: 15px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 15px;
+}
+.col-md-5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+    padding: 0 40px 0 0;
+}
+.col-md-7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+    margin-top: -10px;
+}
+
+.profile-view {
+    position: relative;
+}
+.profile-view .profile-img, .profile-view .profile-img-wrap {
+    height: 120px;
+    width: 120px;
+}
+.profile-img-wrap {
+    height: 120px;
+    position: absolute;
+    width: 120px;
+    background: #fff;
+    overflow: hidden;
+}
+.profile-view .profile-basic {
+    margin-left: 140px;
+    padding-right: 50px;
+}
+.profile-info-left {
+    border-right: 2px dashed #ccc;
+}
+.profile-view .pro-edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+.edit-icon {
+    background-color: #eee;
+    border: 1px solid #e3e3e3;
+    border-radius: 24px;
+    color: #bbb;
+    float: right;
+    font-size: 12px;
+    line-height: 24px;
+    min-height: 26px;
+    text-align: center;
+    width: 26px;
+}
+.user-name {
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.text-muted {
+    margin: 5px 0;
+    color: #8e8e8e;
+    font-weight: 600;
+    font-size: 12px;
+}
+.staff-id {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+    color: #000;
+}
+.staff-msg {
+    margin-top: 30px;
+}
+.personal-info {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100%;
+    float: left;
+    
+     li {
+        margin-bottom: 10px;
+        clear: both;
+    }
+    .title {
+        color: #000;
+        float: left;
+        font-weight: 500;
+        margin-right: 30px;
+        width: 25%;
+        font-weight: 600;
+        margin-right: 30px;
+        font-size: 16px;
+    }
+    .text {
+        color: #8e8e8e;
+        display: flex;
+        overflow: hidden;
+    }
+    .avatar {
+        img {
+            border-radius: 50%;
+            display: block;
+            overflow: hidden;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+.profile-img-wrap img {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+}
+}
+h3.card-title {
+    position: relative;
+}
+.pro-edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+.card-title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.pro-overview{
+    overflow: hidden;
+    .row{
+        margin: 0 -15px;
+    }
+    .personal-info {
+        width: 100%;
+        margin: 3px 0;
+    }
+    .personal-info li .title {
+        width: 50%;
+    }
+    .section-title {
+        margin: 0;
+        font-size: 16px;
+        color: #1f1f1f;
+        font-weight: 600;
+    }
+    hr {
+        border: 0;
+        clear: both;
+        border-top: 1px solid rgba(0,0,0,.1);
+    }
+    .experience-box, .experience-list{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position:relative;
+    }
+    .experience-list:before {
+        background: #ddd;
+        bottom: 0;
+        content: "";
+        left: 8px;
+        position: absolute;
+        top: 8px;
+        width: 2px;
+    }
+    .experience-list>li {
+        position: relative;
+    }
+    .experience-list>li .experience-user {
+        background: #fff;
+        height: 10px;
+        left: 4px;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 4px;
+        width: 10px;
+    }
+    .before-circle {
+        background-color: #ddd;
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+    }
+    .experience-list>li .experience-content {
+        background-color: #fff;
+        margin: 0 0 20px 40px;
+        padding: 0;
+        position: relative;
+    }
+    .experience-list>li .experience-content .timeline-content a.name {
+        color: #000;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .experience-list>li .time {
+        color: #bdbdbd;
+        display: block;
+        font-size: 12px;
+        line-height: 1.35;
+    }
+}
+.card.profile-box.flex-fill{
+    width: 100%;
+}
+.col-md-6.d-flex {
+    display: flex;
+    width: 50%;
+}
+
+
+@media (max-width:768px) {
+    .col-md-6.d-flex {
+        display: flex;
+        width: 100%;
+    }
+    .col-md-6.d-flex{
+        max-width: 100%;
+        flex: 0 0 auto;
+        padding: 15px;
+    }
+    .card-body{
+        .col-md-5{
+            border-bottom: 2px dashed #ccc;
+        }
+    .col-md-5, .col-md-7 {
+        flex: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .profile-basic{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .profile-img-wrap{
+        position: relative;
+    }
+    .profile-info-left{
+        border: none;
+        text-align: center;
+    }
+    .profile-view .profile-img, .profile-view .profile-img-wrap {
+        height: 120px;
+        width: 120px;
+        margin:  0 auto;
+    }
+    .staff-msg{
+        padding-bottom: 10px;
+    }
+}
+}

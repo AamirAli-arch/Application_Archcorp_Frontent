@@ -1,0 +1,34 @@
+
+<div class="container p-16 w-100-p">
+    <div class="filter-container" fxLayout="row" fxLayoutAlign="space-between center" >
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+            <app-employee-dropdown class="resource-search" (employeeId)="getEmployeValue($event)"></app-employee-dropdown>
+
+            <app-project-dropdown class="resource-search" (projectId)="projectId($event)"></app-project-dropdown>
+
+          </div>
+    </div>
+    <div class="mt-12" *ngIf="!isLoading">
+        <div *ngFor="let item of resources">
+            <h1>{{item.name}}</h1>
+            <div class="mat-elevation-z4 project-list">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div class="project-item-name">Project Name</div>
+                    <div class="project-item">Assigned Hours</div>
+                    <div class="project-item">Total Project Hours</div>
+                    <div class="project-item">Allocation Percentage</div>
+                </div>
+                <hr />
+                <div class="app-resource-projects">
+                    <app-resource-projects
+                    class="app-resource-projects-items"
+                    *ngFor="let project of item.workLoad"
+                    [projects]="project"
+                    [resourceId]="item.employeeId">
+                    </app-resource-projects>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

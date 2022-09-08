@@ -1,0 +1,420 @@
+
+<div fxLayout="row" fxLayoutAlign="space-between start" class="filter-container">
+    <div class="w-100-p">
+    <!-- <h2 mat-dialog-title>Staff Information</h2> -->
+    
+    <h3 class="page-title">Staff Information</h3>    
+    <div class="emtimated-hours" [formGroup]="staffInfoForm">
+
+    
+        <form [formGroup]="staffInfoForm" fxLayout="column">
+            <mat-dialog-content>
+                <div class="custom-page-layout">
+                <h3 class="page-subtitle">Self Details</h3>
+                <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>First Name</mat-label>
+                            <input #input1 matInput formControlName="firstName" required spellcheck="false" maxlength="20">  
+                            <mat-hint>{{input1.value?.length || 0}}/20 </mat-hint>                       
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Middle Name</mat-label>
+                            <input #input2 matInput formControlName="middleName" spellcheck="false" maxlength="20">                            
+                            <mat-hint>{{input2.value?.length || 0}}/20 </mat-hint>                      
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Last Name</mat-label>
+                            <input #input3  matInput formControlName="lastName" required spellcheck="false" maxlength="20">
+                            <mat-hint>{{input3.value?.length || 0}}/20 </mat-hint>                                
+                        </mat-form-field>
+                </div>  
+
+                <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Age</mat-label>
+                            <input #input4 matInput formControlName="age" required maxlength="2">  
+                            <mat-hint>{{input4.value?.length || 0}}/2 </mat-hint>                             
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Date Of Birth</mat-label>                            
+                            <input readonly required [min]="birthDatePick"  matInput [matDatepicker]="birthDatePick"
+                            (click)="birthDatePick.open()" formControlName="birthDate">
+                            <mat-datepicker-toggle matSuffix [for]="birthDatePick"></mat-datepicker-toggle>
+                             <mat-datepicker #birthDatePick></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Gender</mat-label>
+                            <mat-select color="primary" formControlName="gender" required>
+                                <mat-option class="mat-primary" *ngFor="let gnder of genderList" [value]="gnder.value">
+                                    {{gnder.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                </div>
+                
+                <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Place Of Birth</mat-label>
+                            <input #input5 matInput formControlName="birthPlace" required spellcheck="false" maxlength="30">  
+                            <mat-hint>{{input5.value?.length || 0}}/30 </mat-hint>                           
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Nationality</mat-label>
+                            <mat-select color="primary" formControlName="nationality" required>
+                                <mat-option class="mat-primary" *ngFor="let country of countries" [value]="country.name">
+                                    {{country.name}}</mat-option>
+                            </mat-select> 
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Country Of Origin</mat-label>
+                            <mat-select color="primary" formControlName="countryOrigin" required>   
+                                <mat-option class="mat-primary" *ngFor="let country of countries" [value]="country.name">
+                                    {{country.name}}</mat-option>
+                            </mat-select> 
+                        </mat-form-field>
+
+                </div>
+
+
+                <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                fxLayoutAlign="space-between start">
+                
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Civil Status</mat-label>
+                    <mat-select color="primary" formControlName="maritalStatus" >
+                        <mat-option class="mat-primary" *ngFor="let option of maritalStatusList" [value]="option.value">
+                            {{option.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Phone No.</mat-label>
+                    <input matInput #input6 formControlName="phone" maxlength="15">
+                        <mat-hint>{{input6.value?.length || 0}}/15 </mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Mobile No.(UAE)</mat-label>
+                    <input matInput #input7 formControlName="mobileNumber" maxlength="10" placeholder="eg:0123456789" required>
+                        <mat-hint>{{input7.value?.length || 0}}/10 </mat-hint>
+                        <mat-error *ngIf="staffInfoForm.controls.mobileNumber.errors?.required">Mobile Number is required!
+                        </mat-error>
+                </mat-form-field>
+                </div>
+
+
+            <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                fxLayoutAlign="space-between start">
+                
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Passport No.</mat-label>
+                    <input matInput #input8 formControlName="passportNumber" maxlength="20" required>
+                    <mat-hint>{{input8.value?.length || 0}}/20 </mat-hint>                        
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Passport Expiry Date</mat-label>
+                        <input readonly required [min]="passportExpiryDate" matInput [matDatepicker]="passportExpiryDate"                        
+                            (click)="passportExpiryDate.open()" formControlName="passportExpiry">
+                        <mat-datepicker-toggle matSuffix [for]="passportExpiryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #passportExpiryDate></mat-datepicker>
+                        
+                    </mat-form-field>  
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Visa Status</mat-label>
+                    <mat-select color="primary" formControlName="visaType" >
+                        <mat-option class="mat-primary" *ngFor="let visa of visaStatusList" [value]="visa.value">
+                            {{visa.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+             </div>
+
+             
+
+             <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                fxLayoutAlign="space-between start">
+                
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Labor Card No.</mat-label>
+                    <input matInput #input10 formControlName="laborCardNumber" maxlength="18">
+                    <mat-hint>{{input10.value?.length || 0}}/18 </mat-hint>                        
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Labor-Card Expiry Date</mat-label>                        
+                        <input readonly [min]="lbrCardExpiryDate" matInput [matDatepicker]="lbrCardExpiryDate"
+                            (click)="lbrCardExpiryDate.open()" formControlName="laborCardExpiry">
+                        <mat-datepicker-toggle matSuffix [for]="lbrCardExpiryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #lbrCardExpiryDate></mat-datepicker>                        
+                </mat-form-field>  
+
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Driver's License No.</mat-label>
+                    <input matInput #input11 formControlName="licenseNumber" maxlength="18">
+                        <mat-hint>{{input11.value?.length || 0}}/18 </mat-hint>                        
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Driver's License Expiry Date</mat-label>                        
+                        <input readonly [min]="licenseExpiryDate" matInput [matDatepicker]="licenseExpiryDate"
+                            (click)="licenseExpiryDate.open()" formControlName="licenseExpiry">
+                        <mat-datepicker-toggle matSuffix [for]="licenseExpiryDate"></mat-datepicker-toggle>
+                        <mat-datepicker #licenseExpiryDate></mat-datepicker>                        
+                </mat-form-field>                  
+                </div>
+
+
+
+                <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                fxLayoutAlign="space-between start">
+                
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Present Address(UAE)</mat-label>
+                    <input matInput #input12 formControlName="presentAddress" maxlength="100" required>
+                    <mat-hint>{{input12.value?.length || 0}}/100 </mat-hint>                        
+                </mat-form-field>
+
+                
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Permanent Address(Home)</mat-label>
+                    <input matInput #input13 formControlName="permanentAddress" maxlength="100" required>
+                    <mat-hint>{{input13.value?.length || 0}}/100 </mat-hint>                        
+                </mat-form-field>
+                
+                <!-- 
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Phone No.(Home)</mat-label>
+                    <input matInput #input14 formControlName="homePhone" maxlength="15">
+                        <mat-hint>{{input14.value?.length || 0}}/15 </mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Mobile No.(Home)</mat-label>
+                    <input matInput #input15 formControlName="homeMobileNumber" maxlength="15" placeholder="+971123456789" required>
+                        <mat-hint>{{input15.value?.length || 0}}/15 </mat-hint>
+                        <mat-error *ngIf="staffInfoForm.controls.homeMobileNumber.errors?.required">Mobile Number(Home) is required!
+                        </mat-error>
+                </mat-form-field> -->
+                </div>
+
+                <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                fxLayoutAlign="space-between start">                                
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Phone No.(Home)</mat-label>
+                    <input matInput #input14 formControlName="homePhone" maxlength="15">
+                        <mat-hint>{{input14.value?.length || 0}}/15 </mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Mobile No.(Home)</mat-label>
+                    <input matInput #input15 formControlName="homeMobileNumber" maxlength="15" placeholder="+910123456789" required>
+                        <mat-hint>{{input15.value?.length || 0}}/15 </mat-hint>
+                        <mat-error *ngIf="staffInfoForm.controls.homeMobileNumber.errors?.required">Mobile Number(Home) is required!
+                        </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Personal Email</mat-label>
+                    <input matInput formControlName="personalEmail"  required>
+                    <mat-error *ngIf="staffInfoForm.controls.personalEmail.errors?.required">Email ID is required!
+                    </mat-error>
+                    <mat-error *ngIf="staffInfoForm.controls.personalEmail.hasError('invalidEmail')">Invalid Email ID!
+                    </mat-error>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Official Email</mat-label>
+                    <input matInput formControlName="officialEmail"  required>
+                    <mat-error *ngIf="staffInfoForm.controls.officialEmail.errors?.required">Official Email ID is required!
+                    </mat-error>
+                    <mat-error *ngIf="staffInfoForm.controls.officialEmail.hasError('invalidEmail')">Invalid Email ID!
+                    </mat-error>
+                </mat-form-field>
+                </div>
+            </div>
+
+
+            <div class="custom-page-layout">
+                <h3 class="page-subtitle">Emergency Contact Details</h3>
+                <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                fxLayoutAlign="space-between start">
+                    
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Person Name</mat-label>
+                    <input #input16 matInput formControlName="personName" required spellcheck="false" maxlength="25">  
+                    <mat-hint>{{input16.value?.length || 0}}/25 </mat-hint>                       
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Relation</mat-label>
+                    <input #input17 matInput formControlName="relation" spellcheck="false" maxlength="20">                            
+                    <mat-hint>{{input17.value?.length || 0}}/20 </mat-hint>                      
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Person Contact No.</mat-label>
+                    <input matInput #input18 formControlName="contactNumber" maxlength="15" placeholder="+971123456789" required>
+                        <mat-hint>{{input18.value?.length || 0}}/15 </mat-hint>
+                        <mat-error *ngIf="staffInfoForm.controls.contactNumber.errors?.required">Emergency Contact Number(Home) is required!
+                        </mat-error>
+                </mat-form-field>
+
+
+                
+            </div>      
+
+
+
+            <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                fxLayoutAlign="space-between start">
+                
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Person Email</mat-label>
+                    <input matInput formControlName="personEmail">
+                    <!-- <mat-error *ngIf="staffInfoForm.controls.personEmail.errors?.required">Email ID is required!
+                    </mat-error>
+                    <mat-error *ngIf="staffInfoForm.controls.personEmail.hasError('invalidEmail')">Invalid Email ID!
+                    </mat-error> -->
+                </mat-form-field>                
+
+                
+                
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Address</mat-label>
+                    <input matInput #input19 formControlName="address" maxlength="100">
+                    <mat-hint>{{input19.value?.length || 0}}/100 </mat-hint>                        
+                </mat-form-field>
+
+                </div>      
+            </div>
+                
+            <div class="custom-page-layout">
+                    <h3 class="page-subtitle">For Official Use Only:</h3>
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+
+
+                    <mat-form-field appearance="outline" class="full-width-textarea">                        
+                        <textarea matInput #input20 formControlName="remark" maxlength="250" placeholder="Remark"></textarea>
+                        <mat-hint>{{input20.value?.length || 0}}/250 </mat-hint>                        
+                    </mat-form-field>
+
+
+                    </div>  
+
+             </div>
+
+             <div class="custom-page-layout">
+                <h3 class="joinning-style"> DUTY JOINNING FORM</h3>
+                <div>
+                   
+                        <pre>The HR Manager</pre>
+                        <pre>Archcorp P.O. Box 95285 Dubai, U.A.E.</pre>
+
+                        <pre>Dear Sir,</pre>
+                        <pre>In reference to my appointment letter dated <span class="cal"> <mat-form-field appearance="standard">
+                                                    
+                            <input readonly required [min]="appointmentDatePick"  matInput [matDatepicker]="appointmentDatePick" style='width:30%'
+                            (click)="appointmentDatePick.open()" formControlName="appointmentDate">
+                            <mat-datepicker-toggle matSuffix [for]="appointmentDatePick"></mat-datepicker-toggle>
+                             <mat-datepicker #appointmentDatePick></mat-datepicker>
+                        </mat-form-field></span> I wish to inform you that I have joined duty on <span class="cal"> <mat-form-field appearance="standard">
+                                                    
+                            <input readonly required [min]="joinDatePick"  matInput [matDatepicker]="joinDatePick" style='width:30%'
+                            (click)="joinDatePick.open()" formControlName="joinningDate">
+                            <mat-datepicker-toggle matSuffix [for]="joinDatePick" class="calender-width"></mat-datepicker-toggle>
+                             <mat-datepicker #joinDatePick></mat-datepicker>
+                        </mat-form-field></span></pre>
+                        <pre>Regards,</pre>
+                        
+
+                        <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="standard" class="full-width">
+                           <mat-label>Staff Name</mat-label>
+                           <input matInput #input21 formControlName="staffName" maxlength="30" required>
+                           <mat-hint>{{input21.value?.length || 0}}/30 </mat-hint>                        
+                       </mat-form-field>
+                       
+                       <mat-form-field appearance="standard" class="full-width">
+                        <mat-label>Submit Date</mat-label>                        
+                            <input readonly required [min]="submitDatePick" matInput [matDatepicker]="submitDatePick"
+                                (click)="submitDatePick.open()" formControlName="submitDate">
+                            <mat-datepicker-toggle matSuffix [for]="submitDatePick"></mat-datepicker-toggle>
+                            <mat-datepicker #submitDatePick></mat-datepicker>                        
+                        </mat-form-field>                             
+                        </div>
+
+                        
+           
+                    <div class="notification-page-layout">
+
+                        <div class="notification-layout">
+                            <h3 class="page-subtitle">Official Notification</h3>
+
+                        <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                            fxLayoutAlign="space-between start">                
+                            <mat-form-field appearance="outline" class="full-width">          
+                                <mat-label>Name</mat-label>              
+                                <input matInput #input22 formControlName="officialName" maxlength="30">
+                                <mat-hint>{{input22.value?.length || 0}}/30</mat-hint>                        
+                            </mat-form-field>
+                             <mat-form-field appearance="outline" class="full-width">
+                                <mat-label> Date</mat-label>                        
+                                    <input readonly [min]="notifDatePick" matInput [matDatepicker]="notifDatePick"
+                                        (click)="notifDatePick.open()" formControlName="noteDate">
+                                    <mat-datepicker-toggle matSuffix [for]="notifDatePick"></mat-datepicker-toggle>
+                                    <mat-datepicker #notifDatePick></mat-datepicker>                        
+                                </mat-form-field> 
+                         </div>
+
+                         <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                            fxLayoutAlign="space-between start"> 
+                            
+                            
+                                <mat-form-field appearance="outline" class="full-width">                        
+                                    <textarea matInput #input23 formControlName="remarks" maxlength="250" placeholder="Remarks"></textarea>
+                                    <mat-hint>{{input23.value?.length || 0}}/250 </mat-hint>                        
+                                </mat-form-field>
+                                
+                            
+                                <mat-form-field appearance="outline" class="full-width">                        
+                                    <textarea matInput #input24 formControlName="officeUse" maxlength="250" placeholder="For Office Use Only"></textarea>
+                                    <mat-hint>{{input24.value?.length || 0}}/250 </mat-hint>                        
+                                </mat-form-field>
+                                
+                            
+                         </div>   
+                         
+                     </div>
+
+                     
+                     
+                </div>
+                </div>
+                <mat-dialog-actions>
+                    <button   fxLayoutGap="10px" color="accent" mat-raised-button  class="mat-button-base.mat-accent" (click)="onSubmit()">
+                        Add 
+                    </button>
+                    
+                </mat-dialog-actions>
+             </div>            
+                </mat-dialog-content>
+                
+             </form>       
+        </div>          
+    </div>
+</div>

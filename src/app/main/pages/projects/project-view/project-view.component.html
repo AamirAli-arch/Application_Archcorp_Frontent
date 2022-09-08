@@ -1,0 +1,88 @@
+<app-loader-spiner></app-loader-spiner>
+<mat-card>
+  <div class="full-width">
+    <mat-form-field fxFlex="100%">
+      <mat-label>Search Task Name</mat-label>
+      <input matInput (keydown)="applyFilter($event.target.value)">
+      <!-- <input matInput [(ngModel)]="searchProjectName"> -->
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <h1 class="name">{{projectName}}</h1>
+  <mat-tree #tree style="position: relative; top: 10px;" [dataSource]="dataSource" [treeControl]="treeControl">
+
+    <mat-nested-tree-node  *matTreeNodeDef="let node" matTreeNodeToggle>
+      <li>
+        <div class="mat-tree-node"><span matTooltipClass="custom-tooltip" matTooltipPosition="above"
+            [matTooltip]="'Hours:- '+node.duration">{{node.name}}</span>  
+        
+          <button *ngIf="node.resources.length == 0" matTooltipClass="custom-tooltip" matTooltipPosition="above"
+          matTooltip="Add task" (click)="openTaskDialog(node, 'add')" mat-icon-button  class="text-green">
+            <mat-icon>add</mat-icon>
+          </button>
+
+          <button matTooltipClass="custom-tooltip" matTooltipPosition="above"
+          matTooltip="Assign Task" mat-icon-button (click)="openTaskAllocationDialog(node)" class="text-user">
+            <mat-icon>person_add</mat-icon>
+          </button>
+          <button matTooltipClass="custom-tooltip" matTooltipPosition="above"
+          matTooltip="Edit Task" mat-icon-button class="text-user" (click)="openTaskDialog(node , 'edit')">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button matTooltipClass="custom-tooltip" matTooltipPosition="above"
+          matTooltip="Delete Task" (click)="deleteTask(node)" mat-icon-button  class="text-red">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button matTooltipClass="custom-tooltip" matTooltipPosition="above"
+          matTooltip="Resources" *ngIf="node.resources.length>0" (click)="resurcehideShow(node)" mat-icon-button class="text-user">
+            <mat-icon>people</mat-icon>
+          </button>
+
+
+        </div>
+      </li>
+    </mat-nested-tree-node>
+    <mat-nested-tree-node  *matTreeNodeDef="let node; when: hasChildren">
+        <li class="example-tree-container">
+          <div  class="mat-tree-node">
+            <button (click)="nodeId(node.id)" mat-icon-button matTreeNodeToggle
+                    [matTreeNodeToggleRecursive]="recursive"
+                  [attr.aria-label]="'toggle ' + node.filename">
+              <mat-icon>
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+            <span matTooltipClass="custom-tooltip" matTooltipPosition="above"
+            [matTooltip]="'Hours:- '+node.duration">{{node.name}}</span>  
+            <div class="button-right">
+
+                <button  matTooltipClass="custom-tooltip" matTooltipPosition="above"
+                matTooltip="Add Task" (click)="openTaskDialog(node, 'add')" mat-icon-button  class="text-green">
+                  <mat-icon>add</mat-icon>
+                </button>
+              <button matTooltipClass="custom-tooltip" matTooltipPosition="above"
+              matTooltip="Edit Task" mat-icon-button class="text-user" (click)="openTaskDialog(node ,'edit')">
+                <mat-icon>edit</mat-icon>
+              </button>
+            <button matTooltipClass="custom-tooltip" matTooltipPosition="above"
+            matTooltip="Delete Task" (click)="deleteTask(node)" mat-icon-button  class="text-red" >
+              <mat-icon>delete</mat-icon>
+            </button>
+
+
+          </div>
+        </div>
+        <ul class="example-tree-nested-node">
+          <div  *ngIf="treeControl.isExpanded(node)">
+          <ng-container matTreeNodeOutlet></ng-container>
+          </div>
+        </ul>
+      </li>
+    </mat-nested-tree-node>
+  </mat-tree>
+</mat-card>
+
+
+
+
+

@@ -1,0 +1,85 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="container p-12 w-100-p">
+    <div>
+        <h1>Review Request</h1>
+    </div>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start strech">
+        <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex.lt-md="100" fxFlex.gt-sm="20">
+            <div>
+                <div>
+                    <span class="emp-name">{{leaveDetails.employeeName}}</span>
+                </div>
+                <div fxlayout="row" fxLayoutAlign="start center">
+                    <span>{{leaveDetails.employeeDesignation}}</span>
+                </div>
+            </div>
+            
+        </div>
+        <div *ngIf="leaveDetails.leaveTypeId!=6 && leaveDetails.leaveTypeId!=5 && totalHolidays>0" fxLayout="row"  fxLayoutAlign="space-between start" fxLayoutGap="30px" fxFlex.lt-md="100" fxFlex.gt-sm="50" class="leave-bank">
+            <!-- <div fxLayout="column" fxLayoutAlign="space-between center">
+                <span class="bank-heading leave-status">Total Leave Available</span>
+                <span class="number-days">{{totalHolidays+usedHolidays}}</span>
+            </div> -->
+            <div fxLayout="column" fxLayoutAlign="space-between center">
+                <span class="bank-heading leave-status">Leaves Used</span>
+                <span class="number-days">{{usedHolidays}}</span>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-between center">
+                <span [ngClass]="totalHolidays > 0 ? 'leave-status':'red' " class="bank-heading leave-status">Leaves Available</span>
+                <span class="number-days" [ngClass]="totalHolidays > 0 ? 'green':'red' ">{{totalHolidays | number:'1.0-2'}}</span>
+            </div>
+        
+        </div>
+       
+    </div>
+    <div class="pt-12" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between none">
+        <div fxFlex.lt-md="100" fxFlex.gt-sm="70" fxLayout="column" class="leave-container">
+            <div>
+                <div fxlayout="column" fxLayoutAlign="start center" fxLayoutGap="15px">
+                    <span class="leave-type">{{leaveDetails.leaveType}}</span>
+                    <span class="leave-status">{{leaveDetails.currentStatus}}</span>
+                </div>
+                <div fxlayout="row" fxLayoutAlign="start center">
+                    <mat-icon mat-list-icon color="primary">exit_to_app</mat-icon>
+                    <span>Leave Type</span>
+                </div>
+            </div>
+            <div class="pt-24" fxLayout="row" fxLayoutAlign="space-between end">
+                <div fxLayout.xs="column" fxLayout.sm="column" [formGroup]="leaveApply" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" >
+                    <mat-form-field fxFlex.gt-sm="100"  floatLabel="never" appearance="outline">
+                        <mat-label>Start Date</mat-label>
+                        <input placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()" formControlName="startDate" autocomplete="off">
+                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                        <mat-datepicker #startDate></mat-datepicker>
+                      </mat-form-field>
+                
+                      <mat-form-field fxFlex.gt-sm="100"  floatLabel="never" appearance="outline">
+                        <mat-label>End Date</mat-label>
+                        <input placeholder="End Date" [min]="leaveApply.value.startDate" matInput [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                        <mat-datepicker #endDate></mat-datepicker>
+                      </mat-form-field>
+                </div>
+                <!-- <div>
+                    {{requestedDays}} Days Requested
+                </div> -->
+            </div>
+
+            <div class="leave-reason mt-16" fxLayout="row" fxLayoutAlign="start start">
+                Reason<br />
+                {{leaveDetails.reason}}
+            </div>
+            <div class="mt-16" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="end end" fxLayoutGap="10px">
+                <button *ngIf="leaveDetails.currentStatus!='Approved'" mat-raised-button color="primary" (click)="approveLeave()">Approve</button>
+                <button *ngIf="leaveDetails.currentStatus!='Rejected'" (click)="rejectLeave()" mat-raised-button color="warn">Reject</button>
+            </div>
+        </div>
+        <div *ngIf="leaveDetails.leaveTypeId!=6 && leaveDetails.leaveTypeId!=5" fxFlex.lt-md="100" fxFlex.gt-sm="30">
+            <mat-list role="list">
+                <mat-list-item *ngFor="let item of validations" role="listitem">
+                    <mat-icon mat-list-icon [color]="item.color">{{item.type}}</mat-icon>
+                    {{item.message}}</mat-list-item>
+              </mat-list>
+        </div>
+    </div>
+</div>

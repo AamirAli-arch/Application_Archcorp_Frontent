@@ -1,0 +1,43 @@
+<div class="reports-container">
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <strong> Project Details</strong>
+            <button (click)="addProject()" mat-raised-button color="accent">
+                <mat-icon>add_circle</mat-icon> Add Details
+            </button>
+        </mat-expansion-panel-header>
+    
+
+        <ul>
+            <li>
+                <span><strong fxFlex.gt-sm="30">ProjectId:</strong>ProjectId</span>
+            </li>
+            <li> <span><strong fxFlex.gt-sm="30">Employer:</strong>Employer</span></li>
+            <li>
+                <span><strong fxFlex.gt-sm="30">Location:</strong>Location</span>
+            </li>
+        </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <strong>Contract Term</strong>
+            <button  mat-raised-button color="accent">
+                <mat-icon>add_circle</mat-icon> Add Contract
+            </button>
+        </mat-expansion-panel-header>
+
+
+        <ul>
+            <li>
+                <span><strong fxFlex.gt-sm="30">ProjectId:</strong>ProjectId</span>
+            </li>
+            <li> <span><strong fxFlex.gt-sm="30">Employer:</strong>Employer</span></li>
+            <li>
+                <span><strong fxFlex.gt-sm="30">Location:</strong>Location</span>
+            </li>
+        </ul>
+    </mat-expansion-panel>
+</mat-accordion>
+</div>

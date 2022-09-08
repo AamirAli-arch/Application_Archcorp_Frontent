@@ -1,0 +1,40 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container top">
+        <div class="left-section">
+            <h3>{{title}}</h3>
+            <p><strong><img src="assets/images/authority.png"></strong>{{authorityName}}</p>
+            <!-- <p><strong><img src="assets/images/master.png"></strong>{{masterDeveloperName}}</p>            -->
+            <p><strong><img src="assets/images/status.png"></strong>{{currentStatusName}}</p>
+        </div>
+        <div class="download-button">
+            <button (click)="addStage()" mat-raised-button color="accent">
+                <mat-icon>add_circle</mat-icon> Update Status
+            </button>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <section id=timeline>
+            <div class="demo-card-wrapper">
+                    <div *ngFor="let stage of stageArray; let i=index" [ngClass]="stageArray.length == 1 ? 'my_class1' : 'my_class2'" class="demo-card demo-card--step{{i+1}}">
+                        <div [ngClass]="renderClass(stage.statusString)" class="head">
+                            <div class="number-box">
+                                {{stage.createdDate | date:'mediumDate'}}
+                            </div>
+                            <h2>{{stage.statusString}}</h2>
+                        </div>
+                        <div class="body timeline-text">
+                          <h3> <mat-icon> comment</mat-icon> Comment</h3>
+                           <p> {{stage.comments}}</p>
+                           <span *ngIf="(stage.date | date:'yyyy') > 2020"><h3> <mat-icon>date_range</mat-icon>Target Date</h3>
+                           <p>{{stage.date | date:'mediumDate'}} </p></span>
+                            <h3><mat-icon> notes</mat-icon>Remark</h3>
+                            <p>{{stage.remarks}}</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </div>
+
+</div>

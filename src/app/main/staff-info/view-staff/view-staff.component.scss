@@ -1,0 +1,49 @@
+::ng-deep #gridContainer sup {
+    font-size: 0.8em;
+    vertical-align: super;
+    line-height: 0;
+    
+  }
+  
+  ::ng-deep .long-title {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    right: 45px;
+    z-index: 1;
+    
+  }
+  
+  ::ng-deep .long-title h3 {
+    font-family: 'Segoe UI Light', 'Helvetica Neue Light', 'Segoe UI', 'Helvetica Neue', 'Trebuchet MS', Verdana;
+    font-weight: 200;
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 0 45px;
+  }
+
+  ::ng-deep .dx-row .dx-column-lines .dx-header-row{
+    text-align: center;
+  }
+
+
+  button.mat-focus-indicator.accent.pdf {
+    position: absolute;
+    top: 40px;
+    box-shadow: none;
+    padding: 7px;
+    left: 10px;
+    line-height: normal;
+}
+
+::ng-deep .dx-dropdownbutton > * {
+    display: inline-block;
+    vertical-align: middle;
+    color:black
+    
+}
+
+::ng-deep .dx-button-content >*
+{
+    color: black;
+}

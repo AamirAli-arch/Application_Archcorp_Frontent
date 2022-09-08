@@ -1,0 +1,103 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>{{title}}</h2>
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+        <div class="emtimated-hours" [formGroup]="allocationForm">
+            <form [formGroup]="allocationForm" fxLayout="column" (ngSubmit)="onSubmit()">
+                <mat-dialog-content>
+                    <div class="primary-contact">
+                        <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column">
+                            <app-single-projectdropdown [projectName]="projectName" class="single-project"
+                                (projectId)="projectId($event)"></app-single-projectdropdown>
+                        </div>
+
+                        <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                            fxLayoutAlign="space-between start">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Amount</mat-label>
+                                <input (keypress)="numberOnly($event)" matInput formControlName="amount" required
+                                    spellcheck="false">
+                                <mat-error *ngIf="allocationForm.controls.amount.errors?.required">Amount is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <ng-container *ngIf="getType == 'add'">
+                            <mat-checkbox (change)="multipleDateSelect($event)" class="ismultiple">Is Multiple
+                            </mat-checkbox>
+                        </ng-container>
+
+                        <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                            fxLayoutAlign="space-between start">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label *ngIf="!isMultipleCheckbox">Date</mat-label>
+                                <mat-label *ngIf="isMultipleCheckbox">Start Date</mat-label>
+                                <input readonly required [min]="statDate" matInput [matDatepicker]="startDate"
+                                    (click)="startDate.open()" formControlName="date">
+                                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                                <mat-datepicker #startDate></mat-datepicker>
+                                <mat-error *ngIf="allocationForm.controls.date.errors?.required">Date is
+                                    required</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <ng-container *ngIf="getType == 'add'">
+                            <div *ngIf="isMultipleCheckbox" class="space-bottom" fxLayoutGap="10px" fxLayout.md="row"
+                                fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-label>End Date</mat-label>
+                                    <input readonly [min]="allocationForm.get('date').value" matInput
+                                        [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate">
+                                    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #endDate></mat-datepicker>
+                                    <mat-error *ngIf="allocationForm.controls.date.errors?.required">End Date is
+                                        required</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </ng-container>
+                        <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                            fxLayoutAlign="space-between start">
+                            <mat-form-field *ngIf="!stageHide" appearance="outline" class="full-width">
+                                <mat-label>Stage</mat-label>
+                                <input matInput formControlName="stage" required spellcheck="false">
+                                <mat-error *ngIf="allocationForm.controls.amount.errors?.required">Stage is required
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field *ngIf="stageHide" appearance="outline" class="full-width">
+                                <mat-label>Stage</mat-label>
+                                <mat-select (selectionChange)='onOptionsSelected($event.value)' color="primary"
+                                    formControlName="stage">
+                                    <mat-option class="mat-primary" *ngFor="let emplist of stageList" [value]="emplist">
+                                        {{emplist}}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="allocationForm.controls.stage.errors?.required">Stage is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                            fxLayoutAlign="space-between start">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Income Type</mat-label>
+                                <mat-select color="primary" formControlName="incomeType">
+                                    <mat-option class="mat-primary" *ngFor="let list of incomeType" [value]="list.id">
+                                        {{list.name}}</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="allocationForm.controls.stage.errors?.required">Income type is
+                                    required</mat-error>
+                            </mat-form-field>
+
+                        </div>
+
+                    </div>
+                </mat-dialog-content>
+                <mat-dialog-actions>
+                    <button *ngIf="getType != 'add'" fxLayoutGap="10px" color="accent" mat-raised-button>Update</button>
+                    <button *ngIf="getType == 'add'" fxLayoutGap="10px" color="accent" mat-raised-button>Save</button>
+                </mat-dialog-actions>
+            </form>
+        </div>
+    </div>
+
+</div>

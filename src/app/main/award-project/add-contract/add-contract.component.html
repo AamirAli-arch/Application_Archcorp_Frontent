@@ -1,0 +1,100 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>Add Contract</h2>
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div class="emtimated-hours">
+            <form [formGroup]="addContractForm" fxLayout="column" (ngSubmit)="onSubmit()">
+                <mat-dialog-content>
+                <div class="primary-contact">
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Bank Guarantee</mat-label>
+                            <input matInput formControlName="bankGuarantee" required spellcheck="false">
+                            <mat-error *ngIf="addContractForm.controls.bankGuarantee.errors?.required">Bank Guarantee is
+                                required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Insurance</mat-label>
+                            <input matInput formControlName="insurance" required spellcheck="false">
+                            <mat-error *ngIf="addContractForm.controls.insurance.errors?.required">Insurance is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Delay Penalty</mat-label>
+                            <input matInput formControlName="delayPenalty" required spellcheck="false">
+                            <mat-error *ngIf="addContractForm.controls.delayPenalty.errors?.required">Delay Penalty is
+                                required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Variations</mat-label>
+                            <input matInput formControlName="variations" required spellcheck="false">
+                            <mat-error *ngIf="addContractForm.controls.variations.errors?.required">Variations is required
+                            </mat-error>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Suspension</mat-label>
+                            <input matInput formControlName="suspension" required spellcheck="false">
+                            <mat-error *ngIf="addContractForm.controls.suspension.errors?.required">Suspension is
+                                required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Termination</mat-label>
+                            <input matInput formControlName="termination" required spellcheck="false">
+                            <mat-error *ngIf="addContractForm.controls.termination.errors?.required">Termination is
+                                required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Special</mat-label>
+                            <input matInput formControlName="special" required spellcheck="false">
+                            <mat-error *ngIf="addContractForm.controls.special.errors?.required">Special is
+                                required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                </mat-dialog-content>
+                <mat-dialog-actions>
+                    <button fxLayoutGap="10px" color="accent" mat-raised-button>Save</button>
+                    <button [mat-dialog-close]="false" style="background: #ff0000;" fxLayoutGap="10px" color="accent"
+                        mat-raised-button>Cancel</button>
+                </mat-dialog-actions>
+            </form>
+        </div>
+    </div>
+
+</div>

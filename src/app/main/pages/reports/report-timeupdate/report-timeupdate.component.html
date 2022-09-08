@@ -1,0 +1,32 @@
+<!-- <app-loader-spiner></app-loader-spiner> -->
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    
+    <div class="w-100-p">
+        <div class="emtimated-hours" [formGroup]="allocationForm">
+            <form [formGroup]="allocationForm" fxLayout="column" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline">
+					<mat-label>Time</mat-label>
+					<input [min]="'08:00 am'" [max]="'23:59 pm'" readonly [format]="24"
+						formControlName="time" matInput [ngxTimepicker]="startTimepicker" [disableClick]="true"
+						readonly>
+					<ngx-material-timepicker-toggle [for]="startTimepicker"></ngx-material-timepicker-toggle>
+					<ngx-material-timepicker #startTimepicker></ngx-material-timepicker>
+				</mat-form-field>
+                <!-- <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Time</mat-label>
+                    <input timeformat="12h" required min="08:00" max="18:00" matInput formControlName="time" class="edit-time" type="time">
+                </mat-form-field> -->
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Note / Feedback</mat-label>
+                    <input matInput formControlName="comment" placeholder="Note / Feedback" spellcheck="false">
+                </mat-form-field>
+                <mat-dialog-actions>
+                    <button fxLayoutGap="10px" color="accent" mat-raised-button>Save</button>
+                    <button [mat-dialog-close]="false" fxLayoutGap="10px" mat-raised-button>No</button>
+                </mat-dialog-actions>
+            </form>
+        </div>
+    </div>
+
+</div>

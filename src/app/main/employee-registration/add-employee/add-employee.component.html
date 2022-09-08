@@ -1,0 +1,131 @@
+
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="column" fxLayoutAlign="start stretch" fxFlex="50" style="margin: 10px;" class="filter-container">
+    <div>
+        <h2>Employee Regsitration</h2>
+        <p>Please provide the details...</p>
+    </div>
+    <form [formGroup]="employeeForm" fxLayout="column" fxLayoutAlign="space-around stretch" >
+        <!-- <app-project-dropdown class="resorce-filter" (projectId)="projectId($event)" fxFlex="grow">
+        </app-project-dropdown> -->
+
+        <mat-form-field class="title" appearance="outline" fxFlex.gt-sm="100" >
+            <mat-label>Select Title</mat-label>
+
+            <mat-select required color="primary" formControlName="titleFormControl" [(value)]="titleSelected">
+                <mat-option *ngFor="let t of title" [value]="t.name">
+                    {{t.name}}
+                </mat-option>
+            </mat-select>           
+            </mat-form-field>
+
+
+            <!-- <mat-form-field appearance="outline" appearance="outline" fxFlex.gt-sm="100">
+                
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="emailFormControl" [errorStateMatcher]="matcher"
+                           placeholder="Ex. pat@example.com">
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                    <mat-error *ngIf="emailFormControl.errors('email') && !emailFormControl.errors('required')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.errors('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                
+              </mat-form-field>
+      -->
+     
+<!-- 
+              <mat-error *ngIf="elementsForm.controls.discipline.errors?.required">Discipline is required!
+            </mat-error> -->
+
+
+        <!-- <mat-form-field appearance="outline" fxFlex="grow">
+            <mat-label>Room Id</mat-label>
+            <input matInput placeholder="Note" formControlName="roomId">
+        </mat-form-field>
+
+
+        <mat-form-field class="element" appearance="outline" fxFlex.gt-sm="100" >
+            <mat-label>Select Element</mat-label>
+            <mat-select required color="primary" formControlName="element" [(value)]="elementSelected">
+
+                <mat-option *ngFor="let element of elements" [value]="element.name">
+                    {{element.name}}
+                  </mat-option>
+                </mat-select>
+
+
+            </mat-form-field>
+
+
+        <mat-form-field class="level" appearance="outline" fxFlex.gt-sm="100" >
+            <mat-label>Select Element Level</mat-label>
+
+            <mat-select required color="primary" formControlName="level" [(value)]="levelSelected" >
+                <mat-option *ngFor="let levels of elementLevels" [value]="levels.name">
+                    {{levels.name}}
+                  </mat-option>
+            </mat-select>            
+        </mat-form-field>
+
+        <mat-form-field class="specific" appearance="outline" fxFlex.gt-sm="100" >
+            <mat-label>Select Specific Value</mat-label>
+
+            <mat-select required color="primary" formControlName="specific" [(value)]="specificSelected">
+                <mat-option *ngFor="let specific of specifics" [value]="specific.name">
+                        {{specific.name}}
+                </mat-option>                
+            </mat-select>            
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" fxFlex="grow">
+            <mat-label>Material</mat-label>
+            <input matInput placeholder="Note" formControlName="material">            
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="grow">
+            <mat-label>Brand Name</mat-label>
+            <input matInput placeholder="Note" formControlName="brand">
+            
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="grow">
+            <mat-label>Supplier</mat-label>
+            <input matInput placeholder="Note" formControlName="supplier">
+            
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="grow">
+            <mat-label>Remarks</mat-label>
+            <input matInput placeholder="Note" formControlName="remarks">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="grow">
+            <mat-label>General Impact</mat-label>
+            <input matInput placeholder="Note" formControlName="generalImpact">
+            
+        </mat-form-field>
+
+
+
+        <mat-form-field class="discipline" appearance="outline" fxFlex.gt-sm="100" >
+            <mat-label>Select Discipline</mat-label>
+            <mat-select required color="primary" formControlName="discipline" [(value)]="disciplineSelected">
+
+                <mat-option *ngFor="let discipline of disciplines" [value]="discipline.name">
+                    {{discipline.name}}
+                  </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="elementsForm.controls.discipline.errors?.required">Please select discipline.
+                </mat-error>
+            </mat-form-field>
+        <button type="submit" mat-raised-button color="primary"   (click)="saveMatrix()" >Submit</button> -->
+
+
+        <button type="submit" mat-raised-button color="primary"   (click)="saveEmployee()" >Submit</button>
+    </form>
+</div>

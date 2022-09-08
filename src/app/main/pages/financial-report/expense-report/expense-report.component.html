@@ -1,0 +1,189 @@
+`<app-loader-spiner></app-loader-spiner>
+
+
+
+<div class="reports-container">
+
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+            <mat-form-field class="financial-filter" fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>From Date</mat-label>
+                <input (dateChange)="addEvent($event)" readonly placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="startDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="financial-filter" fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>To Date</mat-label>
+                <input (dateChange)="addEvent($event)" readonly placeholder="End Date" [min]="filterForm.value.startDate" matInput
+                    [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+
+
+        </div>
+    </div>
+    <div class="download-button">
+      </div>
+    <div class="table-container mat-elevation-z2">
+        <div class="download-button center">{{this.filterForm.controls['startDate'].value | date:'mediumDate' }} - {{this.filterForm.controls['endDate'].value | date:'mediumDate'}}</div>
+        <div class="table-responsive week-table">
+      <table id="content">
+                <thead>
+                    <tr>
+                        <th class="firstTh week"> </th>
+                        <th style="border-bottom:1px solid #dddddd" class="month-year" *ngFor="let month of yearArray;" [id]="month.name">
+                            <span class="montnmae">{{month.name}}</span>
+                         </th>
+                         <th style="border-bottom:1px solid #dddddd" class="month-year"> <span class="montnmae">Total Expense</span></th>
+                         <th style="border-bottom:1px solid #dddddd" class="month-year"><span class="montnmae">% of Total Expense</span></th>
+                         <th style="border-bottom:1px solid #dddddd" class="month-year"><span class="montnmae">Overhead %</span></th>
+                         <th style="border-bottom:1px solid #dddddd" class="month-year"><span class="montnmae">Overhead</span></th>
+                         <!-- <th style="border-bottom:1px solid #dddddd" class="month-year"><span class="montnmae">Overhead</span></th> -->
+                    </tr>
+                </thead>
+      
+                <tbody *ngFor="let item of expenseArrayData">
+                    <tr style="background-color: #dddddd;display: block;column-span: all;border-top: 1px solid #dddddd;">
+                        <td matTooltipClass="icon-tooltip" matTooltipPosition="above"
+                            matTooltip="{{item.name}}" class="firstTh">
+                            {{item.name}}
+                        </td>
+                    </tr>
+                    <tr class="year-month" *ngFor="let sub of item.expenses; let i=index">
+                        <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{sub.name}}" class="datafirst-week">  {{sub.name}}</td>
+                        <td class="month-year" *ngFor="let month of yearArray;" [id]="month.name">
+                            <ng-container *ngFor="let subitem of sub.expenseAmount">
+                                <span class="subitem normal" *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                    <span>AED {{subitem.amount | number : '1.2-2'}}</span>
+                                </span>
+                            </ng-container>
+                        </td>
+                        <td class="subitem normal">  <span>AED {{sub.total | number : '1.2-2'}}</span></td>
+                        <td class="totalexpense"><span>{{(sub.total / totalMonthlyAccumulated)*100 | number : '1.2-2'}} %</span></td>
+                        <td class="totalexpense">
+                            <input type="number" *ngIf="item.name=='Salary'" (focusout)="update(sub.hours, sub.id)" class="input-area" autocomplete="off" (keypress)="numberOnly($event)"
+                            [(ngModel)]="sub.hours" spellcheck="false">
+                            <span *ngIf="item.name !='Salary'">100</span>
+                        </td>
+                        <td class="totalexpense">
+                            <span *ngIf="item.name !='Salary'">AED {{sub.total | number : '1.2-2'}}</span>
+                            <span *ngIf="item.name =='Salary'">AED {{sub.overhead | number : '1.2-2'}}</span>
+                        </td>
+                    </tr>
+                    <tr style="background-color: #979595;" class="year-month">
+                        <td class="datafirst-week">
+                            <strong> Total</strong> </td>
+                        <td class="month-year" *ngFor="let month of yearArray;" [id]="month.name">
+                            <ng-container *ngFor="let subitem of item.totalAmounts">
+                                <span class="subitem " *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                    <span>AED {{subitem.totalAmount | number : '1.2-2'}}</span>
+                                </span>
+                            </ng-container>
+                        </td>
+                        <td class="subitem">  <span>AED {{item.total | number : '1.2-2'}}</span></td>
+                        <td class="totalexpense"><strong>{{(item.total/totalMonthlyAccumulated)*100 | number : '1.2-2'}} %</strong></td>
+                        <td class="totalexpense">
+                            <span *ngIf="item.id != 1">100</span>
+                            <span *ngIf="item.id == 1">{{(totalSalaryOverhead/item.total)*100  | number : '1.2-2'}}</span>
+                        </td>
+                        <td class="subitem">
+                            <span *ngIf="item.id != 1">AED {{item.total | number : '1.2-2'}}</span>
+                            <span *ngIf="item.id == 1">AED {{totalSalaryOverhead | number : '1.2-2'}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <tr class="blank-row"></tr>
+                <tr *ngIf="!noRecords" class="year-month">
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip=" Monthly Expenses AED" class="datafirst-week">
+                       <strong>Monthly Expenses AED</strong> 
+                </td>
+                    <td class="month-year profit" *ngFor="let month of yearArray;" [id]="month.name">
+                        <ng-container *ngFor="let subitem of monthlyArray">
+                            <span class="subitem" *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                <span>AED {{subitem.amount | number : '1.2-2'}}</span>
+                            </span>
+                        </ng-container>
+                    </td>
+                    <td class="totalexpense"><span><strong>AED {{totalMonthlyAccumulated | number : '1.2-2'}}</strong></span></td>
+                </tr>
+                <tr class="blank-row"></tr>
+                <tr *ngIf="!noRecords" style="background-color: #dddddd;display: block;column-span: all;border-top: 1px solid #dddddd;" class="year-month">
+                    <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="Net result at end of the month AED" class="firstTh botom">
+                        Net result at end of the month AED
+                </td>
+                    <td class="month-year profit" *ngFor="let month of yearArray;" [id]="month.name">
+                        <ng-container *ngFor="let subitem of netProfit">
+                            <span  [ngClass]="subitem.amount > 0 ? 'green-profit' : 'red'" class="subitem" *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                <span>AED {{subitem.amount | number : '1.2-2'}}</span>
+                            </span>
+                        </ng-container>
+                    </td>
+                    <td class="month-year profit" >
+                        <span class="subitem"  [ngClass]="overallProfit > 0 ? 'green-profit' : 'red'">
+                            AED {{overallProfit | number : '1.2-2'}}
+                        </span>
+                        </td>
+                        <td class="totalexpense"></td>
+                        <td class="totalexpense">{{(overHeadTotal / ((overallProfit + expectedIncome) - provisions)) * 100| number : '1.2-2' }}</td>
+                    <td class="totalexpense overheadTotal"> AED {{overHeadTotal | number : '1.2-2'}}</td>
+                </tr>
+                <tr *ngIf="!noRecords" class="project-bottom-payment">
+                     <td class="labelname">
+                        <strong>Projects not included in monthly cash flow</strong>  
+                     </td>
+                     <td class="amount">{{expectedIncome | number : '1.2-2'}}</td>
+                     <td class="totalexpense"></td>
+                </tr>
+                <tr *ngIf="!noRecords" class="project-bottom-payment">
+                    <td class="labelname">
+                        <strong> Profit / Loss = (Total Income - Total expense)</strong>
+                    </td>
+                    <td class="amount">{{overallProfit + expectedIncome | number : '1.2-2'}}</td>
+                    <td class="totalexpense"></td>
+               </tr>
+               <tr *ngIf="!noRecords" class="project-bottom-payment">
+                    <td class="labelname">
+                        <strong>  Provisions</strong>
+                    </td>
+                    <td class="amount">- {{provisions | number : '1.2-2'}}</td>
+                    <td class="totalexpense"></td>
+               </tr>
+               <tr *ngIf="!noRecords" class="project-bottom-payment">
+                    <td class="labelname">
+                        <strong>  Net Profit/ Loss</strong>
+                    </td>
+                    <td class="amount">{{(overallProfit + expectedIncome) - provisions| number : '1.2-2'}}</td>
+                    <td class="totalexpense"></td>
+                </tr>
+                <tr *ngIf="!noRecords" class="project-bottom-payment">
+                    <td class="labelname">
+                        <strong>  Low risk</strong>
+                    </td>
+                    <td class="amount">{{lowRiskIncome | number : '1.2-2'}}</td>
+                    <td class="totalexpense"></td>
+                </tr>
+                <tr *ngIf="!noRecords" class="project-bottom-payment">
+                    <td class="labelname">
+                        <strong>   Total Profit/ Loss </strong>
+                    </td>
+                    <td class="amount">{{(overallProfit + expectedIncome + lowRiskIncome) - provisions | number : '1.2-2'}}</td>
+                    <td class="totalexpense"></td>
+                </tr>
+                <!-- <tr class="project-bottom-payment">
+                    <td class="labelname">
+                        <strong>  Potential Projects </strong>
+                    </td>
+                    <td class="amount">5000</td>
+                    <td class="totalexpense"></td>
+                </tr> -->
+
+            </table>
+            <div *ngIf="noRecords" class="norecord">No Records</div>
+        </div>
+    </div>
+</div>

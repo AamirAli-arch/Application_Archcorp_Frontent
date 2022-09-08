@@ -1,0 +1,50 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 10px;
+  }
+
+  #radio-group-label2{
+    margin-top: 20px;  
+  }
+
+  #radio-group-label,#radio-group-label2{
+   padding-bottom: 5px;
+  }
+
+  .due-date
+  {
+    margin-top: 20px;    
+  }
+
+
+  //for project-dashboard
+
+  .w-100-p{
+    position: relative;
+    width:700px;
+  }
+
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  button.close {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+  @media screen and (max-width: 980px) {
+    .full-width {
+        width: 700px;
+    }
+}
+
+// @media screen and (max-height: 500px) {
+//   .full-height {
+//       height: 100% !important;
+//   }
+// }

@@ -1,0 +1,12 @@
+
+<mat-form-field appearance="outline" fxFlex.gt-sm="100">
+    <mat-label>All Project</mat-label>
+    <mat-select required  [formControl]="employeeMultiCtrl" placeholder="Project">
+      <ngx-mat-select-search noEntriesFoundLabel="No Record Match" placeholderLabel="Search" [formControl]="employeeMultiFilterCtrl"></ngx-mat-select-search>
+      <mat-option (click)="getId(employee.id)" *ngFor="let employee of filteredEmployeeMulti | async" [value]="employee.projectName">
+        {{employee.projectName}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="employeeMultiCtrl.errors?.required">Project is required
+    </mat-error>
+  </mat-form-field>

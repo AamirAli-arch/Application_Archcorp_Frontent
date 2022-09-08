@@ -1,0 +1,197 @@
+
+<div id="wrapper">
+
+  
+
+<div id="divSearch">
+
+<div class="content">
+  <div class="card">
+    
+      <input matInput (keydown)="applyFilter($event.target.value)" placeholder="Enter name to search" id="searchName">
+      <!-- <input matInput [(ngModel)]="searchProjectName"> -->              
+      <!-- <input matInput [(ngModel)]="searchProjectName"> -->          
+      <!-- <ul class="list-group list-group-flush">
+      results of ngFor is passed to appFilter with argument searchText 
+      <li class="list-group-item" *ngFor="let c of characters | appFilter: searchText">
+        {{c}}
+      </li>
+      </ul> 
+      -->
+    </div>
+  </div>
+</div>
+
+<div id="divEmp">
+<div class="scroller">
+  <dx-scroll-view id="scroll">               
+    <!-- <input matInput (keydown)="applyFilter($event.target.value)" placeholder="Enter name to search" id="searchName"> -->
+    <div class="empDiv" *ngFor="let designation of groupedArray">
+      
+        <strong style="display:block;text-align:center;background-color:#0072b5;color: white;border:1px solid;border-radius:3px; padding-top:5px;height:35px;
+        font-family: Arial, Helvetica, sans-serif;">
+          {{designation.name}}</strong>
+            
+        <dx-draggable
+        class="item dx-card dx-theme-text-color dx-theme-background-color"
+        [clone]="true"
+        [group]="draggingGroupName"
+        [data]="employee"            
+        (onDragStart)="onItemDragStart($event)"
+        (onDragEnd)="onItemDragEnd($event)"
+        *ngFor="let employee of designation.value"                                
+        >                
+        {{ employee.name }}
+        </dx-draggable>            
+    </div>
+
+  </dx-scroll-view>
+</div>
+</div>
+</div>
+
+
+<div  id="commDiv">
+
+<dx-data-grid
+    [dataSource]="dashboardDataSource"
+    keyExpr="dashboardId"
+    [allowColumnReordering]="true"
+    [allowColumnResizing]="true"
+    [columnAutoWidth]="true"
+    [showBorders]="true"    
+    (onRowUpdating)="logEvent($event)"
+    (onSelectionChanged)="selectionChanged($event)"
+    group="draggingGroupName"
+    
+    >  
+    
+    <dxo-search-panel
+    [visible]="true"
+    [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    
+
+  
+    <dxo-row-dragging           
+    [group]="draggingGroupName"
+    [onAdd]="onAdd"     
+     
+    [allowReordering]="true"
+    [allowDropInsideItem]="true"
+    [onReorder]="onReorder"    
+    
+    ></dxo-row-dragging>
+
+    <dxo-scrolling mode="virtual"></dxo-scrolling>
+    
+    <dxo-editing
+    mode="cell"
+    [allowUpdating]="true">
+    </dxo-editing>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    
+    <dxi-column type="buttons" [width]="30">      
+      <dxi-button
+        hint="Add Risk Note"
+        icon="add"        
+        [onClick]="cloneIconClick"
+      ></dxi-button>
+    </dxi-column>
+
+    
+    <dxi-column  dataField="groups" [groupIndex]="0" sortOrder="asc" groupCellTemplate="groupCellTemplate"  [calculateGroupValue]="calculateSortValue"></dxi-column>
+    <div  *dxTemplate="let data of 'groupCellTemplate'">      
+        <div *ngIf="data.value == 'DesignAndAuthorities'" class="group1">Design And Authorities</div>       
+        <div *ngIf="data.value == 'Tender'" class="group2">Tender</div>
+        <div *ngIf="data.value == 'Supervision'" class="group3">Supervision</div>
+        <div *ngIf="data.value == 'Unassigned'" class="group4">Unassigned</div>
+        
+    </div>
+    <dxi-column dataField="projectName" dataType="string" caption="Project Name"></dxi-column>
+
+    <dxi-column [allowEditing]="false" dataField="projectDashboardEmployees"  dataType="string" caption="Employee Name" cellTemplate="cellTemplate"></dxi-column>
+      <div *dxTemplate="let cell of 'cellTemplate'">
+        <div>
+          <ul>
+            <li *ngFor="let item of cell.value;let i = index">
+              
+              <span style="display: inline-block;min-width:.5rem;padding:.3rem .5rem;background:#029de6;text-align:center;border-radius:2%;color:#fefefe;
+              margin:.1rem;font-size:13px;min-width:.5rem"
+                *ngIf="item.employeeId" [id]="item.employeeId" (dblclick)="removeEmp(item.employeeId,item.dashboardId)"
+                matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{item.firstName}}"
+                        >
+                {{userInitials(item.firstName)}}
+              </span>
+            
+            </li>
+          </ul>
+        </div>
+    </div>
+
+    <dxi-column dataField="groupStage" dataType="string">
+      <dxo-lookup [dataSource]="groupStages" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="preBIM" dataType="string" caption="PreBIM">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="aor" dataType="string" caption="AOR">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="architecture" dataType="string">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="structure" dataType="string">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="mechanical" dataType="string">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="electrical" dataType="string">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="interior" dataType="string">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    <dxi-column dataField="qs" dataType="string" caption="QS">
+      <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+
+    
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-grouping  #expand [autoExpandAll]="true"></dxo-grouping>
+    
+
+    <dxo-toolbar>
+      <dxi-item name="groupPanel"></dxi-item>
+      <dxi-item location="after">
+        <dx-button
+          icon="exportpdf"
+          text="Export to PDF"
+          (onClick)="exportGrid()"
+        >
+        </dx-button>
+      </dxi-item>
+      <dxi-item name="searchPanel"></dxi-item>
+    </dxo-toolbar>
+</dx-data-grid>
+
+</div>
+

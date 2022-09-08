@@ -1,0 +1,50 @@
+table {
+    width: 100%;
+  }
+
+  agm-map {
+    height: 100px;
+    width: 100px;
+  }
+
+  .mat-cell.mat-column-allocatedHours {
+    cursor: pointer;
+  }
+
+  .mat-form-field {
+    width: 100%;
+}
+  :host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper{
+    padding-bottom: 0px !important;
+  }
+  
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+ .mat-column-checkInLocation,.mat-column-checkOutLocation{
+    width: 80px;
+  }
+  .mat-cell, .mat-footer-cell {
+    font-size: 14px;
+    width: 200px;
+}
+.top-section{
+    position: relative;
+}
+button.close {
+    position: absolute;
+    right: 20px;
+    top: -5px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    z-index: 99;
+}

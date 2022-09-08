@@ -1,0 +1,54 @@
+<div class="reports-container">
+    <button (click)="addUpdateBudgete('add')" mat-stroked-button mat-raised-button color="accent">
+        <mat-icon>add_circle</mat-icon><span class="mobilehide">Add More</span>
+    </button>
+    <h1 class="number-budgete" #budgeteDigit><mat-icon>schedule</mat-icon> Total Budgeted Hours :
+          <app-budget-number [digit]="projectHours" [duration]="1000"></app-budget-number>
+         <!-- {{projectCost | number : '1.2-2'}} -->
+        </h1>
+
+    <div class="project-content mat-elevation-z2">
+
+        <div fxLayout="row wrap">
+            <div *ngFor="let item of budgetedHoursArray" class="bg-card shadow" fxLayoutGap="10px" fxFlex="25%"  fxFlex.sm="50" fxFlex.xs="100%">
+                <mat-card class="project-card">
+                    <div class="ml-2 -mt-2 -mr-3">
+                        <button class="more-button"
+                            mat-icon-button
+                            [matMenuTriggerFor]="summaryMenu">
+                            <mat-icon class="moreView">more_vert</mat-icon>
+
+                        </button>
+                        <mat-menu class="open-menu" #summaryMenu="matMenu">
+                            <button (click)="addUpdateBudgete(item)" mat-menu-item>Update</button>
+                            <button (click)="deleteCard(item.id)" mat-menu-item>Delete</button>
+                        </mat-menu>
+                    </div>
+                    <div class="text-lg font-medium">{{item.designation}}</div>
+                    <mat-card-actions class="button-bottom" fxLayout="row" fxLayoutAlign="center baseline">
+                        <div class="min-content">
+                            <div class="budget bud-color">
+                                <span class="number">
+                                    {{item.budgetedHours}}
+                                </span>
+                                Budgeted
+                            </div>
+                            <div class="budget allocat">
+                                <span class="number allocat">
+                                    {{item.allocatedHours}}
+                                </span>
+                                Allocated
+                            </div>
+                            <div class="budget rem">
+                                <span class="number rem">
+                                    {{item.budgetedHours-item.allocatedHours}}
+                                </span>
+                                Remaining
+                            </div>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            
+        </div>
+    </div>

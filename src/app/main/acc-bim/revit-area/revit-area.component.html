@@ -1,0 +1,8 @@
+<div class="w-100-p">
+  <dx-tree-map id="treemap" childrenField="Detail" labelField="Label" valueField="AreaSqm" [dataSource]="apartmentAreas"
+    title="Areas Per Level" layoutAlgorithm="sliceanddice" colorField="Color" (onNodesRendering)="addTextNode($event)">
+    <dxo-tooltip [enabled]="true" format="#0.##" [customizeTooltip]="customizeTooltip" [zIndex]="1">
+    </dxo-tooltip>
+    <dxo-label></dxo-label>
+  </dx-tree-map>
+</div>

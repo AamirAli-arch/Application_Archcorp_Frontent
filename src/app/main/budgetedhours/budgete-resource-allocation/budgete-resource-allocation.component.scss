@@ -1,0 +1,109 @@
+.mat-raised-button {
+    width: auto !important;
+    padding: 1px 5px !important;
+    line-height: normal;
+    box-shadow: none !important;
+    margin-right: 10px;
+    font-size: 14px;
+    float: right;
+  .mat-icon{
+    font-size: 18px;
+    top: 3px;
+    position: relative;
+  }
+}
+.project-content {
+    clear: both;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.bg-card.shadow{
+    font-family: Inter var,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color emoji;
+    .project-card {
+        box-shadow: 0 1px 3px 0 #0000001a,0 1px 2px 0 #0000000f!important;
+        border-radius: 4px;
+        margin:10px;
+    }
+    .number {
+        color: #3B82F6;
+        font-size: 24px;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 35px;
+    }
+    .allocat {
+        color: #22C55E;
+    }
+    .rem{
+        color: #F59E0B;
+    }
+    .bud-color{
+        color: #3B82F6;
+    }
+    .min-content {
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        padding-bottom: 10px;
+    }
+    .budget {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        overflow: hidden;
+    }
+    .text-lg.font-medium{
+        color: rgb(30, 41, 59);
+        font-size: 16px;
+        font-weight: 500;
+    }
+  
+}
+.more-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+input.input-area {
+    max-width: 100px;
+    text-align: center;
+    border: 1px solid #fff;
+}
+input.input-area:focus{
+    border: 1px solid #eee;
+}
+.budget.rem.bottom {
+    width: 140px;
+}
+.project-profit.added{
+    h3 {
+        font-weight: bold;
+    }
+    .mat-expansion-panel{
+        background: #F5F5F5 !important;
+    }
+    button.text-red {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #ff0000 !important;
+    }
+}
+.ml-2.-mt-2.-mr-3 button {
+    position: absolute;
+    right: 0;
+    top:5px;
+    color: #008000;
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.number-budgete{
+    display: flex;
+    align-items: center;
+   color: #000;
+    font-size: 20px;
+}

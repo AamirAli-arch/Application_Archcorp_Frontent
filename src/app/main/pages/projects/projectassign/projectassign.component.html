@@ -1,0 +1,60 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+  <div class="w-100-p">
+    <h2 mat-dialog-title>{{title}}</h2>
+    <p>Task total hours {{hours}}</p>
+    <!-- <p>{{startDate }} - {{endDate}}</p> -->
+
+    <div class="emtimated-hours" [formGroup]="allocationForm">
+        <mat-dialog-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Add New Task</mat-label>
+        <input matInput formControlName="newtask" required spellcheck="false">
+      </mat-form-field>
+      <mat-form-field required appearance="outline" class="full-width">
+        <mat-label>Select Verb</mat-label>
+        <mat-select formControlName="verb">
+          <mat-option *ngFor="let verb of verbList" [value]="verb">
+            {{verb}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field required appearance="outline" class="full-width">
+        <mat-label>Start Date</mat-label>
+        <input (dateChange)="getStartDate($event.target.value)" placeholder="Start Date"  [min]="parentStartDate" matInput [matDatepicker]="startDate" (click)="startDate.open()" formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field required appearance="outline" class="full-width">
+        <mat-label>End Date</mat-label>
+        <input (dateChange)="getEndDate($event.target.value)" placeholder="End Date" [min]="allocationForm.value.startDate" matInput [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+      </mat-form-field>
+      <!-- <mat-form-field required appearance="outline" class="full-width">
+        <mat-label>Select Days</mat-label>
+        <mat-date-range-input [min]="statDate" [max]="endDate" formGroupName="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date" #dateRangeStart>
+          <input matEndDate [max]="minDate" formControlName="end" placeholder="End date" #dateRangeEnd
+            (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field> -->
+      <mat-form-field required appearance="outline" class="full-width">
+        <mat-label>Allocation Hours</mat-label>
+        <input required min="0" matInput autocomplete="off" formControlName="hours" type="number">
+      </mat-form-field>
+</mat-dialog-content>
+      <mat-dialog-actions>
+        <button [disabled]="!allocationForm.valid" *ngIf="getTypeName==='add'" fxLayoutGap="10px" color="accent" mat-raised-button (click)="addTask()">Save</button>
+        <button [disabled]="!allocationForm.valid" *ngIf="getTypeName==='edit'" fxLayoutGap="10px" color="accent" mat-raised-button (click)="addTask()">Update</button>
+        <button fxLayoutGap="10px" color="warn" mat-raised-button (click)="save()">Close</button>
+      </mat-dialog-actions>
+
+    </div>
+  </div>
+
+</div>

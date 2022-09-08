@@ -1,0 +1,52 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>{{title}}</h2>
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+        <div class="emtimated-hours" [formGroup]="allocationForm">
+            <form [formGroup]="allocationForm" fxLayout="column" (ngSubmit)="onSubmit()">
+                <div *ngIf="hideshow" class="primary-contact">
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Expense Type</mat-label>
+                            <input matInput formControlName="expensetext" required spellcheck="false">
+                            <mat-error *ngIf="allocationForm.controls.expensetext.errors?.required">Expense Type is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    </div>
+                    <div *ngIf="!hideshow" class="primary-contact">
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Expense Type</mat-label>
+                            <mat-select color="primary" formControlName="expenseTypeId">
+                                <mat-option class="mat-primary" *ngFor="let expList of expenseTypeList"
+                                    [value]="expList.id">
+                                    {{expList.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="allocationForm.controls.expenseTypeId.errors?.required">Expense type is
+                                required</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Expense Description </mat-label>
+                            <input matInput formControlName="expenseDescriptionId" required spellcheck="false">
+                            <mat-error *ngIf="allocationForm.controls.expenseDescriptionId.errors?.required">Expense
+                                description is required</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-dialog-actions>
+                    <button fxLayoutGap="10px" color="accent" mat-raised-button>Save</button>
+                </mat-dialog-actions>
+            </form>
+        </div>
+    </div>
+
+</div>

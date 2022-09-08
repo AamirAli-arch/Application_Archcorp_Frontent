@@ -1,0 +1,261 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+    <mat-radio-group [(ngModel)]="selectedRadio" aria-label="Select an option">
+        <mat-radio-button *ngFor="let item of resourceRadio" [value]="item.value" (change)="radioChange($event)">
+            {{item.name}}</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="selectedRadio==1">
+
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+            <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+                <app-project-dropdown class="resorce-filter" (projectId)="projectId($event)"></app-project-dropdown>
+
+                <app-resource-dropdown class="resorce-filter" (employeeId)="getEmployeValue($event)"></app-resource-dropdown>
+
+                <mat-form-field class="resorce-filter" fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                    <mat-label>From Date</mat-label>
+                    <input (dateChange)="addEvent($event)" readonly placeholder="Start Date" matInput
+                        [matDatepicker]="startDate" (click)="startDate.open()" formControlName="startDate"
+                        autocomplete="off">
+                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field class="resorce-filter" fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                    <mat-label>To Date</mat-label>
+                    <input (dateChange)="addEvent($event)" readonly placeholder="End Date"
+                        [min]="filterForm.value.startDate" matInput [matDatepicker]="endDate" (click)="endDate.open()"
+                        formControlName="endDate" autocomplete="off">
+                    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                    <mat-datepicker #endDate></mat-datepicker>
+                </mat-form-field>
+
+                <!-- <mat-form-field class="resource" appearance="outline" fxFlex.gt-sm="100">
+                    <mat-label>Resource Designation</mat-label>
+                    <mat-select (selectionChange)="SearchFilter()" color="primary" formControlName="designation" multiple>
+                        <mat-option class="mat-primary" *ngFor="let month of monthArray" [value]="month.value">
+                            {{month.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+
+
+            </div>
+        </div>
+
+        <div class="table-container mat-elevation-z2">
+            <ul class="color-scheme">
+                <li class="public-holiday">Public Holidays</li>
+                <li class="pending-leave">Applied Leaves</li>
+                <li class="approve-leave">Approved Leaves</li>
+                <li class="plan-10">Below 10%</li>
+                <li class="plan-40">10%-39%</li>
+                <li class="plan-60">40%-69%</li>
+                <li class="plan-80">70%-89%</li>
+                <li class="plan-90">90%-100% </li>
+                <li class="plan-100">Above 100% </li>
+            </ul>
+            <div class="download-button center">{{this.filterForm.controls['startDate'].value | date:'mediumDate' }} -
+                {{this.filterForm.controls['endDate'].value | date:'mediumDate'}}</div>
+
+            <div class="download-button tabl">
+                <!-- <button (click)="buttonActive('1')" mat-raised-button
+                    [ngClass]="setActive==1  ? 'accent' : '' ">Day</button> -->
+                <button (click)="buttonActive('2')" mat-raised-button
+                    [ngClass]="setActive==2  ? 'accent' : '' ">Weeks</button>
+                <button (click)="buttonActive('1')" mat-raised-button
+                    [ngClass]="setActive==1  ? 'accent' : '' ">Months</button>
+            </div>
+            <!-- <button (click)="download()">Export</button> -->
+            <div id="content" #content *ngIf="setActive==2" class="table-responsive week-table">
+                <!-- <button class="accent pdf" mat-raised-button (click)="downloadPDF()">Export To PDF</button> -->
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="firstTh"> </th>
+                                <th class="month-year" *ngFor="let month of monthArray;" [id]="month.name">
+                                    <span class="montnmae">{{month.name}}</span>
+                            <tr class="weekmonth">
+                                <th class="top-month-week" *ngFor="let weekNumber of month.weekDay">
+                                    {{'W '+weekNumber}}
+                                </th>
+                            </tr>
+                            </th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of allocationsArray">
+
+                            <tr style="background-color: #dddddd;display: block;column-span: all;">
+                                <td class="firstTh week-height">
+                                    {{item.empployeeName}}
+                                </td>
+                            </tr>
+                            <!-- Leave Details -->
+                            <tr>
+                                <td style="margin-bottom: 0px; border-top:1px solid #dddddd;border-bottom:1px solid #dddddd"
+                                    class="datafirst projectName week-height">
+                                    <strong> Leave Details</strong>
+                                </td>
+                                <td class="month-year leave-data" *ngFor="let month of monthArray;" [id]="month.name">
+                            <tr class="weekmonth">
+                                <td style="padding: 0 !important; border-bottom:1px solid #dddddd ;"
+                                    class="month-week week-height" *ngFor="let weekNumber of month.weekDay">
+                                    <div *ngFor="let leave of item.leaves">
+                                        <span *ngIf="moment(leave.startDate).week() == weekNumber"
+                                            style="margin: 2px 0px;">
+                                            <div [ngClass]="'color' + leave.currentStatus" class="leave-div"
+                                            [ngStyle]="getLeaveWidth(leave)"
+                                            [matTooltipClass]="'leave-week' + leave.currentStatus"
+                                            matTooltipPosition="above"
+                                            matTooltip="LeaveType:{{leave.leaveType | LeaveType}}, LeaveStatus: {{leave.currentStatus | leaveStatus}}, StartDate: {{leave.startDate  | date:'mediumDate'}}, EndDate: {{leave.endDate | date:'mediumDate'}}">
+
+                                        </div>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            </td>
+                            </tr>
+                            <tr *ngFor="let sub of item.projects">
+
+                                <td matTooltipClass="icon-tooltip" matTooltipPosition="above"
+                                    matTooltip="{{sub.projectName}}" class="datafirst-week ">
+                                    {{sub.projectName}}
+                                </td>
+
+                                <td class="month-year" *ngFor="let month of monthArray;" [id]="month.name">
+                            <tr class="weekmonth">
+                                <td class="month-week" *ngFor="let weekNumber of month.weekDay">
+                                    <ng-container *ngFor="let subitem of sub.resourceAllocations">
+                                        <span class="subitem" *ngIf="subitem.weekOfYear==weekNumber && moment(subitem.start).format('YYYY') == moment(month.name).format('YYYY')"
+                                        >
+                                            <span
+                                                [ngClass]="renderClass(subitem.contracted)">C:{{subitem.contracted}}</span>
+                                            <span [ngClass]="renderClass(subitem.planned)"> P:{{subitem.planned}}</span>
+                                            <span [ngClass]="renderClass(subitem.actual)"> A:{{subitem.actual | number: '1.0-2'}}</span>
+                                        </span>
+                                    </ng-container>
+
+                                </td>
+                            </tr>
+                            </td>
+                            </tr>
+                            <tr>
+
+                                <td class="datafirst-week " style="font-weight: bold;">
+                                    Total
+                                </td>
+
+                                <td class="month-year" *ngFor="let month of monthArray;" [id]="month.name">
+                            <tr class="weekmonth">
+                                <td class="month-week" *ngFor="let weekNumber of month.weekDay">
+                                    <ng-container *ngFor="let subitem of item.totalAllocations">
+                                        <span class="subitem" *ngIf="subitem.weekOfYear==weekNumber && subitem.year == moment(month.name).format('YYYY')">
+                                            <span
+                                                [ngClass]="renderClass(subitem.totalContracted)">C:{{subitem.totalContracted}}</span>
+                                            <span [ngClass]="renderClass(subitem.totalPlanned)"> P:{{subitem.totalPlanned}}</span>
+                                            <span [ngClass]="renderClass(subitem.totalActual)"> A:{{subitem.totalActual | number: '1.0-2'}}</span>
+                                        </span>
+                                    </ng-container>
+
+                                </td>
+                            </tr>
+                            </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div *ngIf="noRecords" class="norecord">No Records</div>
+            </div>
+            <div *ngIf="setActive==1" class="table-responsive week-table month-data">
+                <!-- <button class="accent pdf" mat-raised-button (click)="downloadPDF()">Export To PDF</button> -->
+                <table id="content" #content>
+                    <thead>
+                        <tr>
+                            <th class="firstTh"> </th>
+                            <th class="month-year top" *ngFor="let month of monthArray;" [id]="month.name">
+                                <span class="montnmae">{{month.name}}</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of allocationsMonthArray">
+                        <tr style="background-color: #dddddd;display: block;column-span: all;">
+                            <td class="firstTh">
+                                {{item.empName}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-top:1px solid #dddddd;border-bottom:1px solid #dddddd"
+                                class="datafirst projectName week-height">
+                                <strong> Leave Details</strong>
+                            </td>
+                            <td class="month-year leave-data" *ngFor="let month of monthArray;" [id]="month.name">
+                        <tr class="weekmonth">
+                            <td style="padding: 0 !important;" class="month-week week-height"
+                                *ngFor="let weekNumber of month.weekDay">
+                                <div *ngFor="let leave of item.leaves">
+                                    <span *ngIf="moment(leave.startDate).week() == weekNumber" style="margin: 2px 0px;">
+                                        <div [ngClass]="'color' + leave.currentStatus" class="leave-div"
+                                            [ngStyle]="getLeaveWidth(leave)"
+                                            [matTooltipClass]="'leave-week' + leave.currentStatus"
+                                            matTooltipPosition="above"
+                                            matTooltip="LeaveType:{{leave.leaveType | LeaveType}}, LeaveStatus: {{leave.currentStatus | leaveStatus}}, StartDate: {{leave.startDate  | date:'mediumDate'}}, EndDate: {{leave.endDate | date:'mediumDate'}}">
+
+                                        </div>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                        </td>
+                        </tr>
+                        <tr *ngFor="let sub of item.resources">
+
+                            <td matTooltipClass="icon-tooltip" matTooltipPosition="above"
+                                matTooltip="{{sub.projectName}}" class="datafirst projectName month">
+                                {{sub.projectName}}
+                            </td>
+                            <td class="datafirst-data " *ngFor="let month of monthArray;">
+                                <ng-container style="display: inline-block;" *ngFor="let subitem of sub.allocations">
+                                    <span class="subitem-month" *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                        <span
+                                            [ngClass]="renderClass(subitem.contracted)">C:{{subitem.contracted}}</span>
+                                        <span [ngClass]="renderClass(subitem.planned)"> P:{{subitem.planned}}</span>
+                                        <span [ngClass]="renderClass(subitem.actual)"> A:{{subitem.actual | number: '1.0-2'}}</span>
+                                    </span>
+                                </ng-container>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td class="datafirst projectName month" style="font-weight: bold;">
+                                Total
+                            </td>
+                            <td class="datafirst-data " *ngFor="let month of monthArray;">
+                                <ng-container style="display: inline-block;" *ngFor="let subitem of item.totalAllocations">
+                                    <span class="subitem-month" *ngIf="subitem.month==moment(month.name).format('M') && subitem.year == moment(month.name).format('YYYY')">
+                                        <span
+                                            [ngClass]="renderClass(subitem.totalContracted)">C:{{subitem.totalContracted}}</span>
+                                        <span [ngClass]="renderClass(subitem.totalPlanned)"> P:{{subitem.totalPlanned}}</span>
+                                        <span [ngClass]="renderClass(subitem.totalActual)"> A:{{subitem.totalActual | number: '1.0-2'}}</span>
+                                    </span>
+                                </ng-container>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div *ngIf="noRecords" class="norecord">No Records</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="selectedRadio==2" class="">
+        <app-project-viewer></app-project-viewer>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,87 @@
+
+
+
+<div fxLayout="row" fxLayoutAlign="space-between start" class="filter-container">
+    <!-- <div class="w-100-p">
+        <h3 class="page-title">PMRS <small> (Project Management & Resource System)</small> </h3>
+    </div>     -->
+
+
+
+<div class="container" fxLayout="column">
+    <!-- <mat-toolbar fxLayout="row wrap" color="primary" fxLayoutAlign="space-between center">
+        <div  fxFlex="50%" >
+             <button mat-raised-button color="accent" (click)="createProject('add')">
+                <mat-icon>add</mat-icon>
+                New Project
+            </button>
+        </div>
+        <div class="fullwith" fxFlex="50%">
+            <mat-form-field class="project-search" appearance="outline" fxFlex="100%">
+                <mat-label style="color:white !important">Search Project Name</mat-label>
+                 <input matInput [(ngModel)]="searchProjectName">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </mat-toolbar> -->
+    <mat-toolbar fxLayout="row wrap" color="primary" fxLayoutAlign="space-between center">
+        <div fxFlex="50%"  fxFlex.sm="33%" >
+        <h2>PMRS <small>(Project Management and Resource System)</small></h2>
+        </div>
+        
+      </mat-toolbar>
+    <div class="content">
+        <div  fxLayout="row wrap" fxLayoutGap="16px grid">
+            <div  *ngFor="let num of [1,2,3,4,5,6]" fxFlex="16.6%" fxFlex.xs="100%" fxFlex.sm="33%">
+                
+                <!-- *ngFor="let project of response.projects | filter : searchProjectName; let i = index" -->
+                <mat-card class="mat-elevation-z4">                    
+                    <mat-card-header>                                                  
+                    <mat-card-title class="mat-title bg-light-info">Activity {{num}}</mat-card-title>                      
+                    </mat-card-header>
+                    
+                    <mat-card-content>   
+                        <!-- <p>Welcome :-)</p>                                          -->
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-actions>
+                      
+                      <!-- <a href="" color="primary">
+                      <span class="link-detail">View Details</span>  
+                      <span class="link-icon"><mat-icon style="color:#2f8be6">arrow_right_alt</mat-icon></span>                      
+                      </a>  -->
+                     <span  [routerLink]="['/project-pmrs/self-task-manager/']"><button mat-button style="color:#425af5" >View Details</button>
+                     <button mat-button class="link-button"><mat-icon style="background-color:#425af5; color: white;"  [routerLink]="['/project-pmrs/self-task-manager/']">arrow_forward</mat-icon></button></span>
+
+                     <!-- <span style="color:#2f8be6" [routerLink]="['/pages/system/'+ project.id]" matTooltipPosition="above" matTooltip="Details"></span>
+                    <mat-icon style="color:#2f8be6">arrow_forward</mat-icon> -->
+                      
+                    </mat-card-actions>
+                  </mat-card>
+                
+            </div>
+        </div>
+        <ng-template #indicator>
+            <div class="loading-shade">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-template>
+    </div>
+    <div class="assignment-header" fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="100%"  fxFlex.sm="10%" >
+        <mat-label class="general-label">My Assignments</mat-label>
+    </div>
+    <div class="assignment-contents">
+    <div  fxLayout="row wrap" fxLayoutGap="16px grid">
+    <mat-tab-group>
+        <mat-tab label="My Activities"> My Activities </mat-tab>
+        <mat-tab label="Assigned Tasks"> Assigned Tasks </mat-tab>
+        <mat-tab label="Self Planned Tasks"> Self Planned Tasks </mat-tab>
+        <mat-tab label="Assigned MoM"> Assigned MoM </mat-tab>
+    </mat-tab-group>
+    </div>
+    </div>
+</div>
+
+</div>
+</div>

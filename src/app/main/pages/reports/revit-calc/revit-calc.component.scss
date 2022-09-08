@@ -1,0 +1,37 @@
+table, th, td {
+    border: 1px solid black;
+  }
+
+  th {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  table {
+    width: 100%;
+    position: relative;
+  }
+
+  .widget{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+    border-radius: 8px;
+    transition: transform 0.5s ease-out 0s, visibility 0s ease-in 0.2s, opacity 0s ease-in 0.2s;
+    transform: rotateY(0deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid;
+    background: white;
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .text-boxed{
+    color: black !important;
+  }

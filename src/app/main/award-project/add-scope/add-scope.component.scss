@@ -1,0 +1,34 @@
+.w-100-p{
+    position: relative;
+}
+
+.btn-text {
+    color: #fff;
+}
+
+.mat-dialog-title{
+    text-align: center;
+}
+button.close {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+.mat-form-field {
+    width: 100%;
+}
+.space-bottom {
+    margin-bottom: 10px;
+}
+.mat-button-base.mat-accent {
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 980px) {
+    .full-width {
+        width: 100% !important;
+    }
+}

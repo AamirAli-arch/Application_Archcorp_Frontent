@@ -1,0 +1,62 @@
+
+
+<div class="reports-container">
+<div class="page-header">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="page-title">Submissions</h3>          
+        </div>
+    </div>
+</div>
+ 
+
+<div class="mat-elevation-z2">
+    <div class="table-container">
+         <table mat-table [dataSource]="dataSource3">
+            <ng-container matColumnDef="title" sticky>
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Title </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.title}}"
+                    class="w-200" mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="plannedDate">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Planned Date </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.plannedDate}}"
+                    class="w-200" mat-cell *matCellDef="let element"> {{moment(element.plannedDate).format('DD MMM YYYY')}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="projectName">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Project Name </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.projectName}}"
+                    class="w-200" mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="submittedTo">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Submitted To </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.submittedTo}}"
+                    class="w-200" mat-cell *matCellDef="let element"> {{element.submittedTo}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="employees">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Name </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.employees | customNamePipe}}"
+                    class="w-200" mat-cell *matCellDef="let element">{{element.employees | customNamePipe}}</td>
+            </ng-container> 
+            
+                
+            <ng-container matColumnDef="currentStatusString">
+                <th class="w-200" mat-header-cell *matHeaderCellDef> Status </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.currentStatusString}}"
+                    class="w-200" mat-cell *matCellDef="let element"> {{element.currentStatusString}} </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    
+</div>
+</div>

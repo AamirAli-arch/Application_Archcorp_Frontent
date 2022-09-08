@@ -1,0 +1,215 @@
+<div class="p-8 w-100-p">
+    <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="space-around none">
+        <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between none" fxFlex="100">
+            <div fxLayout="column" class="widget">
+                <div class="px-8 py-8">
+                    <span class="text-boxed">Total Plot Area</span>
+                    <span class="font-size-14 font-weight-300">{{totalPropertyArea}}</span>
+                </div>
+                <div class="px-8 py-16">
+                    <span class="text-boxed">Floor Area Ratio</span>
+                    <span class="font-size-14 font-weight-300">{{floorAreaRatio}}</span>
+                </div>
+                <div class="px-8 py-8">
+                    <span class="text-boxed">Total GFA</span>
+                    <span class="font-size-16 font-weight-700">{{totalGFA}}</span>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-between stretch"  class="widget p-8">
+                <div fxLayout="row" fxLayoutAlign="center center" class="font-size-18">
+                    Total Builtup Area
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center" class="pb-4" >
+                    <div fxLayout="column" fxLayoutAlign="space-around center">
+                        <span class="font-size-16 font-weight-400">{{sumTotalGFA | number:'1.0-2'}} m<sup>2</sup></span>
+                        <span class="text-boxed">Total GFA</span>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="space-around center">
+                        <span class="font-size-16 font-weight-400">{{sumTotalGFANonGFA | number:'1.0-2'}} m<sup>2</sup></span>
+                        <span class="text-boxed">Total GFA + Non GFA</span>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-between stretch"  class="widget p-8">
+                <div fxLayout="row" fxLayoutAlign="center center" class="font-size-18 pb-10">
+                    Apartments ({{sumOfBedrooms}})
+                </div>
+                <mat-divider></mat-divider>
+                <div fxLayout="row" fxLayoutAlign="space-between stretch" class="pt-4" >
+                    <div *ngFor="let bedroomSize of listBedroomNumbers; let b = index">
+                        <div fxLayout="column" fxLayoutGap="5px"  fxLayoutAlign="space-between stretch">
+                            <div fxLayout="row" fxLayoutAlign="center center">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon">hotel</mat-icon>
+                                <span class="font-size-14 font-weight-700">
+                                    {{bedroomSize.name | bedroomName}}
+                                </span>
+                            </div>
+                            <div fxLayout="column" fxLayoutAlign="space-between stretch">
+                                <div fxLayout="row" fxLayoutAlign="space-between center"  class="font-size-18 font-weight-700">
+                                    <span class="text-boxed">Total</span>
+                                    <span>{{bedroomSize.count}}</span> 
+                                </div>
+                               
+                            </div>
+                            <div fxLayout="column" fxLayoutAlign="space-between stretch">
+                                <div fxLayout="row" fxLayoutAlign="space-between center"  class="font-size-18 font-weight-700">
+                                    <span class="text-boxed">Percentage</span>
+                                    <span>{{bedroomSize.percentage}}%</span>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-between stretch"  class="widget p-8">
+                <div fxLayout="row" fxLayoutAlign="center center" class="font-size-18">
+                    Sellable ( GFA & Non GFA )
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center" class="pb-8" >
+                    <div fxLayout="column" fxLayoutAlign="space-around center">
+                        <span class="font-size-16 font-weight-400">{{sumSellableGFA}} m<sup>2</sup></span>
+                        <span class="text-boxed">Total Sellable GFA</span>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="space-around center">
+                        <span class="font-size-16 font-weight-400">{{sumSellableNonGFA}} m<sup>2</sup></span>
+                        <span class="text-boxed">Total Sellable Non GFA</span>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <div fxLayout="row" fxLayoutAlign="center center" class="pt-8 font-size-18">
+                    Total Non Sellable ( GFA & Non GFA )
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center" >
+                    <div fxLayout="column" fxLayoutAlign="space-around center">
+                        <span class="font-size-16 font-weight-400">{{sumNonSellableGFA}} m<sup>2</sup></span>
+                        <span class="text-boxed">Total Non Sellable GFA</span>
+                    </div>
+                    <div fxLayout="column" fxLayoutAlign="space-around center">
+                        <span class="font-size-16 font-weight-400">{{sumNonSellableNonGFA}} m<sup>2</sup></span>
+                        <span class="text-boxed">Total Non Sellable Non GFA</span>
+                    </div>
+                </div>    
+            </div>
+        
+           
+        </div>
+        <div fxFlex="100">
+            <table style="overflow: auto;display:none;">
+                <tr>
+                    <th>Floor</th>
+                    <th>Apartments</th>
+                    <th>Others</th>
+                    <th>GFA - Sellable</th>
+                    <th>Non GFA - Sellable</th>
+                    <th>GFA - Non Sellable</th>
+                    <th>Non GFA - Non Sellable</th>
+                </tr>
+                <tr *ngFor="let floor of listFloors">
+                    <td>
+                        {{floor.value}}
+                    </td>
+                    <td>
+                        <div *ngFor="let bedroom of listBedroomCompact; let i = index">
+                            <div *ngFor="let item of bedroom.item; let a = index">
+                                <span *ngIf="item.floor == floor.value && item.itemName.includes('BDRM')">
+                                    {{item.itemName}} | {{item.area | sqmConvert}} m<sup>2</sup>
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngFor="let bedroom of listBedroomCompact; let i = index">
+                            <div *ngFor="let item of bedroom.item; let a = index">
+                                <span *ngIf="item.floor == floor.value && !item.itemName.includes('BDRM')">
+                                    {{item.itemName}} | {{item.area | sqmConvert }} m<sup>2</sup> | {{item.category}}
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngFor="let bedroom of listBedroomCompact; let i = index">
+                            <span *ngIf="floor.value == bedroom.area">
+                                <div *ngFor="let element of bedroom.item | areaSum:'GFA - Sellable'">
+                                    <!-- {{element.item[0].sum}} sq ft<br /> -->
+                                    {{element.item[0].sum | sqmConvert}} m<sup>2</sup>
+                                </div>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngFor="let bedroom of listBedroomCompact; let i = index">
+                            <span *ngIf="floor.value == bedroom.area">
+                                <div *ngFor="let element of bedroom.item | areaSum:'Non GFA - Sellable'">
+                                    <!-- {{element.item[0].sum}} sq ft<br /> -->
+                                    {{element.item[0].sum | sqmConvert}} m<sup>2</sup>
+                                </div>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngFor="let bedroom of listBedroomCompact; let i = index">
+                            <span *ngIf="floor.value == bedroom.area">
+                                <div *ngFor="let element of bedroom.item | areaSum:'GFA - Non Sellable'">
+                                    <!-- {{element.item[0].sum}} sq ft<br /> -->
+                                    {{element.item[0].sum | sqmConvert}} m<sup>2</sup>
+                                </div>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngFor="let bedroom of listBedroomCompact; let i = index">
+                            <span *ngIf="floor.value == bedroom.area">
+                                <div *ngFor="let element of bedroom.item | areaSum:'Non GFA - Non Sellable'">
+                                    <!-- {{element.item[0].sum}} sq ft<br /> -->
+                                    {{element.item[0].sum | sqmConvert}} m<sup>2</sup>
+                                </div>
+                            </span>
+                        </div>
+                    </td>
+                
+                </tr>
+                <tr>
+                    <td>Sum</td>
+                </tr>
+            </table>
+            <!-- <table style="overflow: auto;display: none;">
+        </div>
+    
+            <tr>
+                <th>Floor</th>
+                <th *ngFor="let bedroom of listBedroomCompact; let i = index">{{bedroom.area}}</th>
+            </tr>
+            <tr *ngFor="let floor of listFloors">
+                <td>
+                    {{floor.value}}
+                </td>
+                <td *ngFor="let bedroom of listBedroomCompact; let i = index">
+                    <div *ngFor="let item of bedroom.item; let a = index">
+                        <span *ngIf="item.floor == floor.value">
+                            {{item.area}}
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>-->
+        <table style="overflow: auto;">
+            <tr>
+                <th>Floor</th>
+                <th *ngFor="let bedroom of listSortedBedrooms; let i = index">{{bedroom.itemName}}</th>
+            </tr>
+            <tr *ngFor="let floor of listFloors">
+                <td>
+                    {{floor.value}}
+                </td>
+                <td *ngFor="let bedroom of listSortedBedrooms; let i = index">
+                    {{bedroom.area}}
+                    <!-- <div *ngFor="let item of bedroom.item; let a = index">
+                        <span *ngIf="item.floor == floor.value">
+                            {{item.area}}
+                        </span>
+                    </div> -->
+                </td>
+            </tr>
+        </table> 
+    </div>
+</div>

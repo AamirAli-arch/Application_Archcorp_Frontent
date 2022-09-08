@@ -1,0 +1,353 @@
+
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>Self Allocated Task</h2>
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div class="emtimated-hours" [formGroup]="selfAllocationTaskForm">
+            <form [formGroup]="selfAllocationTaskForm" fxLayout="column">
+                <mat-dialog-content>
+                <div class="primary-contact">
+                    <!-- added three form controls inside below div to display three in a row -->
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                         <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Select Project</mat-label>
+                            <mat-select required color="primary" formControlName="projectName">
+                                <mat-option class="mat-primary" *ngFor="let project of projectList" [value]="project.id">
+                                    {{project.name}}</mat-option>
+                            </mat-select> 
+                            <mat-error *ngIf="selfAllocationTaskForm.controls.projectName.errors?.required">Select Project
+                                </mat-error>
+                             </mat-form-field>
+                            <!-- <app-project-dropdown class="resorce-filter" (projectId)="projectId($event)" fxFlex="grow">           
+                            </app-project-dropdown> -->
+                           
+                    
+                    
+                        
+                             <!-- <div class="full-width">                                                                
+                                <file-pond #myPond 
+                                    [options]="pondOptions" 
+                                    (oninit)="pondHandleInit()"   
+                                    [files]="pondFiles"                                                              
+                                    (onaddfile)="pondHandleAddFile($event)">
+                                </file-pond>
+                             </div>                         -->
+                    <!-- </div> -->
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Select Stage</mat-label>
+                            <mat-select color="primary" formControlName="stage">
+                                <mat-option class="mat-primary" *ngFor="let stages of stageList" [value]="stages.id">
+                                    {{stages.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="selfAllocationTaskForm.controls.stage.errors?.required">Select Stage
+                                </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field  appearance="outline" class="full-width">
+                            <mat-label>Select Stage</mat-label>
+                            <mat-select required color="primary" formControlName="workType">
+                                <mat-option class="mat-primary" *ngFor="let wtypes of workTypeList" [value]="wtypes.id">
+                                    {{wtypes.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="selfAllocationTaskForm.controls.workType.errors?.required">Select Work Type
+                                </mat-error>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Select Date</mat-label>
+                            <input readonly required  matInput [matDatepicker]="tDate"
+                                (click)="tDate.open()" formControlName="taskDate">
+                            <mat-datepicker-toggle matSuffix [for]="tDate"></mat-datepicker-toggle>
+                            <mat-datepicker #tDate></mat-datepicker>                        
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline"  fxFlex="auto" class="full-width">
+                            <mat-label>Hours</mat-label>
+                            <input matInput required #input1 formControlName="hours" maxlength="2"value="10">
+                            <mat-hint>{{input1.value?.length || 0}}/2 </mat-hint>                        
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" fxFlex="auto" class="full-width">
+                            <mat-label>Minutes</mat-label>
+                            <mat-select color="primary" formControlName="minutes">
+                                <mat-option class="mat-primary" *ngFor="let minute of minuteList" [value]="minute.id">
+                                    {{minute.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="selfAllocationTaskForm.controls.minutes.errors?.required">Select Minutes
+                                </mat-error>
+                        </mat-form-field>
+
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Time Off Compensation</mat-label>
+                            <mat-select color="primary" formControlName="timeOffCompensation">
+                                <mat-option class="mat-primary" *ngFor="let time of timeCompensationList" [value]="time.id">
+                                    {{time.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="selfAllocationTaskForm.controls.timeOffCompensation.errors?.required">Select Time-off-Compensation
+                                </mat-error>
+                        </mat-form-field>
+                       
+                    </div>  
+                    
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+
+                        <mat-form-field  appearance="outline" class="full-width" fxFlex="auto">
+                        <mat-label>Description</mat-label>                  
+                        <textarea matInput #input2  formControlName="description" maxlength="100"></textarea>
+                        <mat-hint>{{input2.value?.length || 0}}/100 </mat-hint>                           
+                        <mat-error *ngIf="selfAllocationTaskForm.controls.description.errors?.required">Description is required
+                        </mat-error>                                                                            
+                        </mat-form-field> 
+
+                    </div>
+                    <!--[min]="minDate"--->
+
+                   <!--  <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Middle Name</mat-label>
+                            <input matInput formControlName="middleName" spellcheck="false">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" required spellcheck="false">
+                            <mat-error *ngIf="allocationForm.controls.email.errors?.required">Email ID is required
+                            </mat-error>
+                            <mat-error *ngIf="allocationForm.controls.email.hasError('invalidEmail')">Invalid Email ID
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input type="password" matInput formControlName="password" required spellcheck="false">
+                            <mat-error *ngIf="allocationForm.controls.password.errors?.required">Password is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Confirm Password</mat-label>
+                            <input type="password" matInput formControlName="confirmPassword" required spellcheck="false">
+                            <mat-error *ngIf="allocationForm.controls.confirmPassword.errors?.required">Confirm Password is
+                                required</mat-error>
+                                <mat-error *ngIf="allocationForm.controls.confirmPassword.errors?.mustMatch">Password and Confirm Password Should be Same</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Gender</mat-label>
+                        <mat-select color="primary" formControlName="gender" required>
+                            <mat-option class="mat-primary" *ngFor="let gnder of genderList" [value]="gnder.value">
+                                {{gnder.name}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="allocationForm.controls.gender.errors?.required">Gender is
+                            required</mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Date Of Birth</mat-label>
+                        <input readonly required [min]="birthDate" matInput [matDatepicker]="birthDate"
+                            (click)="birthDate.open()" formControlName="birthday">
+                        <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+                        <mat-datepicker #birthDate></mat-datepicker>                        
+                    </mat-form-field>
+                    </div>    
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+
+                    
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Passport No.</mat-label>
+                        <input matInput #input2 formControlName="passportNumber" maxlength="15">
+                        <mat-hint>{{input2.value?.length || 0}}/15 </mat-hint>                        
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Passport Expiry Date</mat-label>
+                            <input readonly [min]="passportExpiryDate" matInput [matDatepicker]="passportExpiryDate"
+                                (click)="passportExpiryDate.open()" formControlName="passportExpiry">
+                            <mat-datepicker-toggle matSuffix [for]="passportExpiryDate"></mat-datepicker-toggle>
+                            <mat-datepicker #passportExpiryDate></mat-datepicker>
+                            
+                        </mat-form-field>  
+                    </div>  
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Nationality</mat-label>
+                        <mat-select color="primary" formControlName="nationality">
+                            <mat-option class="mat-primary" *ngFor="let country of countries" [value]="country.code">
+                                {{country.name}}</mat-option>
+                        </mat-select>                                                
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Personal Email</mat-label>
+                        <input matInput formControlName="personalEmail" spellcheck="false">                                                
+                    </mat-form-field>
+                    </div>           
+                    
+                    
+                    
+                    
+
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Designation</mat-label>
+                            <mat-select color="primary" formControlName="designationId">
+                                <mat-option class="mat-primary" *ngFor="let emp of degisationList" [value]="emp.id">
+                                    {{emp.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="allocationForm.controls.designationId.errors?.required">Designation is
+                                required</mat-error>
+                        </mat-form-field>
+                    
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Lead</mat-label>
+                            <mat-select color="primary" formControlName="leadId">
+                                <mat-option class="mat-primary" *ngFor="let lead of employeeList" [value]="lead.id">
+                                    {{lead.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="allocationForm.controls.leadId.errors?.required">Lead Name is
+                                required</mat-error>
+                        </mat-form-field>
+                       </div>        
+
+                       
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Work Location</mat-label>
+                            <mat-select color="primary" formControlName="workLocation">
+                                <mat-option class="mat-primary" *ngFor="let emp of workLocationList" [value]="emp.id">
+                                    {{emp.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="allocationForm.controls.workLocation.errors?.required">WorkLocation is
+                                required</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Employment Status</mat-label>
+                            <mat-select  color="primary" formControlName="employmentStatus">
+                                <mat-option class="mat-primary" *ngFor="let emp of employmentStatusList" [value]="emp.id">
+                                    {{emp.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="allocationForm.controls.employmentStatus.errors?.required">Employment Status is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Employee Salary</mat-label>
+                        <input matInput formControlName="employeesalary" spellcheck="false">
+                        
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Joining Date</mat-label>
+                        <input readonly required [min]="statDate" matInput [matDatepicker]="startDate"
+                            (click)="startDate.open()" formControlName="joinDate">
+                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                        <mat-datepicker #startDate></mat-datepicker>
+                        <mat-error *ngIf="allocationForm.controls.joinDate.errors?.required">Joining Date is
+                            required</mat-error>
+                    </mat-form-field>
+                    </div>  
+                    
+                    
+                    
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Marital Status</mat-label>
+                        <mat-select color="primary" formControlName="maritalStatus" >
+                            <mat-option class="mat-primary" *ngFor="let option of maritalStatusList" [value]="option.value">
+                                {{option.name}}</mat-option>
+                        </mat-select>                        
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>No. Of Dependants</mat-label>
+                        <input matInput #input4 formControlName="noOfDependents" maxlength="2">
+                        <mat-hint>{{input4.value?.length || 0}}/2 </mat-hint>                        
+                    </mat-form-field>
+                    </div>
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Mobile No.</mat-label>
+                        <input matInput #input1 formControlName="mobileNumber" maxlength="15" required>
+                        <mat-hint>{{input1.value?.length || 0}}/15 </mat-hint>
+                        <mat-error *ngIf="allocationForm.controls.mobileNumber.errors?.required">Mobile Number is required
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Phone No.</mat-label>
+                        <input matInput #input5 formControlName="phone" maxlength="15">
+                        <mat-hint>{{input5.value?.length || 0}}/15 </mat-hint>                        
+                    </mat-form-field>                  
+                    </div>
+
+                    
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Employee Status</mat-label>
+                        <mat-select  color="primary" formControlName="status">
+                            <mat-option class="mat-primary" *ngFor="let opt of employeeStatusList" [value]="opt.value">
+                                {{opt.name}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="allocationForm.controls.status.errors?.required">Employee Status is required
+                        </mat-error>
+                    </mat-form-field>
+                    </div> -->
+
+                </div>
+                </mat-dialog-content>
+                <mat-dialog-actions>
+                    <button  *ngIf="this.data != null" fxLayoutGap="10px" color="accent" mat-raised-button (click)="updateEmployeeDetails()">
+                        Update
+                    </button>
+                    <button *ngIf="this.data == null" fxLayoutGap="10px" class="btn-save" color="accent" mat-raised-button (click)="onSubmit()">
+                        Save
+                    </button>
+                </mat-dialog-actions>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+                

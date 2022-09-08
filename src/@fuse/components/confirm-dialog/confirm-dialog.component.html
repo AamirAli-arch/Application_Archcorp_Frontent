@@ -1,0 +1,14 @@
+<h1 matDialogTitle>Confirm</h1>
+<div mat-dialog-content>
+    {{confirmMessage}}
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Note / Feedback</mat-label>
+            <input matInput placeholder="Note / Feedback" [(ngModel)]="note">
+          </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions class="pt-24">
+    <button mat-raised-button class="mat-accent mr-16" (click)="close(true)">Yes</button>
+    <button mat-button (click)="close(false)">No</button>
+</div>

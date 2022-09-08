@@ -1,0 +1,21 @@
+.mat-form-field {
+    width: 100%;
+}
+.mat-raised-button {
+    width: 100px !important;
+    padding: 0 !important;
+    line-height: 30px;
+    box-shadow: none !important;
+  }
+  span.mat-button-wrapper {
+    margin: 0 !important;
+}
+@media (max-width:768px) {
+    .mat-raised-button {
+        width: 80px !important;
+        padding: 0 !important;
+        line-height: 30px;
+        box-shadow: none !important;
+        margin: 0 10px 0 0!important;
+    }
+    }

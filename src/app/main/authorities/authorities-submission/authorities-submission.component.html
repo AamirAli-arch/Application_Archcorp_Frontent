@@ -1,0 +1,31 @@
+<app-loader-spiner></app-loader-spiner>
+<mat-card>
+  <div class="full-width">
+    <app-project-dropdown class="auth-filter" (projectId)="projectId($event)"></app-project-dropdown>
+  </div>
+  <div class="card_view" fxLayout="row wrap" fxLayoutAlign="flex-start"
+  fxLayoutGap="5px" myMatchHeight="card">
+    <mat-card class="card-design grid-layout" *ngFor="let submission of submissionArray">
+      <mat-card-content>
+        <mat-card-title class="card">{{submission.projectCode}}-{{submission.projectName}}</mat-card-title>
+      <ul class="sub-type">
+          <li><span class="bg-plan">{{countSubmissions(submission.id,1)}}</span> Planned</li>
+          <li><span class="bg-submit">{{countSubmissions(submission.id,2)}}</span>Submitted</li>
+          <li><span class="bg-red">{{countSubmissions(submission.id,3)}}</span>Rejected</li>
+          <li><span class="bg-resubmit">{{countSubmissions(submission.id,4)}}</span>Resubmitted</li>
+          <li><span class="bg-approve">{{countSubmissions(submission.id,5)}}</span>Approved</li>
+          <li><span class="bg-overdue">{{countSubmissions(submission.id,6)}}</span>Overdue</li>
+      </ul>
+      <div class="bottom-hr"></div>
+      <div [routerLink]="['/authorities/approval/'+ submission.id]" class="view-details">View Detail</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-card>
+
+
+
+
+
+
+

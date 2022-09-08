@@ -1,0 +1,129 @@
+.table-container {
+    position: relative;
+    height: calc( 100vh - 250px);
+    overflow: auto;
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .filter-container{
+    width: 100%;
+  }
+
+  .reports-container
+  {
+    padding:10px;
+    width: 100%;
+    margin: 10px;
+  }
+
+  
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-paginator-sticky {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+}
+
+ :host ::ng-deep {
+    .mat-form-field .mat-form-field-flex{
+      background-color: white !important;
+    }
+  }
+  .text-primary {
+    color:#09af09 ;
+    font-weight: bold;
+}
+  .text-danger {
+    color: #f44336; 
+    font-weight: bold;
+}
+.text-warning {
+  color: #ffc107;
+  font-weight: bold;
+}
+.color2{
+    background-color:#fb0101;
+    padding:2px 8px;
+    color:white;
+    border-radius: 2px;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+.mat-raised-button {
+  width: 80px !important;
+  padding: 0 !important;
+  line-height: 30px;
+  box-shadow: none !important;
+}
+
+body.theme-default .mat-elevation-z2 {
+    background: #fff;
+}
+body.theme-default mat-row, body.theme-default mat-header-row, body.theme-default mat-footer-row, body.theme-default th.mat-header-cell, body.theme-default td.mat-cell, body.theme-default td.mat-footer-cell {
+    padding-right: 15px;
+}
+.w-75{
+    max-width: 100px;
+}
+
+.w-200{
+    max-width: 200px;
+}
+
+.w-250{
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    padding: 0 10px;
+}
+.w-200{
+    max-width: 200px;
+    padding: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mat-header-cell {
+    //font-weight: 900;
+    color: #000;
+    padding:0 60px 0 10px;
+    font-size: 14px;
+}
+#table-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+  }
+  @media screen and (max-width: 768px) {
+    .w-250{
+        width: 150px !important;
+        min-width: 150px !important;
+        max-width: 150px !important;
+        padding:10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

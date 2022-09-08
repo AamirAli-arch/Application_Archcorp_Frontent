@@ -1,0 +1,100 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+
+  
+    <div fxLayout="row" fxLayoutAlign="space-between center"  class="filter-container">
+      <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+        <app-project-dropdown class="report-search" (projectId)="projectId($event)"></app-project-dropdown>
+
+        <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()" formControlName="startDate" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+          <mat-label>End Date</mat-label>
+          <input placeholder="End Date" [min]="filterForm.value.startDate" matInput [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+          <mat-datepicker #endDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+ 
+    </div>
+    <div class="download-button"> 
+      <button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Employee_Report'})">Download</button>
+    </div>
+    <div class="table-container mat-elevation-z2">
+      <table matTableExporter mat-table [dataSource]="filteredAndPaged" #exporter="matTableExporter">
+
+        <ng-container matColumnDef="projectName">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Project </th>
+          <td class="w-200" mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="taskName">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Task </th>
+          <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.taskName}}" class="w-200" mat-cell *matCellDef="let element"> {{element.taskName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkIn">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Check In </th>
+          <td class="w-200" mat-cell *matCellDef="let element"> {{moment(element.checkIn, 'HH:mm').format('HH:mm a')}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="checkOut">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Check Out </th>
+          <td class="w-200" mat-cell *matCellDef="let element"> {{moment(element.checkOut, 'HH:mm').format('HH:mm a')}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="minutes">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Hours </th>
+          <td class="w-200" mat-cell *matCellDef="let element"> {{element.minutes | workedHours}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="date">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Date </th>
+          <td class="w-200" mat-cell *matCellDef="let element"> {{moment(element.date).format('DD MMM YYYY')}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="checkInLocDiff">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Check In Difference </th>
+          <td class="w-200" mat-cell *matCellDef="let element"> 
+            <a target="_blank" href="{{'https://www.google.com/maps/search/' + element.checkInLocation}}">
+              <span class="green" *ngIf="element.checkInLocDiff < 300">{{element.checkInLocDiff}}</span>
+              <span class="orange" *ngIf="element.checkInLocDiff < 800 && element.checkInLocDiff > 300">{{element.checkInLocDiff}}</span> 
+              <span class="red" *ngIf="element.checkInLocDiff > 800">{{element.checkInLocDiff}}</span>
+            </a>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="checkOutLocDiff">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Check Out Difference </th>
+          <td class="w-200" mat-cell *matCellDef="let element">
+            <a target="_blank" href="{{'https://www.google.com/maps/search/' + element.checkOutLocation}}">
+              <span class="green" *ngIf="element.checkOutLocDiff < 300">{{element.checkOutLocDiff}}</span>
+              <span class="orange" *ngIf="element.checkOutLocDiff < 800 && element.checkOutLocDiff > 300">{{element.checkOutLocDiff}}</span> 
+              <span class="red" *ngIf="element.checkOutLocDiff > 800">{{element.checkOutLocDiff}}</span>
+            </a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkInNotes">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Check In Notes </th>
+          <td class="w-200" mat-cell *matCellDef="let element" matTooltipPosition="above" [matTooltip]="element.checkInNotes"> {{element.checkInNotes}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkOutNotes">
+          <th class="w-200" mat-header-cell *matHeaderCellDef> Check Out Notes </th>
+          <td class="w-200" mat-cell *matCellDef="let element" matTooltipPosition="above" [matTooltip]="element.checkOutNotes"> {{element.checkOutNotes}} </td>
+        </ng-container>
+  
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      </table>
+    </div>
+    <mat-paginator class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25" [pageSizeOptions]="[5, 10, 25, 50, 100]">
+    </mat-paginator>
+  </div>

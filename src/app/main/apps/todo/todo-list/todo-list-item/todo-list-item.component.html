@@ -1,0 +1,49 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+
+    <!-- <mat-icon class="handle mr-16" ngxDragHandle fxFlex="0 1 auto" fxHide.xs>
+        drag_handle
+    </mat-icon> -->
+
+    <!-- <mat-checkbox [(ngModel)]="selected" (ngModelChange)="onSelectedChange()"
+                  class="mr-16" fxFlex="0 1 auto" (click)="$event.stopPropagation()">
+    </mat-checkbox> -->
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
+
+        <div class="info" fxFlex fxFlexLayout="column">
+
+            <div class="mat-headline">
+                {{task.taskName}}
+            </div>
+
+            <div class="mat-subheading-2">
+                {{task.projectName}}
+            </div>
+            <div class="mat-caption">
+                <div class="today-date">
+                    <mat-icon>schedule</mat-icon> Allocated Hours {{ task.allocatedHours }}
+                </div>
+                <div class="today-date">
+                    <mat-icon >today</mat-icon>{{task.startDate | date}}
+                </div>
+              
+                <!-- {{task.startDate | date}} - {{task.endDate | date}} -->
+            </div>
+        </div>
+
+        <div class="actions" fxLayout="row" fxLayoutAlign="start center">
+
+            <button mat-raised-button class="green-A400" *ngIf="!task.isCompleted && !runningTask" (click)="taskStart($event,task.id)">
+                <mat-icon class="secondary-text">play_circle_outline</mat-icon>
+                Start Shift
+            </button>
+            <button mat-raised-button color="warn" *ngIf="runningTask && currentTaskId == task.id && !task.isCompleted" (click)="taskStop($event,task.id)">
+                <mat-icon class="secondary-text">stop_circle</mat-icon>
+                End Shift
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,120 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="ticket-edit" fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>Edit Ticket</h2>
+        <button [mat-dialog-close]="true" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div class="emtimated-hours" [formGroup]="allocationForm">
+            <div class="primary-contact">
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Ticket Subject</mat-label>
+                        <input matInput formControlName="ticketName" required spellcheck="false">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Ticket Id</mat-label>
+                        <input matInput formControlName="ticketId" required spellcheck="false">
+                    </mat-form-field>
+
+                </div>
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Assign Staff</mat-label>
+                        <mat-select formControlName="staff">
+                            <mat-option>Select Department</mat-option>
+                            <mat-option>Web Development</mat-option>
+                            <mat-option>IT Management</mat-option>
+                            <mat-option>Marketing</mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Client </mat-label>
+                        <mat-select formControlName="client">
+                            <mat-option>Select Designation</mat-option>
+                            <mat-option>Web Designer</mat-option>
+                            <mat-option>Web Developer</mat-option>
+                            <mat-option>Android Developer</mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+                </div>
+
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Priority</mat-label>
+                        <mat-select formControlName="priority">
+                            <mat-option>Select Department</mat-option>
+                            <mat-option>Web Development</mat-option>
+                            <mat-option>IT Management</mat-option>
+                            <mat-option>Marketing</mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>CC</mat-label>
+                        <input matInput formControlName="ccName" required spellcheck="false">
+                    </mat-form-field>
+
+                </div>
+
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Assign</mat-label>
+                        <input matInput formControlName="assign" required spellcheck="false">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width avatar">
+                        <h3>Ticket Assignee</h3>
+                        <img src="assets/images/avatars/Josefina.jpg" alt="">
+                        <input style="display: none;" matInput formControlName="ticketAssignee" required
+                            spellcheck="false">
+                    </mat-form-field>
+
+                </div>
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Add Followers</mat-label>
+                        <input matInput formControlName="addFollower" required spellcheck="false">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width avatar">
+                        <h3>Ticket Followers</h3>
+                        <img src="assets/images/avatars/Josefina.jpg" alt="">
+                        <img src="assets/images/avatars/Josefina.jpg" alt="">
+                        <img src="assets/images/avatars/Josefina.jpg" alt="">
+                        <input style="display: none;" matInput formControlName="ticketFollower" required
+                            spellcheck="false">
+                    </mat-form-field>
+
+                </div>
+
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Description</mat-label>
+                        <input matInput type="text" formControlName="description" required spellcheck="false">
+                    </mat-form-field>
+
+                </div>
+
+                <div class="file-upload">
+                    <mat-label>Upload Files</mat-label> <br>
+                    <input type="file" formControlName="upload" required spellcheck="false">
+                </div>
+            </div>
+
+            <mat-dialog-actions>
+                <button [disabled]="!allocationForm.valid" fxLayoutGap="10px" color="accent" mat-raised-button
+                    (click)="profileEdit()">Update</button>
+
+            </mat-dialog-actions>
+
+        </div>
+    </div>
+
+</div>

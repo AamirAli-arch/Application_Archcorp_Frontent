@@ -1,0 +1,45 @@
+<!-- <app-loader-spiner></app-loader-spiner> -->
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>Budgeted Hours</h2>
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div class="emtimated-hours">
+            <form [formGroup]="addBudgetForm" fxLayout="column" (ngSubmit)="onSubmit()">
+                <div class="primary-contact">
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Designation </mat-label>
+                            <mat-select  required formControlName="designation">
+                                <mat-option [disabled]="addUpdate!='add'" class="mat-primary" *ngFor="let emp of degisationList" [value]="emp.id">
+                                    {{emp.name}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="addBudgetForm.controls.designation.errors?.required">Designation is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                    fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Hours</mat-label>
+                        <input autocomplete="off" (keypress)="numberOnly($event)" matInput formControlName="hours" required spellcheck="false">
+                        <mat-error *ngIf="addBudgetForm.controls.hours.errors?.required">Hours is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                </div>
+                <mat-dialog-actions>
+                    <button fxLayoutGap="10px" color="accent" mat-raised-button>Save</button>
+                    <button [mat-dialog-close]="false" style="background: #ff0000;" fxLayoutGap="10px" color="accent"
+                        mat-raised-button>Cancel</button>
+                </mat-dialog-actions>
+            </form>
+        </div>
+    </div>
+
+</div>

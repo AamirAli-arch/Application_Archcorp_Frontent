@@ -1,0 +1,62 @@
+<div class="user-monitor-container p-12">
+  <div class="loading-shade"
+  *ngIf="isLoadingResults">
+<mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+<div fxLayout="column" fxLayoutAlign="start start" style="width:100%">
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" style="width:100%">
+    <div fxFlex="30">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>User</mat-label>
+          <mat-select [(ngModel)]="selectedUser" name="user" (selectionChange)="filterUser($event)">
+            <mat-option *ngFor="let user of listUsers" [value]="user.name">
+              {{user.name | username}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div fxFlex="70">
+      <mat-form-field appearance="outline">      
+				<mat-label>Select Days</mat-label>      
+				<mat-date-range-input [rangePicker]="picker">      
+				  <input matStartDate placeholder="Start date" #dateRangeStart>      
+				  <input matEndDate placeholder="End date" #dateRangeEnd
+				  (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">      
+				</mat-date-range-input>      
+				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>      
+				<mat-date-range-picker #picker></mat-date-range-picker>      
+			  </mat-form-field>
+    </div>
+  </div>
+
+  <div style="display: block;width: 600px; height: 300px;">
+    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+      [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+    </canvas>
+  </div>
+
+  
+  <div *ngIf="!isLoadingResults" style="display: block;width: 100%; ">
+    <canvas baseChart 
+      [datasets]="appBarChartData"
+      [labels]="appBarChartLabels"
+      [options]="appBarChartOptions"
+      [plugins]="appBarChartPlugins"
+      [legend]="appBarChartLegend"
+      [chartType]="appBarChartType">
+    </canvas>
+  </div>
+
+  <div *ngIf="!isLoadingResults" style="display: block;width: 100%; ">
+    <canvas baseChart 
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
+
+</div>
+</div>

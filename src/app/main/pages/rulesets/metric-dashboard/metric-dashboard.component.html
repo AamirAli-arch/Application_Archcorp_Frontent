@@ -1,0 +1,337 @@
+
+<div fxLayout="column" fxLayoutAlign="start start">
+<div class="p-16 w-100-p">
+    <h1>
+        Keynotes.
+    </h1>
+    <mat-divider></mat-divider>
+</div>
+<div  fxLayout="row wrap" fxLayoutAlign="space-between start"> 
+<div *ngFor="let item of MainProjectKeynotesFile" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+<mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:185px;">
+<mat-card-header class="mat-card-header">
+<div  class="mat-card-header-text">
+<div class="download-button"><button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Gantt_Monthly_Report'})">Download</button></div>
+<!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+<mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+<mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b>Number of total keynotes in the Project.</mat-card-subtitle>
+<mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+<mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('KeynotesIn_File')" class="ng-tns-c435-12">Project Keynotes:</b> {{item.keynotesIn_File}} </mat-card-subtitle>
+</mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+<span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+</span><!--container--><!--container-->
+</mat-card-actions>
+</mat-card>
+</div>
+</div>
+<div fxLayout="column" fxLayoutAlign="start start">
+    <div class="p-16 w-100-p">
+        <h1>
+            Keynotes In Design Model.
+        </h1>
+        <mat-divider></mat-divider>
+    </div>
+    <div  fxLayout="row wrap" fxLayoutAlign="space-between start"> 
+<div *ngFor="let item of ProjectKeynotesFile" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+    <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:185px;">
+    <mat-card-header class="mat-card-header">
+    <div  class="mat-card-header-text">
+        <div class="download-button"><button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Gantt_Monthly_Report'})">Download</button></div>
+    <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b>Number of keynotes in the Design Model.</mat-card-subtitle>
+    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('KeynotesIn_Model',item.documenTitle)" class="ng-tns-c435-12">Keynotes in Model:</b> {{item.keynotesIn_Model}} </mat-card-subtitle>
+    </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+    <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+    </span><!--container--><!--container-->
+    </mat-card-actions>
+    </mat-card>
+    </div>
+    </div>
+<div fxLayout="column" fxLayoutAlign="start start">
+        <div class="p-16 w-100-p">
+            <h1>
+                Unused Keynotes.
+            </h1>
+            <mat-divider></mat-divider>
+ </div>
+<div  fxLayout="row wrap" fxLayoutAlign="space-between start">  
+    <div *ngFor="let item of projectData" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+        <div *ngIf="item.documenTitle.includes('AR-MAIN')">
+        <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:185px;">
+        <mat-card-header class="mat-card-header">
+            <div class="download-button"><button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Gantt_Monthly_Report'})">Download</button></div>
+        <div  class="mat-card-header-text">
+        <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+        <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b>Unused Keynotes Design in Model.</mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+        <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('unsedKeynotes')" class="ng-tns-c435-12">UnUsed_Keynotes:</b> {{item.unusedkey}} </mat-card-subtitle>
+        </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+        <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+        </span><!--container--><!--container-->
+        </mat-card-actions>
+        </mat-card>
+        </div>
+        </div>
+        </div>
+    </div>
+        <div fxLayout="column" fxLayoutAlign="start start">
+            <div class="p-16 w-100-p">
+                <h1>
+                    Doors.
+                </h1>
+                <mat-divider></mat-divider>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="space-between start"> 
+        <div *ngFor="let item of projectData" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+            <div *ngIf="item.documenTitle.includes('AR-MAIN')">
+            <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:185px;">
+            <mat-card-header class="mat-card-header">
+            <div  class="mat-card-header-text">
+            <div class="download-button"><button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Gantt_Monthly_Report'})">Download</button></div>
+            <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b>Total number of doors in Design Model.</mat-card-subtitle>
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('Filterdoorlist')" class="ng-tns-c435-12">Doors in Model:</b> {{item.listOfDoorCount}} </mat-card-subtitle>
+            </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+            <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+            </span><!--container--><!--container-->
+            </mat-card-actions>
+            </mat-card>
+            </div>
+            </div>
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start start">
+            <div class="p-16 w-100-p">
+                <h1>
+                    Vaild doors in Model according to authority.
+                </h1>
+                <mat-divider></mat-divider>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="space-between start"> 
+        <div *ngFor="let item of projectData" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+            <div *ngIf="item.documenTitle.includes('AR-MAIN')">
+            <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:250px;">
+            <mat-card-header class="mat-card-header">
+            <div  class="mat-card-header-text">
+            <div class="download-button"><button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Gantt_Monthly_Report'})">Download</button></div>
+            <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b>Number of Vaild doors in Design Model According to authority.</mat-card-subtitle>
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('Filterdoorlist')" class="ng-tns-c435-12">Valid doors in design model:</b> {{item.listOfDoorCount}} </mat-card-subtitle>
+            </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+            <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+            </span><!--container--><!--container-->
+            </mat-card-actions>
+            </mat-card>
+            </div>
+            </div>
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start start">
+            <div class="p-16 w-100-p">
+                    <h1>
+                        InVaild doors in Model according to authority.
+                    </h1>
+                    <mat-divider></mat-divider>
+                    </div>
+                    <div  fxLayout="row wrap" fxLayoutAlign="space-between start"> 
+                    <div *ngFor="let item of projectData" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+                    <div *ngIf="item.documenTitle.includes('AR-MAIN')">
+                    <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:250px;">
+                    <mat-card-header class="mat-card-header">
+                    <div  class="mat-card-header-text">
+                        <div class="download-button"><button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Gantt_Monthly_Report'})">Download</button></div>
+                    <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b>InVaild Number of  doors in Design Model According to authority.</mat-card-subtitle>
+                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('listOfInvalidDoor')" class="ng-tns-c435-12">InValid doors in design model:</b> {{item.listOfInvalidDoorCount}} </mat-card-subtitle>
+                    </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+                    <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+                    </span><!--container--><!--container-->
+                    </mat-card-actions>
+                    </mat-card>
+                    </div>
+                    </div>
+                    </div>
+                        <div fxLayout="column" fxLayoutAlign="start start">
+                        <div class="p-16 w-100-p">
+                        <h1>
+                        Stairs
+                        </h1>
+                        <mat-divider></mat-divider>
+                        </div>
+                        <div  fxLayout="row wrap" fxLayoutAlign="space-between start"> 
+                        <div *ngFor="let item of projectData" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+                            <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:185px;">
+                            <mat-card-header class="mat-card-header">
+                            <div  class="mat-card-header-text">
+                            <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+                            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+                            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b> Number of stairs in Design Model According to authority.</mat-card-subtitle>
+                            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+                            <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('KeynotesIn_File')" class="ng-tns-c435-12">Number to stairs in model:</b> {{item.numberOfStairs}} </mat-card-subtitle>
+                            </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+                            <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+                            </span><!--container--><!--container-->
+                            </mat-card-actions>
+                            </mat-card>
+                            </div>
+                            </div>
+                            <div fxLayout="column" fxLayoutAlign="start start">
+                                <div class="p-16 w-100-p">
+                                    <h1>
+                                        Desired Stairs.
+                                    </h1>
+                                    <mat-divider></mat-divider>
+                                </div>
+                                <div  fxLayout="row wrap" fxLayoutAlign="space-between start">
+                            
+                            <div *ngFor="let item of projectData" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 100%;">
+                                <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:185px;">
+                                <mat-card-header class="mat-card-header">
+                                <div  class="mat-card-header-text">
+                                <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+                                <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+                                <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b> Number of  Desired stairs in Design Model According to authority.</mat-card-subtitle>
+                                <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+                                <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('KeynotesIn_File')" class="ng-tns-c435-12">Number of actual riser height:</b> {{item.actualriserHeightCount}} </mat-card-subtitle>
+                                </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+                                <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+                                </span><!--container--><!--container-->
+                                </mat-card-actions>
+                                </mat-card>
+                                </div>
+                                </div>
+                                <div fxLayout="column" fxLayoutAlign="start start">
+                                    <div class="p-16 w-100-p">
+                                        <h1>
+                                            Stairs Riser Height
+                                        </h1>
+                                        <mat-divider></mat-divider>
+                                    </div>
+                                    <div  fxLayout="row wrap" fxLayoutAlign="space-between start"> 
+                                <div *ngFor="let item of projectData" fxflex="33.33%" fxflex.xs="33.33%" ng-reflect-fx-flex="33.33%" ng-reflect-fx-flex.xs="33.33%" class="ng-tns-c435-12 ng-star-inserted" style="flex: 1 1 50%; box-sizing: border-box; max-width: 33.33%;">
+                                    <mat-card class="mat-card mat-focus-indicator project-card ng-tns-c435-12" style="color :rgb(100, 53, 53); margin:15px; height:185px;">
+                                    <mat-card-header class="mat-card-header">
+                                    <div  class="mat-card-header-text">
+                                    <!--<mat-card-title mattooltipclass="custom-tooltip" mattooltipposition="above" class="mat-card-title mat-tooltip-trigger mat-title bg-light-info" ng-reflect-tooltip-class="custom-tooltip" ng-reflect-position="above" ng-reflect-message="Keynotes" aria-describedby="cdk-describedby-message-9" cdk-describedby-host="">Keynotes</mat-card-title>-->
+                                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Project Name : </b>{{item.documenTitle}}</mat-card-subtitle>
+                                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Description  : </b> Number of maximum stairs riser heights in Design Model According to authority.</mat-card-subtitle>
+                                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b class="ng-tns-c435-12">Created Date : </b>{{item.createdOn}}</mat-card-subtitle></div>
+                                    <mat-card-subtitle class="mat-card-subtitle mat-caption"><b (click)="openDialog('KeynotesIn_File')" class="ng-tns-c435-12">maximum riser heights in model:</b> {{item.maxRiserHeights}} </mat-card-subtitle>
+                                    </mat-card-header><mat-card-actions fxlayout="row" fxlayoutalign="center baseline" class="mat-card-actions button-bottom" ng-reflect-fx-layout="row" ng-reflect-fx-layout-align="center baseline" style="flex-direction: row; box-sizing: border-box; display: flex; place-content: stretch center; align-items: baseline;">
+                                    <span mattooltipclass="icon-tooltip" mattooltipposition="above" mattooltip="Gantt Chart" class="mat-tooltip-trigger add-edit ng-tns-c435-12" ng-reflect-tooltip-class="icon-tooltip" ng-reflect-position="above" ng-reflect-message="Gantt Chart" tabindex="0" ng-reflect-router-link="/charts/1" aria-describedby="cdk-describedby-message-5" cdk-describedby-host="">
+                                    </span><!--container--><!--container-->
+                                    </mat-card-actions>
+                                    </mat-card>
+                                    </div>
+                               </div>         
+                               
+<!-- Them end -->
+<!-- <div class="w-100-p p-8">
+    <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between stretch" >
+        <div class="shadow-class p-4" style="width: 30%">
+            <div *ngFor="let item of projectData">
+                <h2 style="font-size:10px;"><b><u>Project Name</u></b></h2>
+                <strong style="font-size:10px;"><u>{{item.documenTitle}}</u></strong>
+                <h2 style="font-size:10px;"><b><u>Create _Date</u></b></h2>
+                <strong style="font-size:10px;"><u>{{item.createdOn}}</u></strong>
+                <table style="overflow-x: auto;" width="100%" cellspacing="2" cellpadding="0" align="center" border=1>
+                <colgroup>
+                    <col span="2" style="background-color:rgb(0, 255, 98)">
+                    <col style="background-color:rgb(255, 30, 0)">
+                </colgroup>
+                <th>Keynotes</th> 
+                <th>Keynotes Used</th>
+                <th>Keynotes Unused</th>
+                <tr>
+                    <td (click)="openDialog('KeynotesIn_File')">{{item.keynotesIn_File}}</td>
+                    <td (click)="openDialog('KeynotesIn_Model')">{{item.keynotesIn_Model}}</td>
+                    <td (click)="openDialog('unsedKeynotes')">{{item.unusedkey}}</td>
+                </tr>
+            </table>
+            </div>        
+        </div>
+        <div class="shadow-class p-4" style="width: 30%">
+            <div *ngFor="let item of projectData">
+                <h2 style="font-size:10px;"><b><u>Project Name</u></b></h2>
+                <strong style="font-size:10px;"><u>{{item.documenTitle}}</u></strong>
+                <h2 style="font-size:10px;"><b><u>Create _Date</u></b></h2>
+                <strong style="font-size:10px;"><u>{{item.createdOn}}</u></strong>
+            <table style="overflow-x: auto;" width="100%" cellspacing="2" cellpadding="0" align="center" border=1>
+                <colgroup>
+                    <col span="3" style="background-color:rgb(0, 255, 98)">
+                    <col span="5" style="background-color:rgb(0, 255, 98)">
+                    <col style="background-color:rgb(255, 30, 0)">
+                  </colgroup>
+                <th>Number Of Stairs</th> 
+                <th>Actual Treads Numbers</th>
+                <th>Actual Tread Depths</th>
+                <th>Desired Risers Numbers</th>
+                <th>Actual Riser Height</th>
+
+                <tr>
+                    <td>{{item.numberOfStairs}}</td>
+                    <td>{{item.actualTreadDepthsCount}}</td>
+                    <td>{{item.desiredRisersNumbersCount}}</td>
+                    <td>{{item.actualriserHeightCount}}</td>
+                    <td>{{item.maxRiserHeights}}</td>
+                </tr>
+            </table>  
+            </div>        
+        </div>
+            <div class="shadow-class p-4" style="width: 30%">
+                <div *ngFor="let item of projectData">
+                    <h2 style="font-size:10px;"><b><u>Project Name</u></b></h2>
+                    <strong style="font-size:10px;"><u>{{item.documenTitle}}</u></strong>
+                    <h2 style="font-size:10px;"><b><u>Create _Date</u></b></h2>
+                    <strong style="font-size:10px;"><u>{{item.createdOn}}</u></strong>
+                <table width="100%" cellspacing="2" cellpadding="0" align="center" border=1>
+                    <colgroup>
+                        <col span="2" style="background-color:rgb(0, 255, 98)">
+                        <col style="background-color:rgb(255, 30, 0)">  
+                      </colgroup>
+                    <th>Door_count & Door_type</th>
+                    <th>Vaild door in Model Acc to authority</th>
+                    <th>InVaild door in Model Acc to authority</th>
+                    <tr>
+                        <td (click)="openDialog('list_doors')">{{item.listOfDoorCount}}</td>
+                        <td (click)="openDialog('list_validdoors')">{{item.listOfValidDoorCount}}</td>
+                        <td>{{item.listOfInvalidDoorCount}}</td>
+                    </tr>
+                </table>  
+              </div>
+        </div>
+            <div class="shadow-class p-4" style="width:30%">
+                <div *ngFor="let item of projectData">
+                    <h2 style="font-size:10px;"><b><u>Project Name</u></b></h2>
+                    <strong style="font-size:10px;"><u>{{item.documenTitle}}</u></strong>
+                    <h2 style="font-size:10px;"><b><u>Create _Date</u></b></h2>
+                    <strong style="font-size:10px;"><u>{{item.createdOn}}</u></strong>
+                <table width="100%" cellspacing="2" cellpadding="0" align="center" border=1>
+                    <colgroup>
+                        <col span="4" style="background-color:rgb(197, 202, 206)">
+                        <!-- <col style="background-color:rgb(255, 30, 0)">   
+                      </colgroup>
+                      <th>Level_Name </th>
+                      <th>Level_Id</th>
+                      <th>Creation_Date</th>
+                      <th>Elevation</th>
+                    <tr>
+                        <td>{{item.levelElementName}}</td>
+                        <td>{{item.levelRevitElementId}}</td>
+                        <td>{{item.createdOn}}</td>
+                        <td>{{item.elevation}}</td>
+                    </tr>
+                </table>  
+              </div>    
+        </div>
+    </div>
+</div> -->

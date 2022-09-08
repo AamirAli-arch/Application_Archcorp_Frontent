@@ -1,0 +1,123 @@
+
+
+<div class="scroller">
+  <dx-scroll-view id="scroll">
+    <div *ngFor="let designation of groupedArray">
+        <strong class="design">{{designation.name}}</strong>
+      <dx-draggable
+        class="item dx-card dx-theme-text-color dx-theme-background-color"
+        [clone]="true"
+        [group]="draggingGroupName"
+        [data]="employee"
+        (onDragStart)="onItemDragStart($event)"
+        (onDragEnd)="onItemDragEnd($event)"
+        *ngFor="let employee of designation.value"
+      >
+        {{ employee.name }}
+      </dx-draggable>
+    </div>
+  </dx-scroll-view>
+</div>
+  
+<!-- <div class="tables">
+  <div *ngFor="let status of statuses" class="column">        
+    <div class="gridview">
+        <dx-data-grid
+        [dataSource]="employeeDataSource"
+        [height]="440"
+        [showBorders]="true"
+        [filterValue]="['Status', '=', status]"
+        > 
+    <dx-data-grid    
+    id="scheduler"
+    [dataSource]="dataSource"    
+    [height]="600"
+    [editing]="true"
+  > 
+    
+  
+
+    <dxi-column dataField="name" dataType="string"></dxi-column>
+    </dxo-row-dragging>
+    </dx-data-grid>
+    </div> -->
+
+<div>
+  <dx-data-grid
+  [dataSource]="dashboardDataSource"
+  keyExpr="dashboardId"
+  [allowColumnReordering]="true"
+  [allowColumnResizing]="true"
+  [columnAutoWidth]="true"
+  [showBorders]="true"    
+  (onRowUpdating)="logEvent($event)"
+  (onSelectionChanged)="selectionChanged($event)">  
+
+  <dxo-editing
+  mode="cell"
+  [allowUpdating]="true"
+  >
+
+  </dxo-editing>
+
+
+  <dxi-column dataField="groups" [groupIndex]="0"></dxi-column>
+  <dxi-column dataField="projectName" dataType="string" caption="Project Name"></dxi-column>
+  <dxi-column dataField="name" dataType="string" caption="Employee Name"></dxi-column>
+  <dxi-column dataField="groupStage" dataType="string"></dxi-column>
+
+  <dxi-column dataField="preBIM" dataType="string" caption="PreBIM">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxi-column dataField="aor" dataType="string" caption="AOR">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxi-column dataField="architecture" dataType="string">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxi-column dataField="structure" dataType="string">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxi-column dataField="mechanical" dataType="string">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxi-column dataField="electrical" dataType="string">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxi-column dataField="interior" dataType="string">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxi-column dataField="qs" dataType="string" caption="QS">
+    <dxo-lookup [dataSource]="ratings" displayExpr="name" valueExpr="name">
+    </dxo-lookup>
+  </dxi-column>
+
+  <dxo-row-dragging  
+  
+  group="draggingGroupName"
+  [onAdd]="onAdd"
+  [onReorder]="onReorder"
+  ></dxo-row-dragging>
+
+  <dxo-group-panel [visible]="true"></dxo-group-panel>
+  <dxo-grouping  #expand [autoExpandAll]="true"></dxo-grouping>
+
+</dx-data-grid>
+
+</div>
+
+

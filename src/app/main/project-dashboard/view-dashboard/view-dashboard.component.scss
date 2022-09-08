@@ -1,0 +1,175 @@
+::ng-deep .options {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: rgba(191, 191, 191, 0.15);
+  }
+  
+  ::ng-deep .caption {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  ::ng-deep .option {
+    margin-top: 10px;
+  }
+
+
+
+  #list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;  
+    text-align: center;
+    float:left;
+    clear: left;
+    margin-top: 30px;
+  }
+  
+  .item {
+    display: block;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    margin-bottom: 1px;    
+    clear: both;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  
+  .card{
+    float: left;
+    display: block;
+    margin-bottom: 3px;
+    border: 2px solid  #51899c;
+    border-radius: 4px solid;  
+  }
+
+  #search-text
+  {
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 220px;
+    text-align: center;    
+  }
+
+  #searchName{
+    width:220px;
+    height: 30px;
+    text-align: center;
+  }
+
+
+  
+  .dx-draggable-source {
+    opacity: 0.5;
+  }
+  
+  .dx-draggable-dragging > * {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+#scroll{
+  width: 220px;text-align: center;
+  margin-top: 0px;
+  border-radius:3px solid gray ;
+  padding: auto;
+  margin: auto;  
+  //height: auto;
+  height: 900px;
+  overflow-y: scroll;
+  scrollbar-color: white;
+  scrollbar-width: thin;
+  overflow-y: auto;
+  border:1px solid gray
+  
+ }
+
+
+#commDiv
+{
+  width: auto;
+  height: auto;
+  overflow-x: scroll;
+  scrollbar-color: white;
+  scrollbar-width: thin;
+  overflow-x: auto;
+  border:1px solid gray
+}
+
+
+#scrollDiv {
+  width: auto;
+  height: auto;
+  overflow-x: scroll;
+  scrollbar-color: white;
+  scrollbar-width: thin;
+  overflow-x: auto;
+  border:1px solid gray
+}
+
+.group1{
+  background-color: #51899c;
+  color: white;  
+  font-size: 16px;
+  border-radius: 2px;
+  padding-left: 5px;
+}
+
+
+.group2{
+  background-color: #c98620;
+  color: white;  
+  font-size: 16px;
+  border-radius: 2px;
+  padding-left: 5px;
+}
+
+
+.group3{
+  background-color:#9E5E6F;
+  color: white;  
+  font-size: 16px;
+  border-radius: 2px;
+  padding-left: 5px;
+}
+
+
+.group4{  
+  font-size: 16px;
+  border-radius: 2px;
+  padding-left: 5px;
+  color: black;  
+  background-color:rgb(149, 151, 153);
+}
+
+
+.mat-raised-button {
+  width:auto !important;
+  padding:5px 10px !important;
+  line-height: normal;
+  box-shadow: none !important;
+.mat-icon{
+  font-size: 18px;
+  top: 3px;
+  position: relative;
+}
+}
+
+
+ul li{
+  display: inline;
+  cursor: pointer;  
+  list-style-type: none;  
+  text-align: left;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;  
+}
+
+
+

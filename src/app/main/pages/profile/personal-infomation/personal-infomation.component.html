@@ -1,0 +1,73 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>Personal Information</h2>
+        <button [mat-dialog-close]="true" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+  
+        <div class="emtimated-hours" [formGroup]="allocationForm">
+            <mat-dialog-content>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Passport No</mat-label>
+                    <input matInput formControlName="passportNo" required spellcheck="false">
+                </mat-form-field>
+
+                <mat-form-field required appearance="outline" class="full-width">
+                    <mat-label>Passport Expiry Date</mat-label>
+                    <input readonly required  [min]="statDate" matInput [matDatepicker]="startDate"
+                        (click)="startDate.open()" formControlName="passportExpiryDate">
+                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Tel</mat-label>
+                    <input matInput formControlName="TelNumber" required spellcheck="false">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Nationality</mat-label>
+                    <input matInput formControlName="nationality" required spellcheck="false">
+                </mat-form-field>
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+         
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Religion</mat-label>
+                    <input matInput formControlName="religion" required spellcheck="false">
+                </mat-form-field>
+
+                <mat-form-field required appearance="outline" class="full-width">
+                    <mat-label>Marital status</mat-label>
+                    <mat-select formControlName="marital_status">
+                        <mat-option value="1">Single</mat-option>
+                        <mat-option value="2">Married</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Employment of spouse</mat-label>
+                    <input matInput formControlName="employmentspouse" required spellcheck="false">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>No. of children</mat-label>
+                    <input matInput formControlName="children" required spellcheck="false">
+                </mat-form-field>
+            </div>
+</mat-dialog-content>
+            <mat-dialog-actions>
+                <button [disabled]="!allocationForm.valid" fxLayoutGap="10px" color="accent" mat-raised-button
+                    (click)="InformationUpdate()">Update</button>
+
+            </mat-dialog-actions>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,161 @@
+<div class="reports-container">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="addBudgetForm">
+
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Designation </mat-label>
+                <mat-select formControlName="designation">
+                    <mat-option class="mat-primary" *ngFor="let emp of degisationList" [value]="emp">
+                        {{emp.name}}</mat-option>
+                </mat-select>
+
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Employee </mat-label>
+                <mat-select multiple formControlName="employee">
+                    <mat-option class="mat-primary" *ngFor="let empItem of employeeArray" [value]="empItem.id">
+                        {{empItem.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+    </div>
+
+    <h1 class="number-budgete" #budgeteDigit>Project Cost : AED {{projectCost | number : '1.2-2'}}
+        </h1>
+    <div class="project-content mat-elevation-z2">
+        <div fxLayout="row wrap">
+            <div *ngIf="budgetedHours>0" fxFlex="100%" class="bg-card shadow" fxLayoutGap="10px">
+                <mat-card class="project-card">
+                    <div class="text-lg font-medium">{{designationName}}</div>
+                    <mat-card-actions class="button-bottom" fxLayout="row" fxLayoutAlign="center baseline">
+                        <div class="min-content">
+                            <div class="budget bud-color">
+                                <span class="number">
+                                    {{budgetedHours | number : '1.2-2'}}
+                                </span>
+                                Budgeted
+                            </div>
+                            <div class="budget allocat">
+                                <span class="number allocat">
+                                    {{allocatedHours | number : '1.2-2'}}
+                                </span>
+                                Allocated
+                            </div>
+                            <div class="budget rem">
+                                <span class="number rem">
+                                    {{remainingHours | number : '1.2-2'}}
+                                </span>
+                                Remaining
+                            </div>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+        <!-- Employee list -->
+        <div *ngIf="createdEmployeeList.length>0" fxLayout="row wrap">
+            <div *ngFor="let item of createdEmployeeList" class="bg-card shadow" fxLayoutGap="10px" fxFlex="50%"
+                fxFlex.sm="50" fxFlex.xs="100%">
+                <mat-card class="project-card">
+                    <div class="ml-2 -mt-2 -mr-3">
+                            <button (click)="assign(item)">Assign</button>
+                    </div>
+                    <div class="text-lg font-medium">{{item.name}}</div>
+                    <mat-card-actions class="button-bottom" fxLayout="row" fxLayoutAlign="center baseline">
+                        <div class="min-content">
+
+                            <div class="budget allocat">
+                                <span class="number allocat">
+                                    {{item.perHourSalary | number : '1.2-2'}}
+                                </span>
+                                Per Hour Salary
+                            </div>
+                            <div class="budget bud-color">
+                                <span class="number allocat">
+                                    <!-- (focusout)="assign(item)" -->
+                                    <input  class="input-area" autocomplete="off" (keypress)="numberOnly($event)"
+                                        [(ngModel)]="item.hours" spellcheck="false">
+                                </span>
+                                Allocate hours
+                            </div>
+                            <div class="budget rem bottom">
+                                <span class="number rem">
+                                    {{item.costHours*item.hours | number : '1.2-2'}}
+                                </span>
+                                Cost
+                            </div>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="project-profit added mat-elevation-z2">
+     
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="hideShow===item.designation" (opened)="open(item.designation);panelOpenState = !panelOpenState"
+            (closed)="close(item.designation);panelOpenState = !panelOpenState" 
+            *ngFor="let item of resourceArray; let i=index" >
+                <mat-expansion-panel-header>
+                    <h3>{{item.designation}}</h3>
+                </mat-expansion-panel-header>
+                <div fxLayout="row wrap">
+                    <div *ngFor="let itemHours of item.resourceHours" class="bg-card shadow" fxLayoutGap="10px" fxFlex="50%"
+                        fxFlex.sm="50" fxFlex.xs="100%">
+                        <mat-card class="project-card">
+                            <button class="delete" (click)="deleteCard(itemHours.id)" mat-icon-button  class="text-red">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                            <!-- <div class="ml-2 -mt-2 -mr-3">
+                                <button class="more-button" mat-icon-button [matMenuTriggerFor]="summaryMenu">
+                                    <mat-icon class="moreView">more_vert</mat-icon>
+
+                                </button>
+                                <mat-menu class="open-menu" #summaryMenu="matMenu">
+                                    <button (click)="updateResource(itemHours)" mat-menu-item>Update</button>
+                                </mat-menu>
+                            </div> -->
+                            <div class="text-lg font-medium">{{itemHours.resourceName}}</div>
+                            <mat-card-actions class="button-bottom" fxLayout="row" fxLayoutAlign="center baseline">
+                                <div class="min-content">
+
+                                    <div class="budget allocat">
+                                        <span class="number allocat">
+                                            {{itemHours.perHourSalary | number : '1.2-2'}}
+                                        </span>
+                                        Per Hour Salary
+                                    </div>
+                                    <div class="budget bud-color">
+                                        <span class="number allocat">
+                                            <input (focusout)="updateResource(itemHours)" class="input-area" autocomplete="off" (keypress)="numberOnly($event)"
+                                                [(ngModel)]="itemHours.hours" spellcheck="false">
+                                        </span>
+                                        Allocate hours
+                                    </div>
+                                    <div class="budget rem bottom">
+                                        <span class="number rem">
+                                            {{itemHours.perHourSalary*itemHours.hours | number : '1.2-2'}}
+                                        </span>
+                                        Cost
+                                    </div>
+                                </div>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+
+    </div>
+
+
+</div>

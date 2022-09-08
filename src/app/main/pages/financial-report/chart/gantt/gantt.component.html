@@ -1,0 +1,9 @@
+<dx-gantt id="gantt" taskListWidth="500" scaleType="months" height="700" [rootValue]="-1">
+    <dxo-tasks [dataSource]="listDetails"></dxo-tasks>
+  
+    <dxi-column dataField="title" caption="name" [width]="300"></dxi-column>
+    <dxi-column dataField="start" caption="Start Date" dataType="date"></dxi-column>
+    <dxi-column dataField="end" caption="End Date" dataType="date"></dxi-column>
+  
+    
+  </dx-gantt>

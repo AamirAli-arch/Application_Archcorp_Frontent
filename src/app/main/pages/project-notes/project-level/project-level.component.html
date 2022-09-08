@@ -1,0 +1,35 @@
+
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="column" fxLayoutAlign="start stretch" fxFlex="50" style="margin: 10px;" class="filter-container">
+    <div>
+        <h1>Create an Issue</h1>
+        <p>Create an issue regarding the project, please select the stage and type of issue.</p>
+    </div>
+    <form [formGroup]="projectLevelsForms" fxLayout="column" fxLayoutAlign="space-around stretch">
+        <app-project-dropdown class="resorce-filter" (projectId)="projectId($event)" fxFlex="grow">
+        </app-project-dropdown>
+        
+            
+            <mat-form-field appearance="outline" fxFlex="grow">
+                <mat-label>Issue</mat-label>
+                <input matInput placeholder="Issue" formControlName="issue">
+            </mat-form-field>
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100" style="margin-top:15px;">
+                <mat-label>Select Level</mat-label>
+                <mat-select required color="primary" formControlName="level">
+                    <mat-option class="mat-primary" *ngFor="let item of buildingStories" [value]="item">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+         <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+            <mat-label>Select Type</mat-label>
+            <mat-select required color="primary" formControlName="type">
+                <mat-option class="mat-primary"></mat-option>
+                <mat-option class="mat-primary" [value]="1">Technical</mat-option>
+                <mat-option class="mat-primary" [value]="2">Authority</mat-option>
+                <mat-option class="mat-primary" [value]="3">BIM</mat-option>                               
+            </mat-select>
+        </mat-form-field>        
+        <button (click)="saveLevel()" mat-raised-button color="primary">Submit</button>
+    </form>
+</div>

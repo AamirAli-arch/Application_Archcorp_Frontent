@@ -1,0 +1,38 @@
+<!-- <app-loader-spiner></app-loader-spiner> -->
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 *ngIf="getType=='addComment'" mat-dialog-title>Add Comment</h2>
+        <h2 *ngIf="getType!='addComment'" mat-dialog-title>Comment</h2>
+        <button [mat-dialog-close]="false" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div class="emtimated-hours">
+            <form *ngIf="getType=='addComment'" [formGroup]="addCommentForm" fxLayout="column" (ngSubmit)="onSubmit()">
+                <div class="primary-contact">
+
+                    <div class="space-bottom" fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column"
+                        fxLayoutAlign="space-between start">
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Comment</mat-label>
+                            <input matInput formControlName="comment" required spellcheck="false">
+                            <mat-error *ngIf="addCommentForm.controls.comment.errors?.required">Comment is
+                                required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <mat-dialog-actions>
+                    <button fxLayoutGap="10px" color="accent" mat-raised-button>Save</button>
+                    <button [mat-dialog-close]="false" style="background: #ff0000;" fxLayoutGap="10px" color="accent"
+                        mat-raised-button>Cancel</button>
+                </mat-dialog-actions>
+            </form>
+
+            <p *ngIf="getType!='addComment'">{{viewtext}}</p>
+
+        </div>
+    </div>
+
+</div>

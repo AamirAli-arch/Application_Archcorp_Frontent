@@ -1,0 +1,284 @@
+
+  mat-card.mat-card {
+    width: 100%;
+    margin: 10px;
+  }
+  .example-tree-nested-node {
+    padding-left: 30px;
+  }
+  
+  mat-tree {
+    margin-left: 40px;
+  }
+  .mat-tree-node {
+    padding: 0;
+    background-color: white;
+  }
+  .top-projectname .floorName {
+    padding: 0;
+}
+//   .mat-nested-tree-node {
+//     //top: -24px;
+//   }
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li.example-tree-container {
+    border-bottom: 0;
+  }
+
+  li {
+    // border: 1px solid #039be5;
+    border-width: 0 0 0px 1px;
+    position: relative;
+    font-size: 16px;
+    // top: -24px;
+  }
+  li.mat-tree-node,
+  li div {
+    margin: 0;
+    position: relative;
+    top: 24px;
+  }
+  li ul {
+    border-top: 1px solid #039be5;
+    // padding-left: 60px;
+    position: relative;
+  }
+  .mat-nested-tree-node:last-child ul {
+    border-left: 1px solid white;
+    margin-left: -41px;
+  }
+  .mat-icon-button {
+    z-index: 100;
+  }
+  .button-right {
+    top: 0px !important;
+  }
+
+  .text-red{
+    color:red !important;
+  }
+  .background-highlight{
+    background: green;
+  }
+  .name {
+      margin: 0;
+      font-weight: 600;
+  }
+  .room-type{
+    span {
+        font-size: 14px;
+        font-weight: bold;
+        padding-right: 10px;
+    }
+    li {
+        padding: 5px 0;
+        font-size: 12px;
+        // border-bottom: 1px solid #039be5;
+    }
+    li:last-child {
+        border-bottom: 0;
+    }
+  }
+  span.buildName {
+    background: #039be5;
+    padding: 5px;
+    display: block;
+    color: #fff;
+    left: 0;
+}
+.buildName.level {
+    margin-left: -40px;
+}
+.levelNumber {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    // background: #039be5;
+    border-radius: 50%;
+    text-align: center;
+    // width: 25px;
+    padding: 3px !important;
+    // color: #fff;
+    // height: 25px;
+}
+.number{
+    position: absolute;
+    left: 5px;
+    top:3px;
+    // background: #039be5;
+    border-radius: 50%;
+    text-align: center;
+    // width: 25px;
+    padding: 3px !important;
+    color: #000;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+.floorName{
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 0;
+    padding: 5px 10px 5px;
+}
+.employee-search {
+    max-width: 520px !important;
+    margin-right: 20px;
+}
+li.top-projectname {
+    border-bottom: 1px solid #039be5;
+}
+ul.level li:last-child{
+    border-bottom: 0;
+}
+.topList {
+    border-right: 1px solid #039be5;
+    border-left: 1px solid #039be5;
+}
+.top-section{
+    .room-type {
+        li{
+            border: none;
+        }
+    }
+}
+ul.level li {
+    margin: 0;
+    // border-bottom: 1px solid #039be5;
+}
+.toplevel.top {
+    padding-left: 10px;
+}
+.top-section {
+    position: relative;
+}
+.roomTypeSearch {
+    width: 200px;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    .mat-form-field {
+        max-width: 100% !important;
+    }
+}
+.toplevel {
+    position: relative;
+    display: block;
+    top: 0 !important;
+    font-size: 14px;
+     span {
+        padding: 2px;
+        display: block;
+    }
+}
+ul.room-type.floor {
+    margin-left: -60px !important;
+    padding-left: 80px !important;
+}
+ul.level li {
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+}
+ul.level .mat-card {
+    margin: 10px !important;
+    width: 17vw;
+    height: 280px;
+    border: 1px solid #039be5;
+}
+
+.toplevel.top {
+    span{
+        display: block;
+        border-right: 1px solid #039be5;
+        padding: 5px 10px;
+    }
+    display: flex;
+    .left-section {
+        padding-right: 10px;
+    }
+    .right-section {
+        border-left: 1px solid #039be5;
+        padding: 0 10px;
+    }
+}
+.top-section .employee-search {
+    padding: 0 !important;
+}
+@media (min-width:1400px) {
+    ul.level .mat-card {
+        margin: 10px !important;
+        width: 15vw;
+        border: 1px solid #039be5;
+    }
+}
+@media (max-width:1030px) {
+    ul.level{
+        li{
+            display: inline-block;
+            width: 48%;
+            vertical-align: top;
+            margin-right: 10px;
+        }
+        .mat-card{
+            margin: 10px !important;
+            width: 100%;
+            height: 280px;
+            border: 1px solid #039be5;
+        }
+    }
+}
+  @media (max-width:768px) {
+  mat-tree{
+      margin-left: 0;
+  }
+  ul{
+    padding-left: 0;
+}
+.filter-container.floor-plan {
+    display: block !important;
+}
+.filter-container mat-form-field {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.roomTypeSearch{
+    width: 100%;
+    max-width: 100%;
+    position: static;
+    right: 0;
+    bottom: 0;
+}
+
+}
+@media (max-width:620px) {
+    .toplevel.top{
+        display: flex;
+        overflow-x: scroll;
+          span{
+            white-space: nowrap;
+        }
+    }
+    ul.level{
+        li{
+            display: inline-block;
+            width:100%;
+            vertical-align: top;
+            margin-right: 0;
+            padding: 10px;
+        }
+        .mat-card{
+            margin: 0 !important;
+            width: 100%;
+            height: auto;
+            border: 1px solid #039be5;
+        }
+    }
+}

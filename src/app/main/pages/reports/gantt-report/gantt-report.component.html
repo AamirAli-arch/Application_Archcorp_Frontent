@@ -1,0 +1,136 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+            <app-employee-dropdown class="report-search" (employeeId)="getEmployeValue($event)"></app-employee-dropdown>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()"
+                    formControlName="startDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex.gt-sm="100" floatLabel="never" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input placeholder="End Date" [min]="filterForm.value.startDate" matInput [matDatepicker]="endDate"
+                    (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="download-button">
+        <button mat-raised-button color="accent" (click)="exporter.exportTable('xlsx', {fileName:'Gantt_Monthly_Report'})">Download</button>
+    </div>
+    <div class="table-container mat-elevation-z2">
+        <div id="table-container">
+            <table matTableExporter mat-table [dataSource]="filteredAndPaged" #exporter="matTableExporter">
+
+            <ng-container matColumnDef="serialNumber">
+                <th mat-header-cell class="w-75" *matHeaderCellDef> Sl. No.  </th>
+                <td mat-cell class="w-75" *matCellDef="let element"> {{element.id}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name" sticky>
+                <th mat-header-cell class="w-250" *matHeaderCellDef> Staff Name  </th>
+                <td matTooltipClass="icon-tooltip" matTooltipPosition="above" matTooltip="{{element.staffName}}" mat-cell class="w-250" *matCellDef="let element"> {{element.staffName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="startDate">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Month Start Date  </th>
+                <td mat-cell class="w-200" *matCellDef="let element">{{moment(element.startDate).format('DD MMM YYYY')}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="endDate">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Month End Date  </th>
+                <td mat-cell class="w-200" *matCellDef="let element"> {{moment(element.endDate).format('DD MMM YYYY')}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="workedDays">
+                <th mat-header-cell class="w-200" *matHeaderCellDef>Total work days </th>
+                <td mat-cell class="w-200" *matCellDef="let element"> {{element.totalWorkDays}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="hours">
+                <th mat-header-cell class="w-200" *matHeaderCellDef>Total Monthly Hours  </th>
+                <td mat-cell class="w-200" *matCellDef="let element"> {{element.totalMonthlyHours}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actulDay">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Actual working days  </th>
+                <td mat-cell class="w-200" *matCellDef="let element"> {{element.actualWorkDays}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="allocatedHours">
+                <th mat-header-cell class="w-250" *matHeaderCellDef> Total Monthly Allocated Hours  </th>
+                <td mat-cell class="w-250" *matCellDef="let element"> {{element.allocatedHours.toFixed(2) * 60| workedHours}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="monthlyHours">
+                <th mat-header-cell class="w-250" *matHeaderCellDef>Actual Monthly Worked Hours (8:00AM to 6:00PM)
+                 </th>
+                <td mat-cell class="w-250" *matCellDef="let element"> {{element.actualWorkedHours | workedHours}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="hoursAfterSix">
+                <th mat-header-cell class="w-250" *matHeaderCellDef>Hours after 6:00PM
+                 </th>
+                <td mat-cell class="w-250" *matCellDef="let element"> {{element.hoursAfterSix | workedHours}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actualmonthlyHours">
+                <th mat-header-cell class="w-250" *matHeaderCellDef> Actual Monthly Hours as per ZKT  </th>
+                <td mat-cell class="w-250" *matCellDef="let element"> 0</td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="lateDay">
+                <th mat-header-cell class="w-250" *matHeaderCellDef>No of Late Days (after 08:15AM)  </th>
+                <td mat-cell class="w-250" *matCellDef="let element">
+                    <span [ngClass]="element.noOfLates > 3 ? 'color2' : ''"> {{element.noOfLates}}</span> 
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="TotalLateHours">
+                <th mat-header-cell class="w-200" *matHeaderCellDef>Total Late Hours  </th>
+                <td mat-cell class="w-200" *matCellDef="let element">
+                   {{element.totalLateHours | workedHours}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="timeoffHours">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Approved Time-Off Hours </th>
+                <td mat-cell class="w-200" *matCellDef="let element"> {{element.approvedTimeOffHours | workedHours}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="leaveDay">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Leave days  </th>
+                <td mat-cell class="w-200" *matCellDef="let element"> {{element.leaveDays}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Absent">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Absent  </th>
+                <td mat-cell class="w-200" *matCellDef="let element">{{element.totalWorkDays - element.actualWorkDays - element.leaveDays - publicHolidays > 0 ? element.totalWorkDays - element.actualWorkDays - element.leaveDays - publicHolidays : 0}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="PublicHolidays">
+                <th mat-header-cell class="w-200" *matHeaderCellDef> Public Holidays  </th>
+                <td mat-cell class="w-200" *matCellDef="let element">{{publicHolidays}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-paginator style="display: none;" class="mat-paginator-sticky" [length]="resultsLength" [pageSize]="25"
+            [pageSizeOptions]="[5, 10, 25, 50, 100]">
+        </mat-paginator>
+        </div>
+    </div>
+</div>

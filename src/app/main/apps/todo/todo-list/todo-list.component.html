@@ -1,0 +1,21 @@
+<div *ngIf="tasks.length === 0" fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+    <span class="no-todos-text hint-text">No Tasks Found!</span>
+</div>
+<div class="loading-shade"
+       *ngIf="isLoading">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </div>
+<div class="listContainer">
+    <cdk-virtual-scroll-viewport itemSize="100" class="listViewPort">
+        <div class="todo-list" [@animateStagger]="{value:'50'}">
+            <todo-list-item class="todo-list-item has-handle item"
+                            *cdkVirtualFor="let task of tasks" [task]="task"
+                            [runningTask]="runningTask"
+                            [currentTaskId]="currentTaskId"
+                            [model]="task"
+                            [ngClass]="{'current-todo':todo?.id == currentTodo?.id}"
+                            [@animate]="{value:'*',params:{y:'100%'}}">
+            </todo-list-item>
+        </div>
+        </cdk-virtual-scroll-viewport>
+</div>

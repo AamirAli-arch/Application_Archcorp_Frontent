@@ -1,0 +1,186 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="apartmentForm">
+
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Apartment Type</mat-label>
+                <mat-select color="primary" formControlName="apartmentType">
+                    <mat-option class="mat-primary" *ngFor="let apartment of apartmentArray" [value]="apartment">
+                        {{apartment.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="employee loadtype" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Load Type</mat-label>
+                <mat-select #select  (closed)="add_Apartment(select)" (selectionChange)='onOptionsSelected($event.value)' multiple color="primary" formControlName="loadType">
+                    <mat-option class="mat-primary" *ngFor="let load of loadTypeArray" [value]="load">
+                        {{load.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+    </div>
+
+    <div class="main-container">
+     
+        <div *ngIf="createNewArray.length>0" class="mat-elevation-z2">
+            <table  class="fresh-table">
+                <thead>
+                    <tr>
+                        <th class="project-leavename"><strong>Load Type</strong></th>
+                        <th class="project-area">
+                            Load Type
+                            <div class="area">
+                                <strong>    Load/ Point (Watts)</strong>
+                            </div>
+                        </th>
+                    <ng-container *ngFor="let item of createNewArray">
+                        <ng-container *ngFor="let loadType of item.projectParameters">
+                            <th class="project-150"><strong>{{loadType.parameterName}}</strong>
+                                <div style="font-weight:bold" class="area">
+                                   {{loadType.load}}
+                                </div>
+                            </th>
+                        </ng-container>
+                    </ng-container>
+                        <!-- <th class="project-occupants">
+                            <strong>Ch-1 (Sus.L)</strong>
+                            <div class="area">
+                                <strong> 200 </strong>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Suspended light</strong>
+                            <div class="area">
+                                <strong> 100 </strong>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>LED down light including Balcony light</strong>
+                            <div class="area">
+                                <strong> 50 </strong>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Mirror Light (Spot)</strong>
+                            <div class="area">
+                                <strong>  50 </strong>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Table lamp</strong>
+                            <div class="area">
+                                <strong> 50  </strong>
+                            </div>
+                        </th>
+                        <th style="padding: 20px 10px;" class="project-150">
+                            <strong>Kitchen 60x60</strong>
+                            <div class="area">
+                                <strong> 50  </strong>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>13A Single Socket</strong>
+                            <div class="area">
+                                <strong>  200  </strong>
+                            </div> 
+                        </th>
+                        <th class="project-150">
+                            <strong>13A Twin Socket </strong>
+                            <div class="area">
+                                <strong>  400</strong>
+                            </div>
+                        </th>
+                        <th class="project-150">
+                            <strong>Fridge </strong>
+                            <div class="area">
+                                <strong>    300  </strong>
+                            </div>
+                        </th>
+
+                        <th class="project-150">
+                            <strong>Washing Machine </strong>
+                            <div class="area">
+                                <strong>  1500  </strong>
+                            </div>
+                        </th>
+
+                        <th class="project-150">
+                            <strong>Dish Washer </strong>
+                            <div class="area">
+                                <strong>  1500   </strong>
+                            </div>
+                        </th>
+
+                        <th class="project-150">
+                            <strong>Cooker </strong>
+                            <div class="area">
+                                <strong>  3000   </strong>
+                            </div>
+                        </th>
+
+                        <th class="project-150">
+                            <strong>LPG Switch </strong>
+                            <div class="area">
+                                <strong> 100   </strong>
+                            </div>
+                        </th>
+
+                        <th class="project-150">
+                            <strong>Hood </strong>
+                            <div class="area">
+                                <strong>    100   </strong>
+                            </div>
+                        </th>
+
+                        <th class="project-150">
+                            <strong>Bell Point </strong>
+                            <div class="area">
+                                <strong>   50   </strong>
+                            </div>
+                        </th>
+
+                        <th class="project-150">
+                            <strong>Shaver Socket </strong>
+                            <div class="area">
+                                <strong>   100   </strong>
+                            </div>
+                        </th> -->
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of createNewArray">
+                        <td  class="projectleavename">
+                            <strong>{{item.parameterName}}</strong>
+                        </td>
+                        <td class="projectarea">
+                            <strong>  Nos</strong>
+                            <div class="loadvalue">
+                                <strong> Total Load (Watts)</strong>
+                            </div>
+                        </td>
+                        <ng-container *ngFor="let loadType of item.projectParameters">
+                            <td class="projectarea">
+                                <input   (focusout)="update(loadType.quantity, loadType.id, loadType.load)" autocomplete="off" id="{{loadType.id}}" class="input-area" (keypress)="numberOnly($event)" [(ngModel)]="loadType.quantity" spellcheck="false">
+                                <div class="loadvalue">
+                               {{loadType.quantity*loadType.load}}
+                                </div>
+                            </td>
+
+                        </ng-container>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- <div *ngIf="noRecords" class="norecord">No Records</div> -->
+</div>

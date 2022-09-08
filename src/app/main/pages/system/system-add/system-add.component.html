@@ -1,0 +1,72 @@
+<app-loader-spiner></app-loader-spiner>
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <div class="w-100-p">
+        <h2 mat-dialog-title>New System</h2>
+        <button [mat-dialog-close]="true" class="close">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div class="emtimated-hours" [formGroup]="addForm">
+            <div class="primary-contact">
+                <!-- <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" fxFlex.gt-sm="100">
+                        <mat-label>Project</mat-label>
+                        <mat-select required color="primary" formControlName="project">
+                            <mat-option class="mat-primary" *ngFor="let item of projectArray" [value]="item.id">{{item.projectName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div> -->
+
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" fxFlex.gt-sm="100">
+                        <mat-label>Discipline</mat-label>
+                        <mat-select required color="primary" formControlName="discipline">
+                            <mat-option class="mat-primary" *ngFor="let decipline of deciplineArray" [value]="decipline.id">{{decipline.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div> 
+            <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" fxFlex.gt-sm="100">
+                        <mat-label>System</mat-label>
+                        <mat-select required color="primary" formControlName="system">
+                            <mat-option class="mat-primary" *ngFor="let system of systemArray" [value]="system.id">{{system.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" fxFlex.gt-sm="100">
+                        <mat-label>Sub System</mat-label>
+                        <mat-select required color="primary" formControlName="subsystem">
+                            <mat-option class="mat-primary" *ngFor="let subsystem of subSystemArray" [value]="subsystem.id">{{subsystem.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <mat-form-field appearance="outline" fxFlex.gt-sm="100">
+                        <mat-label>Comment</mat-label>
+                        <textarea matInput formControlName="textArea"></textarea>
+                    </mat-form-field>
+                </div>
+
+
+                <div fxLayoutGap="10px" fxLayout.md="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start">
+                    <input #fileUpload (change)="uploadFile($event)" formControlName="file" type="file">
+                </div>
+
+            </div>
+
+            <mat-dialog-actions>
+                <button [disabled]="!addForm.valid" fxLayoutGap="10px" color="accent" mat-raised-button
+                    (click)="profileEdit()">Save</button>
+            </mat-dialog-actions>
+
+        </div>
+    </div>
+
+</div>

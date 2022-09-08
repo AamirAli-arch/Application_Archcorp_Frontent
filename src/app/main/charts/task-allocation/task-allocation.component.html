@@ -1,0 +1,110 @@
+<div fxLayout="row" fxLayoutAlign="space-between start">
+  <div class="w-100-p">
+    <h2 mat-dialog-title>{{title}}</h2>
+    <p>Task number of days {{days}}</p>
+    <p>Task total hours {{hours}}</p>
+    <mat-dialog-content>
+    <div [formGroup]="form">
+      <mat-form-field appearance="outline" class="full-width w-100-p">
+        <mat-label>Discipline</mat-label>
+        <mat-select  [formControl]="disciplineControl">
+          <mat-option (onSelectionChange)="onDepartmentChange(dept,$event)" *ngFor="let dept of deptartments"
+            [value]="dept.id">{{dept.name}}</mat-option>
+        </mat-select>
+      </mat-form-field><br />
+
+      <mat-form-field appearance="outline" class="full-width w-100-p">
+        <mat-label>Resource</mat-label>
+        <mat-select  [formControl]="resourceControl" [compareWith]="compareFn" [(value)]="employees" multiple>
+          <mat-optgroup *ngFor="let designation of designations" [label]="designation.name">
+            <mat-option (onSelectionChange)="resourceChanged($event,resource)"
+              *ngFor="let resource of designation.employees" [value]="resource">
+              {{resource.name}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <div class="resource-div">
+      <div *ngFor="let res of tempResources" class="resource-badge" (click)="AllocateTime(res)">
+        {{res.name}}
+      </div>
+    </div>
+    <!-- <div class="resource-div">
+  <div *ngFor="let res of tempResources" class="resource-badge" >
+    {{res.name}}
+  </div>
+</div> -->
+    <div class="emtimated-hours" *ngIf="showTimeAllocationField" [formGroup]="allocationForm">
+      <p>Estimated Hours for {{hoursSelectedResource.name}}</p>
+      <div>
+        <mat-radio-group formControlName="type">
+          <mat-radio-button (click)="setDefaultAllocation()" [checked]="allocationForm.controls['type'].value == 1"
+            value="1">Default</mat-radio-button>
+          <mat-radio-button [checked]="allocationForm.controls['type'].value == 2" value="2">Single</mat-radio-button>
+          <mat-radio-button [checked]="allocationForm.controls['type'].value == 3" value="3">Multiple</mat-radio-button>
+          <mat-radio-button [checked]="allocationForm.controls['type'].value == 4" value="4">Reoccurring</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Allocation Hours</mat-label>
+        <input matInput autocomplete="off" formControlName="hours" type="number"
+          value="{{selectedResource.allocatedHours ? selectedResource.allocatedHours : ''}}">
+      </mat-form-field>
+      <div class="date-selection" *ngIf="allocationForm.controls['type'].value > 1 && allocationForm.controls['type'].value < 4">
+        <mat-form-field [ngClass]="allocationForm.controls['type'].value==2 ? 'start-full-width':''" appearance="outline" class="date-picker" floatLabel="never" appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input placeholder="Start Date" matInput [matDatepicker]="startDate" formControlName="startDate"
+            autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="date-picker" floatLabel="never" appearance="outline"
+          *ngIf="allocationForm.controls['type'].value == 3">
+          <mat-label>End Date</mat-label>
+          <input placeholder="End Date" matInput [min]="allocationForm.value.startDate" [matDatepicker]="endDate"
+            formControlName="endDate" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+          <mat-datepicker #endDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div *ngIf="allocationForm.controls['type'].value == 4">
+        <mat-form-field appearance="outline" class="full-width w-100-p">
+          <mat-label>Reoccurring Type</mat-label>
+          <mat-select formControlName="recurringType">
+            <mat-option value="1">Week</mat-option>
+            <mat-option value="2">Month</mat-option>    
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width w-100-p">
+          <mat-label>Reoccurring Day</mat-label>
+          <mat-select formControlName="reday" multiple>
+            <mat-option value="0">Sunday</mat-option>
+            <mat-option value="1">Monday</mat-option>
+            <mat-option value="2">Tuesday</mat-option>
+            <mat-option value="3">Wednesday</mat-option>
+            <mat-option value="4">Thursday</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+      </div>
+    </mat-dialog-content>
+      <mat-dialog-actions>
+        <button *ngIf="closedhide" fxLayoutGap="10px" color="accent" mat-raised-button (click)="update()">Update</button>
+        <button fxLayoutGap="10px" color="warn" mat-raised-button (click)="save()">Close</button>
+      </mat-dialog-actions>
+    
+  </div>
+  <div *ngIf="showTimeAllocation">
+    Time Allocations
+  </div>
+</div>
+
+
+
+
+<!-- <mat-dialog-actions *ngIf="!closedhide">
+  <button fxLayoutGap="10px" color="warn" mat-raised-button (click)="save()">Close</button>
+</mat-dialog-actions> -->

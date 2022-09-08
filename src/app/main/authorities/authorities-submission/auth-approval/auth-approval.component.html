@@ -1,0 +1,109 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container top">
+        <div class="left-section">
+            <h3>{{projectCode}}-{{projectName}}</h3>
+            <p><strong>
+                <img style="width: 20px; margin-right: 5px;" src="assets/images/calendar.png">
+            </strong>{{startDate | date:'mediumDate'}} - {{endDate | date:'mediumDate'}}</p>
+        </div>
+        <div class="download-button">
+            <button (click)="addStage()" mat-raised-button color="accent">
+                <mat-icon>add_circle</mat-icon> Plan Submission
+            </button>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100" fxLayoutGap="10px" [formGroup]="filterForm">
+
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Status</mat-label>
+                <mat-select color="primary" formControlName="status">
+                    <mat-option class="mat-primary" *ngFor="let list of statusArray" [value]="list.value">
+                        {{list.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Stage</mat-label>
+                <mat-select color="primary" formControlName="stageId">
+                    <mat-option class="mat-primary" *ngFor="let stage of stageArray" [value]="stage.id">
+                        {{stage.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Emirate</mat-label>
+                <mat-select required color="primary" formControlName="emirate">
+                    <mat-option class="mat-primary" *ngFor="let emirate of emirateArray"
+                        [value]="emirate.id">
+                        {{emirate.name}}</mat-option>
+                </mat-select>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Master Developer</mat-label>
+                <mat-select required color="primary" formControlName="masterId">
+                    <mat-option class="mat-primary" *ngFor="let master of masterArray" [value]="master.id">
+                        {{master.name}}</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+
+            <mat-form-field class="employee" appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Authority</mat-label>
+                <mat-select color="primary" formControlName="authority">
+                    <mat-option class="mat-primary" *ngFor="let authority of authorityArray"
+                    [value]="authority">
+                    {{authority}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+    </div>
+    <div class="download-button search">
+
+    </div>
+    <div class="main-container">
+
+    <div class="cards">
+      <div *ngFor="let submission of submissionArray; let i=index" class="card card{{i+1}}">
+        <h2 matTooltipClass="icon-tooltip" matTooltipPosition="above"
+        matTooltip="{{submission.title}}" class="card__title">{{submission.title}}</h2>
+        <p> 
+            <span><img src="assets/images/calendar.png"> {{submission.plannedDate | date:'mediumDate'}} (Target Date)</span>
+            <span matTooltipClass="icon-tooltip" matTooltipPosition="above"
+            matTooltip="{{submission.submittedTo}}"> <img src="assets/images/authority.png">{{submission.submittedTo}}</span>
+            <span> {{submission.currentStatusString}}</span>
+            <!-- <span matTooltipClass="icon-tooltip" matTooltipPosition="above"
+            matTooltip="{{submission.masterDeveloper}}"> <img src="assets/images/master.png">{{submission.masterDeveloper}}</span> -->
+        </p>
+      
+        <p class="card__apply">
+           <mat-icon style="color: #008000; position: relative;
+            top: 7px;left: -3px;">timeline</mat-icon>
+          <a class="card__link" [routerLink]="['/authorities/history/'+ submission.id]">Time Line <i class="fas fa-arrow-right"></i></a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+    <!-- <div class="table-container">
+        <div fxLayout="row wrap" fxLayout.xs="column">
+            <mat-card *ngFor="let submission of submissionArray" (click)="timeLineView()" class="card-design">
+                <mat-card-content [routerLink]="['/authorities/history/'+ submission.id]">
+                    <h3 class="title-name">{{submission.title}}</h3>
+                    <ul>
+                        <li style="color: #ca8c88;">Plan Date:{{submission.plannedDate | date:'mediumDate'}}</li>
+                        <li style="color: #c06790;">{{submission.authority}}</li>
+                        <li style="color:#4f31ff">{{submission.masterDeveloper}}</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        
+    </div> -->
+    <div *ngIf="noRecords" class="norecord">No Records</div>
+</div>

@@ -1,0 +1,53 @@
+<div fxLayout="column" fxLayoutAlign="start start" class="filter-container p-12">
+    <div fxLayout="row wrap" fxLayoutGap="10px"  [formGroup]="assignForm">
+      <mat-form-field class="employee" appearance="outline" class="w-240">
+        <mat-label>Employee</mat-label>
+        <mat-select formControlName="name">
+          <mat-option *ngFor="let emp of employees" [value]="emp.id">{{emp.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-240">
+        <mat-label>Projects</mat-label>
+        <mat-select formControlName="projects" multiple>
+          <mat-option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="date-picker" floatLabel="never" appearance="outline">
+        <mat-label>Task Start Date</mat-label>
+        <input placeholder="Start Date" matInput [matDatepicker]="startDate" (click)="startDate.open()" formControlName="startDate" autocomplete="off">
+        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="date-picker" floatLabel="never" appearance="outline">
+        <mat-label>Task End Date</mat-label>
+        <input placeholder="End Date" [min]="assignForm.value.startDate" matInput [matDatepicker]="endDate" (click)="endDate.open()" formControlName="endDate" autocomplete="off">
+        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-240">
+        <mat-label>Task Verb</mat-label>
+        <mat-select formControlName="verb">
+            <mat-option *ngFor="let verb of verbList" [value]="verb">{{verb}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-240">
+        <mat-label>Task Name</mat-label>
+        <input matInput formControlName="taskName" autocomplete="off" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-240">
+        <mat-label>Task Duration</mat-label>
+        <input matInput type="number" formControlName="duration" autocomplete="off" />
+      </mat-form-field>
+      
+    </div>
+    <div>
+        <button type="submit" (click)="update()" [disabled]="!assignForm.valid" mat-raised-button color="primary">Update</button>
+    </div>
+  </div>
+  

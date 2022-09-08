@@ -1,0 +1,62 @@
+<app-loader-spiner></app-loader-spiner>
+<div class="reports-container">
+    <div class="download-button">
+        <button (click)="addResource()" mat-raised-button color="accent">
+            <mat-icon>add_circle</mat-icon>System Add
+        </button>
+    </div>
+
+    <!-- <div fxLayout="row" fxLayoutAlign="space-between center" class="filter-container floor-plan">
+        <div class="top-section" fxLayout="row" fxFlex.gt-sm="100"  fxLayoutGap="10px">
+            <mat-form-field appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Discipline</mat-label>
+                <mat-select required color="primary">
+                    <mat-option class="mat-primary" *ngFor="let decipline of deciplineArray" [value]="decipline.id">{{decipline.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex.gt-sm="100">
+                <mat-label>Search</mat-label>
+                <input matInput (keyup)="filter($event.target.value)">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+
+
+    </div> -->
+    <mat-card style="position: relative; top: 10px;">
+        <div class="top-section">
+            <h1 class="name">{{projectName}}</h1>
+            <ul class="room-type">
+                <li><span>Start Date :-</span>{{startDate | date:'mediumDate'}}</li>
+                <li><span>End Date:-</span>{{endDate | date:'mediumDate'}}</li>
+
+            </ul>
+            <!-- <div class="roomTypeSearch">
+                <mat-form-field *ngIf="newFloorList.length>0" appearance="outline" fxFlex="50%">
+                    <mat-label>Search Room Type</mat-label>
+                    <input matInput (keyup)="roomFilter($event.target.value)">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            </div> -->
+        </div>
+
+         <ul class="main-top-ul" *ngFor="let projectName of projectDisciplineArray; let i = index">
+            <li class="top-projectname">
+                <span class="floorName">{{projectName.name}}</span>
+                <!-- <span class="number"> {{i+1}}</span> -->
+                <ul class="level" *ngFor="let system of projectName.projectSystems">
+                    <li>
+                        <span class="buildName">{{system.name}}</span>
+                        <ul class="room-type" *ngFor="let sub_system of system.subSystems;let levelNumber = index">
+                            <!-- <span class="levelNumber">{{i+1}}.{{levelNumber+1}}</span> -->
+                            <li><span>Name:-</span>{{sub_system.name}}</li>
+                            <li><span>File Name:-</span>{{sub_system.fileName }} <button (click)="downloadFile(sub_system.id,sub_system.fileName)" *ngIf="sub_system.fileName!=null" class="download">Download</button></li>
+                            <li><span>Comments:-</span>{{sub_system.comments}}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </mat-card>
+</div>
